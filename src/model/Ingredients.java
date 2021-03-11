@@ -1,6 +1,6 @@
 package model;
 
-public class FoodType {
+public class Ingredients {
     //Attributes
     private String name;
 

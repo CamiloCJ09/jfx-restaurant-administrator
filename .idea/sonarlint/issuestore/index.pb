@@ -5,3 +5,25 @@ E
 src/model/Status.java,9\4\9426782f3e2fa53e0e77506ab5c68ba1dd2a0228
 V
 &src/ui/RestaurantAdministratorGUI.java,9\7\97a57f14214c020566cc8f8158a165cc21ec28b0
+P
+ src/model/RestaurantManager.java,f\e\fe846c490cdaec1edb96d0aa868b9830b3103816
+G
+src/model/Employee.java,9\8\98548d99e78882f528dbba44edbd601d21cbeeed
+C
+src/model/User.java,9\3\930b2c1d08ecb8339873c37ba0b6957548b40e4c
+F
+src/model/Product.java,d\0\d066680a85650c9778cfd98c11e84ac7b1f37d7d
+E
+src/model/Client.java,3\2\32a33b3def0d68db33d12d1a0e041f326bcf8a4e
+G
+src/model/FoodType.java,e\4\e43c5fa189aeaa4cdc75f26158108da4074e585c
+D
+src/model/Order.java,d\5\d5c9715ba2aaeb7cf89d6b5292bfb85c292d1d12
+O
+src/model/RestaurantObject.java,c\3\c32626ccd502b86dd36db01d1439eb69d76f685e
+E
+src/model/Person.java,c\2\c29bc7e771ff8ac13b8cb03cf375e7746f71882a
+@
+src/ui/main.fxml,d\d\dda5c2abbb83bb283c0dce0a3efc8d2e033db3d7
+F
+src/ui/order-menu.fxml,c\a\ca6dc719e27b41692c9964ee33ee48cc7763da30
