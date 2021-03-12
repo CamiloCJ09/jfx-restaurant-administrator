@@ -1,6 +1,4 @@
 
-C
-src/model/Main.java,c\7\c726504570c8433bd6b71e50d6e28dad36d99a6e
 E
 src/model/Status.java,9\4\9426782f3e2fa53e0e77506ab5c68ba1dd2a0228
 V
@@ -27,3 +25,9 @@ E
 src/ui/main.fxml,d\d\dda5c2abbb83bb283c0dce0a3efc8d2e033db3d7
 F
 src/ui/order-menu.fxml,c\a\ca6dc719e27b41692c9964ee33ee48cc7763da30
+P
+ Jfx-Restaurant-Administrator.iml,5\d\5dcf0f3582d6e11a04c1079ba65464c41362ae17
+J
+src/model/Ingredients.java,f\9\f9847b4b774a706081c05799e8637c9fa40386f5
+@
+src/ui/Main.java,e\b\ebe8214aea720e1ed7c01e1c59390b69406ecdc1

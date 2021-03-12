@@ -1,5 +1,5 @@
 
-b
-java:S1610"@Convert the abstract class "RestaurantObject" into an interface.(Øğ»éıÿÿÿÿ8¶‚êË/
-d
-java:S2094"BRemove this empty class, write its code or make it an "interface".(Øğ»éıÿÿÿÿ8àîæË/
+M
+java:S1068"+Remove this unused "creator" private field.(×šòèÿÿÿÿÿ8Î¦Ëœ‚/
+I
+java:S1068",Remove this unused "modifier" private field.(É«‹8Î¦Ëœ‚/
