@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 
@@ -13,7 +14,7 @@ public class RestaurantAdministratorGUI {
 
 
     @FXML
-    private BorderPane mainPanePrincipal;
+    private VBox vbMainPane;
 
     public RestaurantAdministratorGUI(){
 
@@ -21,7 +22,7 @@ public class RestaurantAdministratorGUI {
     public void setFirstPane() throws IOException {
 
     }
-    public BorderPane getMainPanePrincipal() {
-        return mainPanePrincipal;
+    public VBox getMainPanePrincipal() {
+        return vbMainPane;
     }
 }

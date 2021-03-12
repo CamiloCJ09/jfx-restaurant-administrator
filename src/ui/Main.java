@@ -24,9 +24,9 @@ public class Main extends Application{
 
 
         FXMLLoader fxmlLoader2 = new FXMLLoader(getClass().getResource("order-menu.fxml"));
-        fxmlLoader2.setController(this);
-        Parent singUp = fxmlLoader2.load();
-        restaurantAdministratorGUI.getMainPanePrincipal().setCenter(singUp);
+        fxmlLoader2.setController(restaurantAdministratorGUI);
+        Parent signUp = fxmlLoader2.load();
+        
     }
     public static void main(String[] args){
         launch(args);
