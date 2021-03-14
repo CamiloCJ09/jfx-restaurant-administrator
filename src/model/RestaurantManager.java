@@ -1,9 +1,17 @@
 package model;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class RestaurantManager {
+
+    public final static String INGREDIENTS_PATH = "data/ingredients.cd";
+    public final static String PRODUCTS_PATH = "data/products.cd";
+    public final static String ORDERS_PATH = "data/orders.cd";
+    public final static String CLIENTS_PATH = "data/clients.cd";
+    public final static String FOODTYPES_PATH = "data/foodTypes.cd";
+    public final static String USERS_PATH = "data/users.cd";
 
     private List<Ingredients> ingredients;
     private List<Product> products;
@@ -14,7 +22,6 @@ public class RestaurantManager {
     //Active user
     private User activeUser;
 
-
     public RestaurantManager(){
         ingredients = new ArrayList<>();
         products = new ArrayList<>();
@@ -22,6 +29,38 @@ public class RestaurantManager {
         clients = new ArrayList<>();
         foodTypes = new ArrayList<>();
         users = new ArrayList<>();
+    }
+
+    //Serializable
+    public void saveIngredientsData() throws IOException {
+        ObjectOutputStream oss = new ObjectOutputStream(new FileOutputStream(INGREDIENTS_PATH));
+        oss.writeObject(ingredients);
+        oss.close();
+    }
+    public void saveProductData() throws IOException {
+        ObjectOutputStream oss = new ObjectOutputStream(new FileOutputStream(PRODUCTS_PATH));
+        oss.writeObject(products);
+        oss.close();
+    }
+    public void saveOrdersData() throws IOException{
+        ObjectOutputStream oss = new ObjectOutputStream(new FileOutputStream(ORDERS_PATH));
+        oss.writeObject(orders);
+        oss.close();
+    }
+    public void saveClientsData() throws IOException{
+        ObjectOutputStream oss = new ObjectOutputStream(new FileOutputStream(CLIENTS_PATH));
+        oss.writeObject(clients);
+        oss.close();
+    }
+    public void saveFoodTypesData() throws IOException{
+        ObjectOutputStream oss = new ObjectOutputStream(new FileOutputStream(FOODTYPES_PATH));
+        oss.writeObject(foodTypes);
+        oss.close();
+    }
+    public void saveUsersData() throws IOException{
+        ObjectOutputStream oss = new ObjectOutputStream(new FileOutputStream(USERS_PATH));
+        oss.writeObject(users);
+        oss.close();
     }
 
     public boolean activeUSer(String username, String password){
