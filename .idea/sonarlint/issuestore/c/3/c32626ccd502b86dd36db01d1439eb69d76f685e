@@ -1,5 +1,7 @@
 
-M
-java:S1068"+Remove this unused "creator" private field.(×šòèÿÿÿÿÿ8Î¦Ëœ‚/
-I
-java:S1068",Remove this unused "modifier" private field.(É«‹8Î¦Ëœ‚/
+K
+java:S1948")Make "creator" transient or serializable.(×šòèÿÿÿÿÿ8Èâ˜ù‚/
+G
+java:S1948	"*Make "modifier" transient or serializable.(É«‹8Í‚—ù‚/
+[
+java:S5993"9Change the visibility of this constructor to "protected".(¼Õ×´úÿÿÿÿ8º¨œù‚/

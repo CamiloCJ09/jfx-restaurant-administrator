@@ -1,16 +1,33 @@
 
-L
-java:S1068
-"*Remove this unused "orders" private field.(à£½ùøÿÿÿÿ8ï¼İâ‚/
-I
-java:S1068	",Remove this unused "products" private field.(ô¬´É8óé×â‚/
-Q
-java:S1068"/Remove this unused "ingredients" private field.(­¨„»üÿÿÿÿ8»ÌÖâ‚/
-
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¬š•¿8±ú±â‚/
-H
-java:S1068"+Remove this unused "clients" private field.(ä¦¦å8ÍóŞâ‚/
+^
+java:S2118*"AMake the "java.util.List" class "Serializable" or don't write it.(ØæñÁ8¦Ùõù‚/
+’
+java:S1319t"pThe type of the "price" object should be an interface such as "List" rather than the implementation "ArrayList".(èØÜşÿÿÿÿ8®œ†÷‚/
+y
+java:S1488ˆ"[Immediately return this expression instead of assigning it to the temporary variable "ret".(ùôÈ8ÆÚÖô‚/
+c
+java:S2118>"AMake the "java.util.List" class "Serializable" or don't write it.(ª…Ğşÿÿÿÿ8â®·ú‚/
+B
+java:S1172s"&Remove these unused method parameters.(ãÇ8®œ†÷‚/
+‹
+java:S1319s"oThe type of the "size" object should be an interface such as "List" rather than the implementation "ArrayList".(ãÇ8®œ†÷‚/
+y
+java:S1488ƒ"[Immediately return this expression instead of assigning it to the temporary variable "ret".(ùôÈ8ğÉ¨ó‚/
+w
+java:S4144‚"YUpdate this method so that its implementation is not identical to "addOrder" on line 108.(‘Š”œ8ğÉ¨ó‚/
+c
+java:S2118%"AMake the "java.util.List" class "Serializable" or don't write it.(À°Î³ûÿÿÿÿ8îİù‚/
+’
+java:S1319s"vThe type of the "ingredients" object should be an interface such as "List" rather than the implementation "ArrayList".(ãÇ8®œ†÷‚/
+|
+java:S4144‡"YUpdate this method so that its implementation is not identical to "addOrder" on line 108.(­æ‚ôÿÿÿÿÿ8ÆÚÖô‚/
+c
+java:S21189"AMake the "java.util.List" class "Serializable" or don't write it.(ªµ»¡ÿÿÿÿÿ8ã×œú‚/
+x
+java:S1488m"[Immediately return this expression instead of assigning it to the temporary variable "ret".(ùôÈ8¶ƒ×ò‚/
+^
+java:S21184"AMake the "java.util.List" class "Serializable" or don't write it.(¸‹Å8æ—”ú‚/
+c
+java:S2118/"AMake the "java.util.List" class "Serializable" or don't write it.(æÇÓüÿÿÿÿ8‰µú‚/
 J
-java:S1068"-Remove this unused "foodTypes" private field.(×ı¤Â8Çòßâ‚/
-M
-java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8ÎÓÛâ‚/
+java:S1481v"-Remove this unused "foodType" local variable.(´Û·8âùû÷‚/
