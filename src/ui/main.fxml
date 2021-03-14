@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -17,19 +18,23 @@
    <children>
       <MenuBar>
          <menus>
-            <Menu mnemonicParsing="false" text="File">
+            <Menu mnemonicParsing="false" text="Archivo">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Close" />
+                  <MenuItem mnemonicParsing="false" text="Agregar" />
+                  <MenuItem mnemonicParsing="false" text="Hacer pedidos" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Importar archivo" />
+                  <MenuItem mnemonicParsing="false" text="Exportar archivo" />
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Edit">
+            <Menu mnemonicParsing="false" text="Editar">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Delete" />
+                  <MenuItem mnemonicParsing="false" text="Editar elementos" />
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Help">
+            <Menu mnemonicParsing="false" text="Ayuda">
                <items>
-                  <MenuItem mnemonicParsing="false" text="About" />
+                  <MenuItem mnemonicParsing="false" text="Acerca" />
                </items>
             </Menu>
          </menus>
@@ -57,7 +62,7 @@
                            </font>
                         </Label>
                         <Separator orientation="VERTICAL" prefHeight="97.0" prefWidth="110.0" visible="false" />
-                        <TextField />
+                        <JFXTextField focusColor="#ffd800" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -67,15 +72,15 @@
                               <Font name="Berlin Sans FB" size="26.0" />
                            </font>
                         </Label>
-                        <Separator orientation="VERTICAL" prefHeight="97.0" prefWidth="110.0" visible="false" />
-                        <PasswordField />
+                        <Separator orientation="VERTICAL" prefHeight="97.0" prefWidth="73.0" visible="false" />
+                        <JFXPasswordField focusColor="#ffd800" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button mnemonicParsing="false" text="Ingresar" />
+                        <JFXButton ripplerFill="#c3c3c3" text="Ingresar" />
                         <Separator orientation="VERTICAL" prefHeight="97.0" prefWidth="83.0" visible="false" />
-                        <Button mnemonicParsing="false" text="Registrarse" />
+                        <JFXButton text="Registrarse" />
                      </children>
                   </HBox>
                </children>
