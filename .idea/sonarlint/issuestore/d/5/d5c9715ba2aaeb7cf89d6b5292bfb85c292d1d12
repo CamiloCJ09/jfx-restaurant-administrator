@@ -1,9 +1,9 @@
 
-’
-java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(×î“œüÿÿÿÿ8­™šœ‚/
 
 java:S1319!"sThe type of the "quantity" object should be an interface such as "List" rather than the implementation "ArrayList".(Ñù½a8­™šœ‚/
-’
-java:S1319%"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(®ÚŒÁùÿÿÿÿ8­™šœ‚/
 •
 java:S1319)"sThe type of the "products" object should be an interface such as "List" rather than the implementation "ArrayList".(ÏÀÎÚşÿÿÿÿ8­™šœ‚/
+’
+java:S1319%"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(®ÚŒÁùÿÿÿÿ8­™šœ‚/
+’
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(×î“œüÿÿÿÿ8­™šœ‚/

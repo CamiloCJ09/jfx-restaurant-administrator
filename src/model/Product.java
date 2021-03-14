@@ -9,7 +9,7 @@ public class Product {
     private ArrayList<Ingredients> ingredients;
     private ArrayList<String> size;
     private ArrayList<Double> price;
-    private boolean Status;
+    private boolean status;
 
     //Methods
 
@@ -54,10 +54,10 @@ public class Product {
     }
 
     public boolean isStatus() {
-        return Status;
+        return status;
     }
 
     public void setStatus(boolean status) {
-        Status = status;
+        this.status = status;
     }
 }

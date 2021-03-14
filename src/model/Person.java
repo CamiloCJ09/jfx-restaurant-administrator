@@ -1,6 +1,6 @@
 package model;
 
-public abstract class Person {
+public abstract class Person extends RestaurantObject{
 
     //Attributes
     private String firstName;
@@ -8,6 +8,11 @@ public abstract class Person {
     private String id;
 
     //Methods
+    public Person(String firstName, String lastName, String id) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.id = id;
+    }
 
     public String getFirstName() {
         return firstName;

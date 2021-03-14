@@ -16,7 +16,9 @@ public class Order {
     private Client client;
 
     //Methods
+    public Order() {
 
+    }
 
     public String getCode() {
         return code;

@@ -1,10 +1,13 @@
 package model;
 
-public class Ingredients {
+public class Ingredients extends RestaurantObject{
     //Attributes
     private String name;
 
     //Methods
+    public Ingredients(String name){
+        this.name = name;
+    }
 
     public String getName() {
         return name;

@@ -8,6 +8,12 @@ public class Client extends Person{
     private String observations;
 
     //Methods
+    public Client(String firstName, String lastName, String id, String address, String tel, String observations) {
+        super(firstName, lastName, id);
+        this.address = address;
+        this.tel = tel;
+        this.observations = observations;
+    }
 
     public String getAddress() {
         return address;

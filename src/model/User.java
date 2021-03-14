@@ -6,6 +6,11 @@ public class User extends Employee{
     private String password;
 
     //Methods
+    public User(String firstName, String lastName, String id, String userName, String password) {
+        super(firstName, lastName, id);
+        this.userName = userName;
+        this.password = password;
+    }
     public String getUserName() {
         return userName;
     }

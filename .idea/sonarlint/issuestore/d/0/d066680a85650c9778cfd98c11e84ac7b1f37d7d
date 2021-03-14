@@ -1,14 +1,14 @@
 
+’
+java:S13190"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ù§Øµşÿÿÿÿ8”ÜÔœ‚/
 r	java:S116"QRename this field "Status" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜§öíıÿÿÿÿ8œÑÁœ‚/
 ’
-java:S1319 "pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÔÂ—êıÿÿÿÿ8”ÜÔœ‚/
+java:S13194"pThe type of the "price" object should be an interface such as "List" rather than the implementation "ArrayList".(­£¡¹şÿÿÿÿ8”ÜÔœ‚/
 “
 java:S1319$"vThe type of the "ingredients" object should be an interface such as "List" rather than the implementation "ArrayList".(‚–ï8”ÜÔœ‚/
 ’
 java:S1319("pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ê¦Ÿ şÿÿÿÿ8”ÜÔœ‚/
+’
+java:S1319 "pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÔÂ—êıÿÿÿÿ8”ÜÔœ‚/
 ‘
 java:S1319,"oThe type of the "size" object should be an interface such as "List" rather than the implementation "ArrayList".( ñá¦şÿÿÿÿ8”ÜÔœ‚/
-’
-java:S13190"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ù§Øµşÿÿÿÿ8”ÜÔœ‚/
-’
-java:S13194"pThe type of the "price" object should be an interface such as "List" rather than the implementation "ArrayList".(­£¡¹şÿÿÿÿ8”ÜÔœ‚/
