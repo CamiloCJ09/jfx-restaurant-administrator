@@ -1,8 +1,17 @@
 package model;
 
-public abstract class RestaurantObject {
+import java.io.Serializable;
+
+public abstract class RestaurantObject implements Serializable {
+    public final static long serialVersionUID = 1;
+
     private User creator;
     private User modifier;
+
+    public RestaurantObject(User creator, User modifier){
+        this.creator = creator;
+        this.modifier = modifier;
+    }
 
     public User getCreator() {
         return creator;

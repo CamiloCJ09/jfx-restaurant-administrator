@@ -50,6 +50,7 @@ public class RestaurantManager {
         }
         return ret;
     }
+    //Todo: Add the sortde added method
     public boolean addClient(String firstName, String lastName, String id, String address, String tel, String observations){
         boolean ret = true;
         Client client = new Client(firstName, lastName, id, address, tel, observations);
@@ -70,15 +71,29 @@ public class RestaurantManager {
 
         return ret;
     }
-
-    public boolean addProduct(){
-
+//String name, FoodType type, ArrayList<Ingredients> ingredients, ArrayList<String> size
+//ArrayList<Double> price
+    public boolean addProduct(String name, String type, ArrayList<String> ingredients, ArrayList<String> size,
+    ArrayList<Double> price){
         boolean ret = true;
+        FoodType foodType;
+        for(int i = 0; i < foodTypes.size(); i++){
+            if(foodTypes.get(i).getName().equals(type)){
+                foodType = foodTypes.get(i);
+            }
+        }
+
+        //for(int i = 0; i < )
         return ret;
     }
 
     // Delete methods
     public boolean deleteProduct(){
+        boolean ret = true;
+
+        return ret;
+    }
+    public boolean deleteClient(){
         boolean ret = true;
 
         return ret;

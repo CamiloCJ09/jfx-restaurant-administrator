@@ -5,13 +5,21 @@ import java.util.ArrayList;
 public class Product {
     //Attributes
     private String name;
-    private String type;
+    private FoodType type;
     private ArrayList<Ingredients> ingredients;
     private ArrayList<String> size;
     private ArrayList<Double> price;
     private boolean status;
 
     //Methods
+    public Product(String name, FoodType type, ArrayList<Ingredients> ingredients, ArrayList<String> size, ArrayList<Double> price) {
+        this.name = name;
+        this.type = type;
+        this.ingredients = ingredients;
+        this.size = size;
+        this.price = price;
+        this.status = true;
+    }
 
     public String getName() {
         return name;
@@ -21,11 +29,11 @@ public class Product {
         this.name = name;
     }
 
-    public String getType() {
+    public FoodType getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(FoodType type) {
         this.type = type;
     }
 

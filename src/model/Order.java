@@ -16,8 +16,15 @@ public class Order {
     private Client client;
 
     //Methods
-    public Order() {
-
+    public Order(String code, ArrayList<Integer> quantity, ArrayList<Product> products, Date time, String observations, Status status, Employee deliverer, Client client) {
+        this.code = code;
+        this.quantity = quantity;
+        this.products = products;
+        this.time = time;
+        this.observations = observations;
+        this.status = status;
+        this.deliverer = deliverer;
+        this.client = client;
     }
 
     public String getCode() {
