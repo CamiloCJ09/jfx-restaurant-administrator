@@ -6,8 +6,8 @@ public class User extends Employee{
     private String password;
 
     //Methods
-    public User(String firstName, String lastName, String id, String userName, String password) {
-        super(firstName, lastName, id);
+    public User(User creator, User modifier, String firstName, String lastName, String id, String userName, String password) {
+        super(creator, modifier, firstName, lastName, id);
         this.userName = userName;
         this.password = password;
     }

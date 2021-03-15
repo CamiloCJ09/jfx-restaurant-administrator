@@ -8,7 +8,8 @@ public abstract class Person extends RestaurantObject{
     private String id;
 
     //Methods
-    public Person(String firstName, String lastName, String id) {
+    public Person(User creator, User modifier, String firstName, String lastName, String id) {
+        super(creator, modifier);
         this.firstName = firstName;
         this.lastName = lastName;
         this.id = id;

@@ -2,6 +2,7 @@ package model;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class RestaurantManager {
@@ -92,7 +93,7 @@ public class RestaurantManager {
         }
         return loaded;
     }
-    public boolean laodOrdersData() throws IOException, ClassNotFoundException {
+    public boolean loadOrdersData() throws IOException, ClassNotFoundException {
         file = new File(ORDERS_PATH);
         boolean loaded = false;
         if(file.exists()){
@@ -124,25 +125,25 @@ public class RestaurantManager {
         }
         return ret;
     }
+
     //Add methods
 
     public boolean addUser(String firstName, String lastName, String id, String userName, String password){
         boolean ret = true;
-        User user = new User(firstName, lastName, id, userName, password);
+        User user = new User(activeUser, activeUser, firstName, lastName, id, userName, password);
         for(int i = 0; i < employees.size() && ret; i++){
             if(employees.get(i).getId().equals(id)){
                 ret = false;
             }
         }
         if(ret){
-            user.setCreator(user);
             employees.add(user);
             users.add(user);
         }
         return ret;
     }
     public boolean addIngredient(String ingredientName){
-        Ingredients ingredient = new Ingredients(ingredientName);
+        Ingredients ingredient = new Ingredients(activeUser, activeUser, ingredientName);
         boolean ret = true; //if cant added return false
         for(int i = 0; i < ingredients.size() && ret; i++){
             if(ingredients.get(i).getName().equals(ingredientName)){
@@ -156,40 +157,45 @@ public class RestaurantManager {
         }
         return ret;
     }
-    //Todo: Add the sortde added method
+    //Todo: Add the sorted added method
     public boolean addClient(String firstName, String lastName, String id, String address, String tel, String observations){
         boolean ret = true;
-        Client client = new Client(firstName, lastName, id, address, tel, observations);
-        for(int i = 0; i < clients.size(); i++){
+        Client client = new Client(activeUser, activeUser, firstName, lastName, id, address, tel, observations);
+        for(int i = 0; i < clients.size() && ret; i++){
             if(clients.get(i).getId().equals(id)){
                 ret = false;
             }
         }
         if(ret){
-            client.setCreator(activeUser);
-            client.setModifier(activeUser);
             clients.add(client);
         }
         return ret;
     }
-    public boolean addOrder(){
+    public boolean addOrder(String code, ArrayList<Integer> quantity, ArrayList<Product> products, Date time, String observations, Employee deliverer, Client client){
         boolean ret = true;
-
-        return ret;
-    }
-//String name, FoodType type, ArrayList<Ingredients> ingredients, ArrayList<String> size
-//ArrayList<Double> price
-    public boolean addProduct(String name, String type, ArrayList<String> ingredients, ArrayList<String> size,
-    ArrayList<Double> price){
-        boolean ret = true;
-        FoodType foodType;
-        for(int i = 0; i < foodTypes.size(); i++){
-            if(foodTypes.get(i).getName().equals(type)){
-                foodType = foodTypes.get(i);
+        Order order = new Order(activeUser, activeUser, code, quantity, products, time, observations, deliverer, client);
+        for(int i = 0; i < orders.size() && ret; i++){
+            if(orders.get(i).getCode().equals(code)){
+                ret = false;
             }
         }
+        if(ret){
+            orders.add(order);
+        }
+        return ret;
+    }
 
-        //for(int i = 0; i < )
+    public boolean addProduct(String name, FoodType type, ArrayList<Ingredients> ingredients, ArrayList<String> size, ArrayList<Double> price){
+        boolean ret = true;
+        Product product = new Product(activeUser, activeUser, name, type, ingredients, size, price);
+        for(int i = 0; i < products.size() && ret; i++){
+            if(products.get(i).getName().equals(name)){
+                ret = false;
+            }
+        }
+        if(ret){
+            products.add(product);
+        }
         return ret;
     }
 

@@ -8,8 +8,8 @@ public class Client extends Person{
     private String observations;
 
     //Methods
-    public Client(String firstName, String lastName, String id, String address, String tel, String observations) {
-        super(firstName, lastName, id);
+    public Client(User creator, User modifier, String firstName, String lastName, String id, String address, String tel, String observations) {
+        super(creator, modifier, firstName, lastName, id);
         this.address = address;
         this.tel = tel;
         this.observations = observations;

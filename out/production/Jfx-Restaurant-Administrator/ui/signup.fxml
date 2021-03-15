@@ -33,7 +33,7 @@
                      </font>
                   </Label>
                   <Separator orientation="VERTICAL" prefHeight="50.0" prefWidth="238.0" visible="false" />
-                  <JFXTextField focusColor="#ffd800" />
+                  <JFXTextField fx:id="tfUserSignup" focusColor="#ffd800" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -44,7 +44,7 @@
                      </font>
                   </Label>
                   <Separator orientation="VERTICAL" prefHeight="50.0" prefWidth="215.0" visible="false" />
-                  <JFXPasswordField focusColor="#ffd800" />
+                  <JFXPasswordField fx:id="pfPassword1Signup" focusColor="#ffd800" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -55,7 +55,7 @@
                      </font>
                   </Label>
                   <Separator orientation="VERTICAL" prefHeight="50.0" prefWidth="150.0" visible="false" />
-                  <JFXPasswordField focusColor="#ffd800" />
+                  <JFXPasswordField fx:id="pfPassword2Signup" focusColor="#ffd800" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -66,7 +66,7 @@
                      </font>
                   </Label>
                   <Separator orientation="VERTICAL" prefHeight="50.0" prefWidth="235.0" visible="false" />
-                  <JFXTextField focusColor="#ffd800" />
+                  <JFXTextField fx:id="tfFirstNameSignup" focusColor="#ffd800" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -77,7 +77,7 @@
                      </font>
                   </Label>
                   <Separator orientation="VERTICAL" prefHeight="50.0" prefWidth="238.0" visible="false" />
-                  <JFXTextField focusColor="#ffd800" />
+                  <JFXTextField fx:id="tfLastNameSignup" focusColor="#ffd800" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -88,14 +88,14 @@
                      </font>
                   </Label>
                   <Separator orientation="VERTICAL" prefHeight="50.0" prefWidth="130.0" visible="false" />
-                  <JFXTextField focusColor="#ffd800" />
+                  <JFXTextField fx:id="tfIdentificationSignup" focusColor="#ffd800" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <JFXButton text="Registrarse" />
+                  <JFXButton onAction="#actSignupSignup" text="Registrarse" />
                   <Separator orientation="VERTICAL" prefHeight="50.0" prefWidth="67.0" visible="false" />
-                  <JFXButton text="Volver" />
+                  <JFXButton onAction="#actBackSignup" text="Volver" />
                </children>
             </HBox>
          </children>

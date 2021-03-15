@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <top>
@@ -33,8 +32,8 @@
                         <Font name="Berlin Sans FB" size="16.0" />
                      </font>
                   </Label>
-                  <Separator orientation="VERTICAL" prefHeight="50.0" prefWidth="130.0" visible="false" />
-                  <TextField />
+                  <Separator orientation="VERTICAL" prefHeight="50.0" prefWidth="238.0" visible="false" />
+                  <JFXTextField fx:id="tfUserSignup" focusColor="#ffd800" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -44,8 +43,8 @@
                         <Font name="Berlin Sans FB" size="16.0" />
                      </font>
                   </Label>
-                  <Separator orientation="VERTICAL" prefHeight="50.0" prefWidth="130.0" visible="false" />
-                  <PasswordField />
+                  <Separator orientation="VERTICAL" prefHeight="50.0" prefWidth="215.0" visible="false" />
+                  <JFXPasswordField fx:id="pfPassword1Signup" focusColor="#ffd800" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -55,8 +54,8 @@
                         <Font name="Berlin Sans FB" size="16.0" />
                      </font>
                   </Label>
-                  <Separator orientation="VERTICAL" prefHeight="50.0" prefWidth="130.0" visible="false" />
-                  <PasswordField />
+                  <Separator orientation="VERTICAL" prefHeight="50.0" prefWidth="150.0" visible="false" />
+                  <JFXPasswordField fx:id="pfPassword2Signup" focusColor="#ffd800" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -66,8 +65,8 @@
                         <Font name="Berlin Sans FB" size="16.0" />
                      </font>
                   </Label>
-                  <Separator orientation="VERTICAL" prefHeight="50.0" prefWidth="130.0" visible="false" />
-                  <TextField />
+                  <Separator orientation="VERTICAL" prefHeight="50.0" prefWidth="235.0" visible="false" />
+                  <JFXTextField fx:id="tfFirstNameSignup" focusColor="#ffd800" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -77,8 +76,8 @@
                         <Font name="Berlin Sans FB" size="16.0" />
                      </font>
                   </Label>
-                  <Separator orientation="VERTICAL" prefHeight="50.0" prefWidth="130.0" visible="false" />
-                  <TextField />
+                  <Separator orientation="VERTICAL" prefHeight="50.0" prefWidth="238.0" visible="false" />
+                  <JFXTextField fx:id="tfLastNameSignup" focusColor="#ffd800" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -89,14 +88,14 @@
                      </font>
                   </Label>
                   <Separator orientation="VERTICAL" prefHeight="50.0" prefWidth="130.0" visible="false" />
-                  <TextField />
+                  <JFXTextField fx:id="tfIdentificationSignup" focusColor="#ffd800" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" text="Registrarse" />
+                  <JFXButton onAction="#actSignupSignup" text="Registrarse" />
                   <Separator orientation="VERTICAL" prefHeight="50.0" prefWidth="67.0" visible="false" />
-                  <Button mnemonicParsing="false" text="Cancelar" />
+                  <JFXButton onAction="#actBackSignup" text="Volver" />
                </children>
             </HBox>
          </children>

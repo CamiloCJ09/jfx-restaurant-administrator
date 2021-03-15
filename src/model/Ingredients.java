@@ -5,7 +5,8 @@ public class Ingredients extends RestaurantObject{
     private String name;
 
     //Methods
-    public Ingredients(String name){
+    public Ingredients(User creator, User modifier, String name){
+        super(creator, modifier);
         this.name = name;
     }
 

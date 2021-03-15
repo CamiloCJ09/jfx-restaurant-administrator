@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Order {
+public class Order extends RestaurantObject{
 
     //Attributes
     private String code;
@@ -16,13 +16,14 @@ public class Order {
     private Client client;
 
     //Methods
-    public Order(String code, ArrayList<Integer> quantity, ArrayList<Product> products, Date time, String observations, Status status, Employee deliverer, Client client) {
+    public Order(User creator, User modifier, String code, ArrayList<Integer> quantity, ArrayList<Product> products, Date time, String observations, Employee deliverer, Client client) {
+        super(creator, modifier);
         this.code = code;
         this.quantity = quantity;
         this.products = products;
         this.time = time;
         this.observations = observations;
-        this.status = status;
+        this.status = Status.SOLICITED;
         this.deliverer = deliverer;
         this.client = client;
     }

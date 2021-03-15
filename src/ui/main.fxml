@@ -39,7 +39,7 @@
             </Menu>
          </menus>
       </MenuBar>
-      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+      <BorderPane fx:id="bpPaneMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
          <top>
             <VBox alignment="CENTER" prefHeight="110.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                <children>
@@ -62,7 +62,7 @@
                            </font>
                         </Label>
                         <Separator orientation="VERTICAL" prefHeight="97.0" prefWidth="110.0" visible="false" />
-                        <JFXTextField focusColor="#ffd800" />
+                        <JFXTextField fx:id="tfUserLogin" focusColor="#ffd800" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -73,14 +73,14 @@
                            </font>
                         </Label>
                         <Separator orientation="VERTICAL" prefHeight="97.0" prefWidth="73.0" visible="false" />
-                        <JFXPasswordField focusColor="#ffd800" />
+                        <JFXPasswordField fx:id="pfPasswordLogin" focusColor="#ffd800" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <JFXButton ripplerFill="#c3c3c3" text="Ingresar" />
+                        <JFXButton onAction="#actLoginLogin" ripplerFill="#c3c3c3" text="Ingresar" />
                         <Separator orientation="VERTICAL" prefHeight="97.0" prefWidth="83.0" visible="false" />
-                        <JFXButton text="Registrarse" />
+                        <JFXButton fx:id="btnSingupLogin" onAction="#actSignupLogin" text="Registrarse" />
                      </children>
                   </HBox>
                </children>

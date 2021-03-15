@@ -2,7 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
-public class Product {
+public class Product extends RestaurantObject{
     //Attributes
     private String name;
     private FoodType type;
@@ -12,7 +12,8 @@ public class Product {
     private boolean status;
 
     //Methods
-    public Product(String name, FoodType type, ArrayList<Ingredients> ingredients, ArrayList<String> size, ArrayList<Double> price) {
+    public Product(User creator, User modifier, String name, FoodType type, ArrayList<Ingredients> ingredients, ArrayList<String> size, ArrayList<Double> price) {
+        super(creator, modifier);
         this.name = name;
         this.type = type;
         this.ingredients = ingredients;
