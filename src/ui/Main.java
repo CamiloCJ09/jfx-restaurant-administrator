@@ -23,10 +23,13 @@ public class Main extends Application{
         primaryStage.show();
 
 
-        FXMLLoader fxmlLoader2 = new FXMLLoader(getClass().getResource("order-menu.fxml"));
+        FXMLLoader fxmlLoader2 = new FXMLLoader(getClass().getResource("signin.fxml"));
         fxmlLoader2.setController(restaurantAdministratorGUI);
-        Parent signUp = fxmlLoader2.load();
-        
+        Parent signIn = fxmlLoader2.load();
+
+        restaurantAdministratorGUI.getMainPanePrincipal().setCenter(signIn);
+
+
     }
     public static void main(String[] args){
         launch(args);

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane fx:id="bpPaneSignin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <VBox alignment="CENTER" prefHeight="110.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Ingresar">
+               <font>
+                  <Font name="Book Antiqua" size="43.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Usuario:">
+                     <font>
+                        <Font name="Berlin Sans FB" size="26.0" />
+                     </font>
+                  </Label>
+                  <Separator orientation="VERTICAL" prefHeight="97.0" prefWidth="110.0" visible="false" />
+                  <JFXTextField fx:id="tfUserLogin" focusColor="#ffd800" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Contraseña:">
+                     <font>
+                        <Font name="Berlin Sans FB" size="26.0" />
+                     </font>
+                  </Label>
+                  <Separator orientation="VERTICAL" prefHeight="97.0" prefWidth="73.0" visible="false" />
+                  <JFXPasswordField fx:id="pfPasswordLogin" focusColor="#ffd800" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <JFXButton onAction="#actLoginLogin" ripplerFill="#c3c3c3" text="Ingresar" />
+                  <Separator orientation="VERTICAL" prefHeight="97.0" prefWidth="83.0" visible="false" />
+                  <JFXButton fx:id="btnSingupLogin" onAction="#actSignupLogin" text="Registrarse" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

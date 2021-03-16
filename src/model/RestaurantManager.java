@@ -219,7 +219,7 @@ public class RestaurantManager {
      * @param password the password
      * @return the boolean
      */
-    public boolean activeUSer(String username, String password){
+    public boolean activeUser(String username, String password){
         boolean ret = false;
         for(int i = 0; i < users.size() && !ret; i++){
             if(users.get(i).getUserName().equals(username) && users.get(i).getPassword().equals(password)){

@@ -5,24 +5,26 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import model.RestaurantManager;
 
 import java.io.IOException;
 
 public class RestaurantAdministratorGUI {
 
+    private RestaurantManager manager;
+
     public final String SIGNUP_FXML = "signup.fxml";
 
-    public final String MAIN_FXML = "main.fxml";
-
-    @FXML
-    private VBox vbMainPane;
+    public final String SIGNIN_FXML = "signin.fxml";
 
     @FXML
     private BorderPane bpPaneMain;
+
+    @FXML
+    private VBox vbMainPane;
 
     @FXML
     private JFXTextField tfUserLogin;
@@ -49,13 +51,13 @@ public class RestaurantAdministratorGUI {
     private JFXTextField tfIdentificationSignup;
 
     public RestaurantAdministratorGUI(){
-
+        manager = new RestaurantManager();
     }
     public void setFirstPane() throws IOException {
 
     }
-    public VBox getMainPanePrincipal() {
-        return vbMainPane;
+    public BorderPane getMainPanePrincipal() {
+        return bpPaneMain;
     }
 
     @FXML
@@ -69,21 +71,31 @@ public class RestaurantAdministratorGUI {
         fxmlLoader.setController(this);
         Parent signUp = fxmlLoader.load();
 
-        bpPaneMain.getChildren().setAll(signUp);
+        bpPaneMain.setCenter(signUp);
     }
 
     @FXML
     public void actBackSignup(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(MAIN_FXML));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(SIGNIN_FXML));
         fxmlLoader.setController(this);
-        Parent main = fxmlLoader.load();
+        Parent signIn = fxmlLoader.load();
 
-        vbMainPane.getChildren().setAll(main);
+        bpPaneMain.setCenter(signIn);
     }
 
     @FXML
     public void actSignupSignup(ActionEvent event) throws IOException {
+        String firstName = tfFirstNameSignup.getText();
+        String lastName = tfLastNameSignup.getText();
+        String id = tfIdentificationSignup.getText();
+        String username = tfUserSignup.getText();
+        String password = pfPassword1Signup.getText();
 
+        boolean created = manager.addUser(firstName, lastName, id, username, password);
+        if(created){
+            System.out.println("Creado papi, cual es la desconfianza?");
+            manager.saveUsersData();
+        }
     }
 
 }
