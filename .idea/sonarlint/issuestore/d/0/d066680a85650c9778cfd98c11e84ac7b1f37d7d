@@ -1,19 +1,21 @@
 
 ’
-java:S13190"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ê¦Ÿ þÿÿÿÿ8”ÜÔœ‚/
+java:S1319"pThe type of the "price" object should be an interface such as "List" rather than the implementation "ArrayList".(…ñ¢ßýÿÿÿÿ8‡‚ì¾ƒ/
 ‘
-java:S1319"oThe type of the "size" object should be an interface such as "List" rather than the implementation "ArrayList".(˜¨Äíúÿÿÿÿ8»ú—õ‚/
+java:S13195"oThe type of the "size" object should be an interface such as "List" rather than the implementation "ArrayList".( ñá¦þÿÿÿÿ8”ÜÔœ‚/
 ’
-java:S1319("pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÔÂ—êýÿÿÿÿ8”ÜÔœ‚/
-’
-java:S1319<"pThe type of the "price" object should be an interface such as "List" rather than the implementation "ArrayList".(­£¡¹þÿÿÿÿ8”ÜÔœ‚/
-’
-java:S13198"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ù§Øµþÿÿÿÿ8”ÜÔœ‚/
-“
-java:S1319,"vThe type of the "ingredients" object should be an interface such as "List" rather than the implementation "ArrayList".(‚–ï8”ÜÔœ‚/
+java:S13199"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ù§Øµþÿÿÿÿ8”ÜÔœ‚/
 ‘
-java:S13194"oThe type of the "size" object should be an interface such as "List" rather than the implementation "ArrayList".( ñá¦þÿÿÿÿ8”ÜÔœ‚/
+java:S1319"oThe type of the "size" object should be an interface such as "List" rather than the implementation "ArrayList".(…ñ¢ßýÿÿÿÿ8‡‚ì¾ƒ/
 ˜
-java:S1319"vThe type of the "ingredients" object should be an interface such as "List" rather than the implementation "ArrayList".(˜¨Äíúÿÿÿÿ8õ½•õ‚/
+java:S1319"vThe type of the "ingredients" object should be an interface such as "List" rather than the implementation "ArrayList".(…ñ¢ßýÿÿÿÿ8‡‚ì¾ƒ/
 ’
-java:S1319"pThe type of the "price" object should be an interface such as "List" rather than the implementation "ArrayList".(˜¨Äíúÿÿÿÿ8»ú—õ‚/
+java:S1319)"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÔÂ—êýÿÿÿÿ8”ÜÔœ‚/
+“
+java:S1319-"vThe type of the "ingredients" object should be an interface such as "List" rather than the implementation "ArrayList".(‚–ï8”ÜÔœ‚/
+H
+java:S1948"&Make "type" transient or serializable.(½€¶«þÿÿÿÿ8‡‚ì¾ƒ/
+’
+java:S1319="pThe type of the "price" object should be an interface such as "List" rather than the implementation "ArrayList".(­£¡¹þÿÿÿÿ8”ÜÔœ‚/
+’
+java:S13191"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ê¦Ÿ þÿÿÿÿ8”ÜÔœ‚/

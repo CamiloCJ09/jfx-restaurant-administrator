@@ -1,14 +1,14 @@
 
 ’
-java:S1319&"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(×î“œüÿÿÿÿ8­™šœ‚/
+java:S1319/"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(®ÚŒÁùÿÿÿÿ8­™šœ‚/
+•
+java:S13193"sThe type of the "products" object should be an interface such as "List" rather than the implementation "ArrayList".(ÏÀÎÚşÿÿÿÿ8­™šœ‚/
 
-java:S1319*"sThe type of the "quantity" object should be an interface such as "List" rather than the implementation "ArrayList".(Ñù½a8­™šœ‚/
-•
-java:S1319"sThe type of the "products" object should be an interface such as "List" rather than the implementation "ArrayList".(¸•—Áıÿÿÿÿ8Ùí²õ‚/
-b	java:S107"AConstructor has 8 parameters, which is greater than 7 authorized.(¸•—Áıÿÿÿÿ8Ùí²õ‚/
+java:S1319+"sThe type of the "quantity" object should be an interface such as "List" rather than the implementation "ArrayList".(Ñù½a8­™šœ‚/
 ’
-java:S1319."pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(®ÚŒÁùÿÿÿÿ8­™šœ‚/
-•
-java:S13192"sThe type of the "products" object should be an interface such as "List" rather than the implementation "ArrayList".(ÏÀÎÚşÿÿÿÿ8­™šœ‚/
-•
-java:S1319"sThe type of the "quantity" object should be an interface such as "List" rather than the implementation "ArrayList".(¸•—Áıÿÿÿÿ8Ùí²õ‚/
+java:S1319'"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(×î“œüÿÿÿÿ8­™šœ‚/
+
+java:S1319"sThe type of the "quantity" object should be an interface such as "List" rather than the implementation "ArrayList".(‹Ê Ì8Õì¾ƒ/
+
+java:S1319"sThe type of the "products" object should be an interface such as "List" rather than the implementation "ArrayList".(‹Ê Ì8Õì¾ƒ/
+]	java:S107"AConstructor has 9 parameters, which is greater than 7 authorized.(‹Ê Ì8Õì¾ƒ/

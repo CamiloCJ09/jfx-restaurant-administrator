@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import model.RestaurantManager;
@@ -62,7 +63,22 @@ public class RestaurantAdministratorGUI {
 
     @FXML
     public void actLoginLogin(ActionEvent event) throws IOException{
-
+        String userName = tfUserLogin.getText();
+        String password = pfPasswordLogin.getText();
+        if(!userName.equals("") && !password.equals("")){
+            if(manager.activeUser(userName, password)){
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("order-menu.fxml"));
+                fxmlLoader.setController(this);
+                Parent signUp = fxmlLoader.load();
+                bpPaneMain.setCenter(signUp);
+            }else{
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Error");
+                alert.setHeaderText(null);
+                alert.setContentText("Incorrect data");
+                alert.showAndWait();
+            }
+        }
     }
 
     @FXML
@@ -88,13 +104,25 @@ public class RestaurantAdministratorGUI {
         String firstName = tfFirstNameSignup.getText();
         String lastName = tfLastNameSignup.getText();
         String id = tfIdentificationSignup.getText();
-        String username = tfUserSignup.getText();
+        String userName = tfUserSignup.getText();
         String password = pfPassword1Signup.getText();
 
-        boolean created = manager.addUser(firstName, lastName, id, username, password);
-        if(created){
+        boolean created = manager.addUser(firstName, lastName, id, userName, password);
+        if((!firstName.equals("")&&!lastName.equals("")&&!id.equals("")
+        &&!userName.equals("")&&!password.equals(""))&&created){
             System.out.println("Creado papi, cual es la desconfianza?");
             manager.saveUsersData();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information");
+            alert.setHeaderText(null);
+            alert.setContentText("User created successfully");
+            alert.showAndWait();
+        }else{
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Fill al the fields before create a account");
+            alert.showAndWait();
         }
     }
 
