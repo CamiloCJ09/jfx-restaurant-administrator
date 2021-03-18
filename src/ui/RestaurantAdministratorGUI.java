@@ -106,10 +106,14 @@ public class RestaurantAdministratorGUI {
         String id = tfIdentificationSignup.getText();
         String userName = tfUserSignup.getText();
         String password = pfPassword1Signup.getText();
-
+        String passwordVer = pfPassword2Signup.getText();
+        boolean passValid = true;
+        if(password.equals(passwordVer)){
+            passValid = false;
+        }
         boolean created = manager.addUser(firstName, lastName, id, userName, password);
         if((!firstName.equals("")&&!lastName.equals("")&&!id.equals("")
-        &&!userName.equals("")&&!password.equals(""))&&created){
+        &&!userName.equals("")&&!password.equals(""))&&created &&!passValid){
             System.out.println("Creado papi, cual es la desconfianza?");
             manager.saveUsersData();
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -121,7 +125,7 @@ public class RestaurantAdministratorGUI {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Error");
             alert.setHeaderText(null);
-            alert.setContentText("Fill al the fields before create a account");
+            alert.setContentText("Revisa que los campos hayan sido llenados correctamente y que las contraseñas sean iguales");
             alert.showAndWait();
         }
     }
