@@ -23,7 +23,7 @@ public class Main extends Application{
         primaryStage.show();
 
 
-        FXMLLoader fxmlLoader2 = new FXMLLoader(getClass().getResource("signin.fxml"));
+        FXMLLoader fxmlLoader2 = new FXMLLoader(getClass().getResource("login.fxml"));
         fxmlLoader2.setController(restaurantAdministratorGUI);
         Parent signIn = fxmlLoader2.load();
 

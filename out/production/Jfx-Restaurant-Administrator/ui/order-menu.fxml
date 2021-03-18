@@ -34,7 +34,7 @@
                      </font>
                   </Label>
                   <Separator orientation="VERTICAL" prefHeight="41.0" prefWidth="91.0" visible="false" />
-                  <JFXTextField focusColor="#ffd800" prefHeight="25.0" prefWidth="151.0" />
+                  <JFXTextField fx:id="tfCodeOrder" focusColor="#ffd800" prefHeight="25.0" prefWidth="151.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
@@ -46,7 +46,7 @@
                      </font>
                   </Label>
                   <Separator orientation="VERTICAL" prefHeight="41.0" prefWidth="50.0" visible="false" />
-                  <JFXTextField focusColor="#ffd800" prefHeight="25.0" prefWidth="154.0" />
+                  <JFXTextField fx:id="tfDateOrder" focusColor="#ffd800" prefHeight="25.0" prefWidth="154.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
@@ -58,7 +58,7 @@
                      </font>
                   </Label>
                   <Separator orientation="VERTICAL" prefHeight="42.0" prefWidth="68.0" visible="false" />
-                  <JFXComboBox focusColor="#ffd800" prefHeight="25.0" prefWidth="150.0" />
+                  <JFXComboBox fx:id="cbEmployeeOrder" focusColor="#ffd800" prefHeight="25.0" prefWidth="150.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
@@ -70,7 +70,7 @@
                      </font>
                   </Label>
                   <Separator orientation="VERTICAL" prefHeight="42.0" prefWidth="91.0" visible="false" />
-                  <JFXComboBox focusColor="#ffd800" prefHeight="25.0" prefWidth="150.0" />
+                  <JFXComboBox fx:id="cbClientOrder" focusColor="#ffd800" prefHeight="25.0" prefWidth="150.0" />
                </children>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" />
@@ -78,32 +78,32 @@
                <children>
                   <Label text="Producto:" />
                   <Separator orientation="VERTICAL" prefHeight="42.0" prefWidth="15.0" visible="false" />
-                  <JFXComboBox focusColor="#ffd800" prefHeight="25.0" prefWidth="142.0" />
+                  <JFXComboBox fx:id="cbProductOrder" focusColor="#ffd800" prefHeight="25.0" prefWidth="142.0" />
                   <Separator orientation="VERTICAL" prefHeight="42.0" prefWidth="15.0" visible="false" />
                   <Label text="Tamaño:" />
                   <Separator orientation="VERTICAL" prefHeight="42.0" prefWidth="15.0" visible="false" />
-                  <JFXComboBox focusColor="#ffd800" prefHeight="25.0" prefWidth="89.0" />
+                  <JFXComboBox fx:id="cbSizeOrder" focusColor="#ffd800" prefHeight="25.0" prefWidth="89.0" />
                   <Separator orientation="VERTICAL" prefHeight="42.0" prefWidth="15.0" visible="false" />
                   <Label text="Cantidad:" />
                   <Separator orientation="VERTICAL" prefHeight="42.0" prefWidth="15.0" visible="false" />
-                  <JFXTextField focusColor="#ffd800" prefHeight="25.0" prefWidth="91.0" />
+                  <JFXTextField fx:id="tfAmountOrder" focusColor="#ffd800" prefHeight="25.0" prefWidth="91.0" />
                   <Separator orientation="VERTICAL" prefHeight="42.0" prefWidth="15.0" visible="false" />
                   <Label text="Precio unitario:" />
                   <Separator orientation="VERTICAL" prefHeight="42.0" prefWidth="15.0" visible="false" />
-                  <JFXTextField focusColor="#ffd800" />
+                  <JFXTextField fx:id="tfUPriceOrder" focusColor="#ffd800" />
                   <Separator orientation="VERTICAL" prefHeight="42.0" prefWidth="15.0" visible="false" />
                   <Label text="Total:" />
                   <Separator orientation="VERTICAL" prefHeight="42.0" prefWidth="15.0" visible="false" />
-                  <JFXTextField focusColor="#ffd800" prefHeight="25.0" prefWidth="147.0" />
+                  <JFXTextField fx:id="tfTPriceOrder" focusColor="#ffd800" prefHeight="25.0" prefWidth="147.0" />
                   <Separator orientation="VERTICAL" prefHeight="42.0" prefWidth="15.0" visible="false" />
-                  <JFXButton text="Agregar" />
+                  <JFXButton onAction="#actAddOrderOrder" text="Agregar" />
                </children>
             </HBox>
          </children>
       </VBox>
    </top>
    <center>
-      <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="tvOrdersOrder" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn prefWidth="75.0" text="Producto" />
             <TableColumn prefWidth="75.0" text="Tamaño" />
@@ -127,9 +127,9 @@
    <right>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <JFXButton text="Eliminar" />
+            <JFXButton onAction="#actDeleteOrder" text="Eliminar" />
             <Separator prefHeight="42.0" prefWidth="100.0" />
-            <JFXButton text="Información" />
+            <JFXButton onAction="#actInfoOrder" text="Información" />
          </children>
       </VBox>
    </right>

@@ -1,14 +1,22 @@
 package ui;
 
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.TableView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import model.Client;
+import model.Employee;
+import model.Product;
 import model.RestaurantManager;
 
 import java.io.IOException;
@@ -19,10 +27,15 @@ public class RestaurantAdministratorGUI {
 
     public final String SIGNUP_FXML = "signup.fxml";
 
-    public final String SIGNIN_FXML = "signin.fxml";
+    public final String LOGIN_FXML = "login.fxml";
+
+    public final String ADDMENU_FXML = "addmenu.fxml";
 
     @FXML
     private BorderPane bpPaneMain;
+
+    @FXML
+    private MenuBar mbMenuMain;
 
     @FXML
     private VBox vbMainPane;
@@ -51,6 +64,36 @@ public class RestaurantAdministratorGUI {
     @FXML
     private JFXTextField tfIdentificationSignup;
 
+    @FXML
+    private JFXTextField tfCodeOrder;
+
+    @FXML
+    private JFXTextField tfDateOrder;
+
+    @FXML
+    private JFXComboBox<String> cbEmployeeOrder;
+
+    @FXML
+    private JFXComboBox<String> cbClientOrder;
+
+    @FXML
+    private JFXComboBox<String> cbProductOrder;
+
+    @FXML
+    private JFXComboBox<String> cbSizeOrder;
+
+    @FXML
+    private JFXTextField tfAmountOrder;
+
+    @FXML
+    private JFXTextField tfUPriceOrder;
+
+    @FXML
+    private JFXTextField tfTPriceOrder;
+
+    @FXML
+    private TableView<?> tvOrdersOrder;
+
     public RestaurantAdministratorGUI(){
         manager = new RestaurantManager();
     }
@@ -71,6 +114,9 @@ public class RestaurantAdministratorGUI {
                 fxmlLoader.setController(this);
                 Parent signUp = fxmlLoader.load();
                 bpPaneMain.setCenter(signUp);
+                mbMenuMain.setVisible(true);
+                mbMenuMain.setDisable(false);
+                setupOrderScreen();
             }else{
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Error");
@@ -92,7 +138,7 @@ public class RestaurantAdministratorGUI {
 
     @FXML
     public void actBackSignup(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(SIGNIN_FXML));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(LOGIN_FXML));
         fxmlLoader.setController(this);
         Parent signIn = fxmlLoader.load();
 
@@ -130,4 +176,47 @@ public class RestaurantAdministratorGUI {
         }
     }
 
+    public void setupOrderScreen(){
+        for(int a = 0; a<manager.getEmployees().size(); a++){
+            cbEmployeeOrder.getItems().add(manager.getEmployees().get(a).getFirstName() + " " + manager.getEmployees().get(a).getLastName());
+        }
+        for(int b = 0; b<manager.getClients().size(); b++){
+            cbClientOrder.getItems().add((manager.getClients().get(b).getFirstName() + " " + manager.getClients().get(b).getLastName()));
+        }
+    }
+
+    @FXML
+    void miAboutMain(ActionEvent event) {
+
+    }
+
+    @FXML
+    void miAddItemsMain(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADDMENU_FXML));
+        fxmlLoader.setController(this);
+        Parent addmenu = fxmlLoader.load();
+
+        bpPaneMain.setCenter(addmenu);
+
+    }
+
+    @FXML
+    void miEditItemsMain(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void actAddOrderOrder(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void actDeleteOrder(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void actInfoOrder(ActionEvent event) {
+
+    }
 }

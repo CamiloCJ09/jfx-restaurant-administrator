@@ -6,24 +6,23 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox fx:id="vbMainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:id="vbMainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <MenuBar>
+      <MenuBar fx:id="mbMenuMain" disable="true" visible="false">
         <menus>
-          <Menu mnemonicParsing="false" text="File">
+          <Menu mnemonicParsing="false" text="Archivo">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem mnemonicParsing="false" onAction="#miAddItemsMain" text="Agregar items" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
+          <Menu mnemonicParsing="false" text="Editar">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
+              <MenuItem mnemonicParsing="false" onAction="#miEditItemsMain" text="Editar items" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Help">
+          <Menu mnemonicParsing="false" text="Ayuda">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem mnemonicParsing="false" onAction="#miAboutMain" text="Acerca" />
             </items>
           </Menu>
         </menus>

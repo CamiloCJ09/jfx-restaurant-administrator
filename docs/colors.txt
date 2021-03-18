@@ -1,1 +1,2 @@
 Fields focus color: #ffd800
+Labels color: #e4be00
