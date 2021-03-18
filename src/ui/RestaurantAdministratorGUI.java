@@ -25,11 +25,13 @@ public class RestaurantAdministratorGUI {
 
     private RestaurantManager manager;
 
-    public final String SIGNUP_FXML = "signup.fxml";
+    public final static String SIGNUP_FXML = "signup.fxml";
 
-    public final String LOGIN_FXML = "login.fxml";
+    public final static String LOGIN_FXML = "login.fxml";
 
-    public final String ADDMENU_FXML = "addmenu.fxml";
+    public final static String ADDMENU_FXML = "addmenu.fxml";
+
+    public final static String EDITMENU_FXML = "editmenu.fxml";
 
     @FXML
     private BorderPane bpPaneMain;
@@ -94,6 +96,9 @@ public class RestaurantAdministratorGUI {
     @FXML
     private TableView<?> tvOrdersOrder;
 
+    @FXML
+    private JFXComboBox<String> cbTypeAddMenu;
+
     public RestaurantAdministratorGUI(){
         manager = new RestaurantManager();
     }
@@ -112,8 +117,8 @@ public class RestaurantAdministratorGUI {
             if(manager.activeUser(userName, password)){
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("order-menu.fxml"));
                 fxmlLoader.setController(this);
-                Parent signUp = fxmlLoader.load();
-                bpPaneMain.setCenter(signUp);
+                Parent ordermenu = fxmlLoader.load();
+                bpPaneMain.setCenter(ordermenu);
                 mbMenuMain.setVisible(true);
                 mbMenuMain.setDisable(false);
                 setupOrderScreen();
@@ -186,23 +191,48 @@ public class RestaurantAdministratorGUI {
     }
 
     @FXML
-    void miAboutMain(ActionEvent event) {
+    public void miAboutMain(ActionEvent event) {
 
     }
 
     @FXML
-    void miAddItemsMain(ActionEvent event) throws IOException {
+    public void miAddItemsMain(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADDMENU_FXML));
         fxmlLoader.setController(this);
         Parent addmenu = fxmlLoader.load();
 
         bpPaneMain.setCenter(addmenu);
+        setupAddItemsScreen();
+    }
 
+    public void setupAddItemsScreen(){
+        ObservableList<String> options = FXCollections.observableArrayList(
+                "Employee",
+                "Client",
+                "Product",
+                "Ingredient",
+                "Type of food"
+        );
+        cbTypeAddMenu.getItems().setAll(options);
     }
 
     @FXML
-    void miEditItemsMain(ActionEvent event) {
+    public void miAddOrderMain(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("order-menu.fxml"));
+        fxmlLoader.setController(this);
+        Parent ordermenu = fxmlLoader.load();
+        bpPaneMain.setCenter(ordermenu);
 
+        setupOrderScreen();
+    }
+
+    @FXML
+    public void miEditItemsMain(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(EDITMENU_FXML));
+        fxmlLoader.setController(this);
+        Parent editmenu = fxmlLoader.load();
+
+        bpPaneMain.setCenter(editmenu);
     }
 
     @FXML

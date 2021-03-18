@@ -13,6 +13,7 @@
           <Menu mnemonicParsing="false" text="Archivo">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#miAddItemsMain" text="Agregar items" />
+                  <MenuItem mnemonicParsing="false" onAction="#miAddOrderMain" text="Agregar pedido" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Editar">
