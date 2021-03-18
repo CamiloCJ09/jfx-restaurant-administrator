@@ -186,9 +186,13 @@ public class RestaurantAdministratorGUI {
             cbEmployeeOrder.getItems().add(manager.getEmployees().get(a).getFirstName() + " " + manager.getEmployees().get(a).getLastName());
         }
         for(int b = 0; b<manager.getClients().size(); b++){
-            cbClientOrder.getItems().add((manager.getClients().get(b).getFirstName() + " " + manager.getClients().get(b).getLastName()));
+            cbClientOrder.getItems().add(manager.getClients().get(b).getFirstName() + " " + manager.getClients().get(b).getLastName());
+        }
+        for(int c = 0; c<manager.getProducts().size(); c++){
+            cbProductOrder.getItems().add(manager.getProducts().get(c).getName());
         }
     }
+
 
     @FXML
     public void miAboutMain(ActionEvent event) {

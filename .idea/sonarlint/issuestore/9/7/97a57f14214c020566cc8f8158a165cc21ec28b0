@@ -1,11 +1,9 @@
 
-ž
-java:S11868"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¼•¹œ8è‡ˆµ‚/
-£
-java:S1186@"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Äý„‚ÿÿÿÿÿ8ìÎ®…„/
-w	java:S116"VRename this field "SIGNUP_FXML" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œ…ÖØùÿÿÿÿ8ìÎ®…„/
-r	java:S116"VRename this field "SIGNIN_FXML" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÚŽµÇ8ìÎ®…„/
+w	java:S116"VRename this field "SIGNUP_FXML" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œ…ÖØùÿÿÿÿ8ìÎ®…„/
 C
-java:S1170"!Make this final field static too.(Œ…ÖØùÿÿÿÿ8ìÎ®…„/
+java:S1170"!Make this final field static too.(Œ…ÖØùÿÿÿÿ8ìÎ®…„/
+ž
+java:S11869"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¼•¹œ8è‡ˆµ‚/
 >
-java:S1170"!Make this final field static too.(ÚŽµÇ8ìÎ®…„/
+java:S1170"!Make this final field static too.(ÚŽµÇ8ìÎ®…„/
+r	java:S116"VRename this field "SIGNIN_FXML" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÚŽµÇ8ìÎ®…„/
