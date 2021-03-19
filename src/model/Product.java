@@ -1,24 +1,23 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Product extends RestaurantObject{
     //Attributes
     private String name;
     private FoodType type;
-    private ArrayList<Ingredients> ingredients;
-    private ArrayList<String> size;
-    private ArrayList<Double> price;
+    private List<Ingredients> ingredients;
+    private List<Size> sizes;
     private boolean status;
 
     //Methods
-    public Product(User creator, User modifier, String name, FoodType type, ArrayList<Ingredients> ingredients, ArrayList<String> size, ArrayList<Double> price) {
+    public Product(User creator, User modifier, String name, FoodType type, List<Ingredients> ingredients, List<Size> size, ArrayList<Double> price) {
         super(creator, modifier);
         this.name = name;
         this.type = type;
         this.ingredients = ingredients;
-        this.size = size;
-        this.price = price;
+        this.sizes = size;
         this.status = true;
     }
 
@@ -38,28 +37,8 @@ public class Product extends RestaurantObject{
         this.type = type;
     }
 
-    public ArrayList<Ingredients> getIngredients() {
-        return ingredients;
-    }
-
     public void setIngredients(ArrayList<Ingredients> ingredients) {
         this.ingredients = ingredients;
-    }
-
-    public ArrayList<String> getSize() {
-        return size;
-    }
-
-    public void setSize(ArrayList<String> size) {
-        this.size = size;
-    }
-
-    public ArrayList<Double> getPrice() {
-        return price;
-    }
-
-    public void setPrice(ArrayList<Double> price) {
-        this.price = price;
     }
 
     public boolean isStatus() {
@@ -68,5 +47,21 @@ public class Product extends RestaurantObject{
 
     public void setStatus(boolean status) {
         this.status = status;
+    }
+
+    public List<Ingredients> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(List<Ingredients> ingredients) {
+        this.ingredients = ingredients;
+    }
+
+    public List<Size> getSizes() {
+        return sizes;
+    }
+
+    public void setSizes(List<Size> sizes) {
+        this.sizes = sizes;
     }
 }

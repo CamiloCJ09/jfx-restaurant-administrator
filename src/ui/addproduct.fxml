@@ -21,11 +21,11 @@
                   <Separator orientation="VERTICAL" prefHeight="85.0" prefWidth="18.0" visible="false" />
                   <Label text="Nombre:" />
                   <Separator orientation="VERTICAL" prefHeight="85.0" prefWidth="83.0" visible="false" />
-                  <JFXTextField focusColor="#ffd800" />
+                  <JFXTextField fx:id="tfNameAddProduct" focusColor="#ffd800" />
                   <Separator orientation="VERTICAL" prefHeight="85.0" prefWidth="18.0" visible="false" />
                   <Label text="Tipo de comida:" />
                   <Separator orientation="VERTICAL" prefHeight="85.0" prefWidth="83.0" visible="false" />
-                  <JFXComboBox prefHeight="25.0" prefWidth="139.0" />
+                  <JFXComboBox fx:id="cbTypeAddProduct" focusColor="#ffd800" prefHeight="25.0" prefWidth="139.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="210.0" prefHeight="147.0" prefWidth="1000.0">
@@ -33,13 +33,13 @@
                   <Separator orientation="VERTICAL" prefHeight="85.0" prefWidth="18.0" visible="false" />
                   <Label text="Ingredientes:" />
                   <Separator orientation="VERTICAL" prefHeight="100.0" prefWidth="63.0" visible="false" />
-                  <JFXComboBox prefHeight="25.0" prefWidth="133.0" />
+                  <JFXComboBox fx:id="cbIngredientsAddProduct" focusColor="#ffd800" prefHeight="25.0" prefWidth="133.0" />
                   <Separator layoutX="10.0" layoutY="10.0" orientation="VERTICAL" prefHeight="85.0" prefWidth="18.0" visible="false" />
-                  <JFXButton text="+" />
+                  <JFXButton onAction="#actAddIngredientAddProduct" text="+" />
                   <Separator orientation="VERTICAL" prefHeight="147.0" prefWidth="16.0" visible="false" />
-                  <TableView prefHeight="200.0" prefWidth="200.0">
+                  <TableView fx:id="tvIngredientsAddProduct" prefHeight="200.0" prefWidth="200.0">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="Ingredientes" />
+                      <TableColumn fx:id="tcIngredientsAddProduct" prefWidth="75.0" text="Ingredientes" />
                     </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -52,21 +52,21 @@
                   <Separator orientation="VERTICAL" prefHeight="85.0" prefWidth="18.0" visible="false" />
                   <Label text="Tamaño:" />
                   <Separator orientation="VERTICAL" prefHeight="95.0" prefWidth="86.0" visible="false" />
-                  <JFXTextField />
+                  <JFXTextField fx:id="tfSizeAddProduct" focusColor="#ffd800" />
                   <Separator layoutX="10.0" layoutY="10.0" orientation="VERTICAL" prefHeight="85.0" prefWidth="18.0" visible="false" />
                   <Label layoutX="28.0" layoutY="49.0" text="Precio:" />
                   <Separator layoutX="74.0" layoutY="10.0" orientation="VERTICAL" prefHeight="95.0" prefWidth="86.0" visible="false" />
-                  <JFXTextField layoutX="160.0" layoutY="45.0" />
+                  <JFXTextField fx:id="tfPriceAddProduct" focusColor="#ffd800" layoutX="160.0" layoutY="45.0" />
                   <Separator layoutX="10.0" layoutY="10.0" orientation="VERTICAL" prefHeight="85.0" prefWidth="18.0" visible="false" />
-                  <JFXButton text="+" />
+                  <JFXButton onAction="#actAddSizeAddProduct" text="+" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="176.0" prefWidth="1000.0">
                <children>
-                  <TableView prefHeight="172.0" prefWidth="375.0">
+                  <TableView fx:id="tvSizeAddProduct" prefHeight="172.0" prefWidth="375.0">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="Tamaño" />
-                      <TableColumn prefWidth="75.0" text="Precio" />
+                      <TableColumn fx:id="tcSizeAddProduct" prefWidth="75.0" text="Tamaño" />
+                      <TableColumn fx:id="tcPriceAddProduct" prefWidth="75.0" text="Precio" />
                     </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -76,7 +76,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <JFXButton text="Agregar" />
+                  <JFXButton onAction="#actAddProductAddProduct" text="Agregar" />
                </children>
             </HBox>
          </children>

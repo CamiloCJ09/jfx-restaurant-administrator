@@ -369,7 +369,7 @@ public class RestaurantManager {
      * @param price       the price
      * @return the boolean
      */
-    public boolean addProduct(String name, FoodType type, ArrayList<Ingredients> ingredients, ArrayList<String> size, ArrayList<Double> price){
+    public boolean addProduct(String name, FoodType type, List<Ingredients> ingredients, List<Size> size, ArrayList<Double> price){
         boolean ret = true;
         Product product = new Product(activeUser, activeUser, name, type, ingredients, size, price);
         for(int i = 0; i < products.size() && ret; i++){
@@ -416,6 +416,11 @@ public class RestaurantManager {
             }
         }
         return ret;
+    }
+
+    public Size newSize(String size, double price){
+        Size size1 = new Size(size, price);
+        return size1;
     }
 
     /**
@@ -560,5 +565,17 @@ public class RestaurantManager {
      */
     public void setEmployees(List<Employee> employees) {
         this.employees = employees;
+    }
+
+    public Ingredients searchIngredient(String name){
+        boolean found = false;
+        Ingredients ingredient = null;
+        for(int i = 0; i < ingredients.size() && !found; i++){
+            if(ingredients.get(i).getName().equals(name)){
+                ingredient = ingredients.get(i);
+                found = true;
+            }
+        }
+        return ingredient;
     }
 }
