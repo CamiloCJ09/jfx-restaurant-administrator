@@ -1,21 +1,13 @@
 
-“
-java:S1319Ø"vThe type of the "ingredients" object should be an interface such as "List" rather than the implementation "ArrayList".(™ÓÃ8Ò‚ì¾ƒ/
+‘
+java:S1319ê"sThe type of the "quantity" object should be an interface such as "List" rather than the implementation "ArrayList".(“êû‡8Ò‚ì¾ƒ/
+y
+java:S1488œ"[Immediately return this expression instead of assigning it to the temporary variable "ret".(ùôÈ8‹ìÙÅ„/
+y
+java:S1488§"[Immediately return this expression instead of assigning it to the temporary variable "ret".(ùôÈ8‹ìÙÅ„/
 
-java:S4144÷"^Update this method so that its implementation is not identical to "deleteProduct" on line 364.(­æ‚ôÿÿÿÿÿ8»æÿ¾ƒ/
-Œ
-java:S1319Ø"oThe type of the "size" object should be an interface such as "List" rather than the implementation "ArrayList".(™ÓÃ8Ò‚ì¾ƒ/
-L
-java:S1172ş".Remove this unused method parameter "oldName".(Û‡€è8àÊùÀƒ/
-c
-java:S2118{"AMake the "java.util.List" class "Serializable" or don't write it.(ªµ»¡ÿÿÿÿÿ8Ò‚ì¾ƒ/
-y
-java:S1488ø"[Immediately return this expression instead of assigning it to the temporary variable "ret".(ùôÈ8¶ƒ×ò‚/
+java:S4144¦"^Update this method so that its implementation is not identical to "deleteProduct" on line 411.(­æ‚ôÿÿÿÿÿ8‹ìÙÅ„/
+{
+java:S1488Ç"]Immediately return this expression instead of assigning it to the temporary variable "size1".(Ù×½°8‹ìÙÅ„/
 ‘
-java:S1319À"sThe type of the "products" object should be an interface such as "List" rather than the implementation "ArrayList".(“êû‡8Ò‚ì¾ƒ/
-
-java:S1319Ø"pThe type of the "price" object should be an interface such as "List" rather than the implementation "ArrayList".(™ÓÃ8Ò‚ì¾ƒ/
-‘
-java:S1319À"sThe type of the "quantity" object should be an interface such as "List" rather than the implementation "ArrayList".(“êû‡8Ò‚ì¾ƒ/
-y
-java:S1488í"[Immediately return this expression instead of assigning it to the temporary variable "ret".(ùôÈ8ğÉ¨ó‚/
+java:S1319ê"sThe type of the "products" object should be an interface such as "List" rather than the implementation "ArrayList".(“êû‡8Ò‚ì¾ƒ/

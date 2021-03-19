@@ -78,15 +78,15 @@
                <children>
                   <Label text="Producto:" />
                   <Separator orientation="VERTICAL" prefHeight="42.0" prefWidth="15.0" visible="false" />
-                  <JFXComboBox fx:id="cbProductOrder" focusColor="#ffd800" prefHeight="25.0" prefWidth="142.0" />
+                  <JFXComboBox fx:id="cbProductOrder" focusColor="#ffd800" onAction="#actDisplaySizesOrder" prefHeight="25.0" prefWidth="142.0" />
                   <Separator orientation="VERTICAL" prefHeight="42.0" prefWidth="15.0" visible="false" />
                   <Label text="Tamaño:" />
                   <Separator orientation="VERTICAL" prefHeight="42.0" prefWidth="15.0" visible="false" />
-                  <JFXComboBox fx:id="cbSizeOrder" focusColor="#ffd800" prefHeight="25.0" prefWidth="89.0" />
+                  <JFXComboBox fx:id="cbSizeOrder" focusColor="#ffd800" onAction="#actDisplayUPriceOrder" prefHeight="25.0" prefWidth="89.0" />
                   <Separator orientation="VERTICAL" prefHeight="42.0" prefWidth="15.0" visible="false" />
                   <Label text="Cantidad:" />
                   <Separator orientation="VERTICAL" prefHeight="42.0" prefWidth="15.0" visible="false" />
-                  <JFXTextField fx:id="tfAmountOrder" focusColor="#ffd800" prefHeight="25.0" prefWidth="91.0" />
+                  <JFXTextField fx:id="tfAmountOrder" focusColor="#ffd800" onAction="#actDisplayTPriceOrder" onKeyReleased="#loquesea" prefHeight="25.0" prefWidth="91.0" />
                   <Separator orientation="VERTICAL" prefHeight="42.0" prefWidth="15.0" visible="false" />
                   <Label text="Precio unitario:" />
                   <Separator orientation="VERTICAL" prefHeight="42.0" prefWidth="15.0" visible="false" />

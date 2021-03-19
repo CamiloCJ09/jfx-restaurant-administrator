@@ -15,6 +15,7 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import model.*;
@@ -452,7 +453,7 @@ public class RestaurantAdministratorGUI {
         List<Ingredients> ingredients = tvIngredientsAddProduct.getItems();
         List<Size> sizesList = tvSizeAddProduct.getItems();
 
-        if(!(productName.equals(""))&&!(foodType.equals(""))&&(ingredients.get(0)!=null) && (sizesList.get(0)!=null)){
+        if(!(productName.equals(""))&&!(foodType.equals(""))&&(!ingredients.isEmpty()) && (!sizesList.isEmpty())){
             manager.addProduct(productName, foodType, ingredients, sizesList);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information");
@@ -474,4 +475,37 @@ public class RestaurantAdministratorGUI {
         tvSizeAddProduct.setItems(tempSizes);
         tvSizeAddProduct.refresh();
     }
+
+    @FXML
+    void actDisplaySizesOrder(ActionEvent event) {
+        String productName = cbProductOrder.getSelectionModel().getSelectedItem();
+        for(int i = 0; i < manager.findProduct(productName).getSizes().size(); i++){
+            cbSizeOrder.getItems().add(manager.findProduct(productName).getSizes().get(i).getSize());
+        }
+    }
+
+    @FXML
+    void actDisplayTPriceOrder(ActionEvent event) {
+        int amount = Integer.parseInt(tfAmountOrder.getText());
+        double unitPrice = Double.parseDouble(tfUPriceOrder.getText());
+        String value = String.valueOf(amount*unitPrice);
+        tfTPriceOrder.setText(value);
+    }
+
+    @FXML
+    void actDisplayUPriceOrder(ActionEvent event) {
+        String productName = cbProductOrder.getSelectionModel().getSelectedItem();
+        String sizes = cbSizeOrder.getSelectionModel().getSelectedItem();
+        for(int i = 0; i < manager.findProduct(productName).getSizes().size(); i++){
+            if (manager.findProduct(productName).getSizes().get(i).getSize().equals(sizes)) {
+                double value = manager.findProduct(productName).getSizes().get(i).getPrice();
+                tfUPriceOrder.setText(String.valueOf(value));
+            }
+        }
+    }
+    @FXML
+    void loquesea(KeyEvent event) {
+        System.out.println("Sirvo pa algo");
+    }
+
 }

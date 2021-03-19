@@ -456,6 +456,17 @@ public class RestaurantManager {
         return size1;
     }
 
+    //Other methods
+    public Product findProduct(String productName){
+        Product tempProduct = null;
+        for(int i = 0; i < products.size(); i++){
+            if(products.get(i).getName().equals(productName)){
+                tempProduct = products.get(i);
+            }
+        }
+        return tempProduct;
+    }
+
     /**
      * Gets ingredients.
      *
