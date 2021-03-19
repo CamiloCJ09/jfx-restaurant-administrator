@@ -113,9 +113,6 @@ public class RestaurantAdministratorGUI {
     private JFXTextField tfTPriceOrder;
 
     @FXML
-    private TableView<?> tvOrdersOrder;
-
-    @FXML
     private JFXComboBox<String> cbTypeAdd;
 
     @FXML
@@ -180,6 +177,27 @@ public class RestaurantAdministratorGUI {
 
     @FXML
     private TableColumn<Ingredients, String> tcIngredientsAddProduct;
+
+    @FXML
+    private TableView<?> tvOrdersOrder;
+
+    @FXML
+    private TableColumn<?, ?> tcProductOrder;
+
+    @FXML
+    private TableColumn<?, ?> tcSizeOrder;
+
+    @FXML
+    private TableColumn<?, ?> tcAmountOrder;
+
+    @FXML
+    private TableColumn<?, ?> tcUPriceOrder;
+
+    @FXML
+    private TableColumn<?, ?> tcTPriceOrder;
+
+    @FXML
+    private TableColumn<?, ?> tcObservationsOrder;
 
 
     public RestaurantAdministratorGUI(){
@@ -485,14 +503,6 @@ public class RestaurantAdministratorGUI {
     }
 
     @FXML
-    void actDisplayTPriceOrder(ActionEvent event) {
-        int amount = Integer.parseInt(tfAmountOrder.getText());
-        double unitPrice = Double.parseDouble(tfUPriceOrder.getText());
-        String value = String.valueOf(amount*unitPrice);
-        tfTPriceOrder.setText(value);
-    }
-
-    @FXML
     void actDisplayUPriceOrder(ActionEvent event) {
         String productName = cbProductOrder.getSelectionModel().getSelectedItem();
         String sizes = cbSizeOrder.getSelectionModel().getSelectedItem();
@@ -504,8 +514,13 @@ public class RestaurantAdministratorGUI {
         }
     }
     @FXML
-    void loquesea(KeyEvent event) {
-        System.out.println("Sirvo pa algo");
+    void actDisplayTPriceOrder(KeyEvent event) {
+        if (!tfAmountOrder.getText().equals("")){
+            int amount = Integer.parseInt(tfAmountOrder.getText());
+            double unitPrice = Double.parseDouble(tfUPriceOrder.getText());
+            String value = String.valueOf(amount*unitPrice);
+            tfTPriceOrder.setText(value);
+        }
     }
 
 }

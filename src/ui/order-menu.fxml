@@ -34,7 +34,7 @@
                      </font>
                   </Label>
                   <Separator orientation="VERTICAL" prefHeight="41.0" prefWidth="91.0" visible="false" />
-                  <JFXTextField fx:id="tfCodeOrder" focusColor="#ffd800" prefHeight="25.0" prefWidth="151.0" />
+                  <JFXTextField fx:id="tfCodeOrder" editable="false" focusColor="#ffd800" prefHeight="25.0" prefWidth="151.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
@@ -86,15 +86,15 @@
                   <Separator orientation="VERTICAL" prefHeight="42.0" prefWidth="15.0" visible="false" />
                   <Label text="Cantidad:" />
                   <Separator orientation="VERTICAL" prefHeight="42.0" prefWidth="15.0" visible="false" />
-                  <JFXTextField fx:id="tfAmountOrder" focusColor="#ffd800" onAction="#actDisplayTPriceOrder" onKeyReleased="#loquesea" prefHeight="25.0" prefWidth="91.0" />
+                  <JFXTextField fx:id="tfAmountOrder" focusColor="#ffd800" onKeyReleased="#actDisplayTPriceOrder" prefHeight="25.0" prefWidth="91.0" />
                   <Separator orientation="VERTICAL" prefHeight="42.0" prefWidth="15.0" visible="false" />
                   <Label text="Precio unitario:" />
                   <Separator orientation="VERTICAL" prefHeight="42.0" prefWidth="15.0" visible="false" />
-                  <JFXTextField fx:id="tfUPriceOrder" focusColor="#ffd800" />
+                  <JFXTextField fx:id="tfUPriceOrder" editable="false" focusColor="#ffd800" />
                   <Separator orientation="VERTICAL" prefHeight="42.0" prefWidth="15.0" visible="false" />
                   <Label text="Total:" />
                   <Separator orientation="VERTICAL" prefHeight="42.0" prefWidth="15.0" visible="false" />
-                  <JFXTextField fx:id="tfTPriceOrder" focusColor="#ffd800" prefHeight="25.0" prefWidth="147.0" />
+                  <JFXTextField fx:id="tfTPriceOrder" editable="false" focusColor="#ffd800" prefHeight="25.0" prefWidth="147.0" />
                   <Separator orientation="VERTICAL" prefHeight="42.0" prefWidth="15.0" visible="false" />
                   <JFXButton onAction="#actAddOrderOrder" text="Agregar" />
                </children>
@@ -105,16 +105,16 @@
    <center>
       <TableView fx:id="tvOrdersOrder" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn prefWidth="75.0" text="Producto" />
-            <TableColumn prefWidth="75.0" text="Tamaño" />
-            <TableColumn prefWidth="75.0" text="Cantidad" />
+          <TableColumn fx:id="tcProductOrder" prefWidth="75.0" text="Producto" />
+            <TableColumn fx:id="tcSizeOrder" prefWidth="75.0" text="Tamaño" />
+            <TableColumn fx:id="tcAmountOrder" prefWidth="75.0" text="Cantidad" />
           <TableColumn prefWidth="284.0" text="Precio">
                <columns>
-                  <TableColumn prefWidth="128.0" text="Unitario" />
-                  <TableColumn prefWidth="171.0" text="Total" />
+                  <TableColumn fx:id="tcUPriceOrder" prefWidth="128.0" text="Unitario" />
+                  <TableColumn fx:id="tcTPriceOrder" prefWidth="171.0" text="Total" />
                </columns>
             </TableColumn>
-            <TableColumn prefWidth="150.0" text="Observaciones" />
+            <TableColumn fx:id="tcObservationsOrder" prefWidth="150.0" text="Observaciones" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
