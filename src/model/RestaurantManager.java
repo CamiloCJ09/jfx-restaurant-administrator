@@ -279,6 +279,20 @@ public class RestaurantManager {
         return ret;
     }
 
+    public boolean addFoodType(String name){
+        boolean ret = true;
+        FoodType foodType = new FoodType(activeUser, activeUser, name);
+        for(int i = 0; i < foodTypes.size(); i++){
+            if(foodTypes.get(i).getName().equals(name)){
+                ret = false;
+            }
+        }
+        if(ret){
+            foodTypes.add(foodType);
+        }
+        return ret;
+    }
+
     /**
      * Add client boolean.
      *
@@ -301,6 +315,20 @@ public class RestaurantManager {
         }
         if(ret){
             clients.add(client);
+        }
+        return ret;
+    }
+
+    public boolean addEmployee(String firstName, String lastName, String id){
+        boolean ret = true;
+        Employee employee = new Employee(activeUser, activeUser, firstName,lastName, id);
+        for(int i = 0; i < employees.size() && ret; i++){
+            if(employees.get(i).getId().equals(id)){
+                ret = false;
+            }
+        }
+        if(ret){
+            employees.add(employee);
         }
         return ret;
     }

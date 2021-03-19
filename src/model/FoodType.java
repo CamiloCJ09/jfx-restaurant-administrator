@@ -1,6 +1,12 @@
 package model;
 
-public class FoodType {
+public class FoodType extends RestaurantObject{
+
+    public FoodType(User creatorUser, User modifierUser, String name){
+        super(creatorUser, modifierUser);
+        this.name = name;
+    }
+
     //Attributes
     private String name;
 

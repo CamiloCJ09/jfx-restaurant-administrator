@@ -2,6 +2,7 @@ package ui;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -33,8 +34,21 @@ public class RestaurantAdministratorGUI {
 
     public final static String EDITMENU_FXML = "editmenu.fxml";
 
+    public final static String ADDEMPLOYEE_FXML = "addemployee.fxml";
+
+    public final static String ADDCLIENT_FXML = "addclient.fxml";
+
+    public final static String ADDPRODUCT_FXML = "addproduct.fxml";
+
+    public final static String ADDINGREDIENT_FXML = "addingredient.fxml";
+
+    public final static String ADDTYPE_FXML = "addtype.fxml";
+
     @FXML
     private BorderPane bpPaneMain;
+
+    @FXML
+    private BorderPane bpPaneAdd;
 
     @FXML
     private MenuBar mbMenuMain;
@@ -97,7 +111,40 @@ public class RestaurantAdministratorGUI {
     private TableView<?> tvOrdersOrder;
 
     @FXML
-    private JFXComboBox<String> cbTypeAddMenu;
+    private JFXComboBox<String> cbTypeAdd;
+
+    @FXML
+    private JFXTextField tfFirstNameAddClient;
+
+    @FXML
+    private JFXTextField tfLastNameAddClient;
+
+    @FXML
+    private JFXTextField tfIdAddClient;
+
+    @FXML
+    private JFXTextField tfAddressAddClient;
+
+    @FXML
+    private JFXTextField tfTelAddClient;
+
+    @FXML
+    private JFXTextArea taObservationsAddClient;
+
+    @FXML
+    private JFXTextField tfFirstNameAddEmployee;
+
+    @FXML
+    private JFXTextField tfLastNameAddEmployee;
+
+    @FXML
+    private JFXTextField tfIdAddEmployee;
+
+    @FXML
+    private JFXTextField tfNameAddIngredient;
+
+    @FXML
+    private JFXTextField tfNameAddType;
 
     public RestaurantAdministratorGUI(){
         manager = new RestaurantManager();
@@ -165,7 +212,6 @@ public class RestaurantAdministratorGUI {
         boolean created = manager.addUser(firstName, lastName, id, userName, password);
         if((!firstName.equals("")&&!lastName.equals("")&&!id.equals("")
         &&!userName.equals("")&&!password.equals(""))&&created &&!passValid){
-            System.out.println("Creado papi, cual es la desconfianza?");
             manager.saveUsersData();
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information");
@@ -211,13 +257,13 @@ public class RestaurantAdministratorGUI {
 
     public void setupAddItemsScreen(){
         ObservableList<String> options = FXCollections.observableArrayList(
-                "Employee",
-                "Client",
-                "Product",
-                "Ingredient",
-                "Type of food"
+                "Empleado",
+                "Cliente",
+                "Producto",
+                "Ingrediente",
+                "Tipo de comida"
         );
-        cbTypeAddMenu.getItems().setAll(options);
+        cbTypeAdd.getItems().setAll(options);
     }
 
     @FXML
@@ -253,4 +299,87 @@ public class RestaurantAdministratorGUI {
     public void actInfoOrder(ActionEvent event) {
 
     }
+
+    @FXML
+    public void actDisplayAdd(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader;
+        switch (cbTypeAdd.getSelectionModel().getSelectedItem().toString()){
+            case("Empleado"):
+                fxmlLoader = new FXMLLoader(getClass().getResource(ADDEMPLOYEE_FXML));
+                fxmlLoader.setController(this);
+                Parent addemployee = fxmlLoader.load();
+
+                bpPaneAdd.setCenter(addemployee);
+            break;
+            case("Cliente"):
+                fxmlLoader = new FXMLLoader(getClass().getResource(ADDCLIENT_FXML));
+                fxmlLoader.setController(this);
+                Parent addclient = fxmlLoader.load();
+
+                bpPaneAdd.setCenter(addclient);
+            break;
+            case("Producto"):
+                fxmlLoader = new FXMLLoader(getClass().getResource(ADDPRODUCT_FXML));
+                fxmlLoader.setController(this);
+                Parent addproduct = fxmlLoader.load();
+
+                bpPaneAdd.setCenter(addproduct);
+            break;
+            case("Ingrediente"):
+                fxmlLoader = new FXMLLoader(getClass().getResource(ADDINGREDIENT_FXML));
+                fxmlLoader.setController(this);
+                Parent addingredient = fxmlLoader.load();
+
+                bpPaneAdd.setCenter(addingredient);
+            break;
+            case("Tipo de comida"):
+                fxmlLoader = new FXMLLoader(getClass().getResource(ADDTYPE_FXML));
+                fxmlLoader.setController(this);
+                Parent addtype = fxmlLoader.load();
+
+                bpPaneAdd.setCenter(addtype);
+            break;
+        }
+    }
+
+    @FXML
+    public void actAddClientAddClient(ActionEvent event) {
+        String firstName = tfFirstNameAddClient.getText();
+        String lastName = tfLastNameAddClient.getText();
+        String id = tfIdAddClient.getText();
+        String address = tfAddressAddClient.getText();
+        if(address.equals(null)){
+            address = "";
+        }
+        String tel = tfTelAddClient.getText();
+        if(tel.equals(null)){
+            tel = "";
+        }
+        String observations = taObservationsAddClient.getText();
+        if(observations.equals(null)){
+            observations = "";
+        }
+        manager.addClient(firstName, lastName, id, address, tel, observations);
+    }
+
+    @FXML
+    public void actAddEmployeeAddEmployee(ActionEvent event) {
+        String firstName = tfFirstNameAddEmployee.getText();
+        String lastName = tfLastNameAddEmployee.getText();
+        String id = tfIdAddEmployee.getText();
+        manager.addEmployee(firstName, lastName, id);
+    }
+
+    @FXML
+    public void actAddIngredientAddIngredient(ActionEvent event) {
+        String name = tfNameAddIngredient.getText();
+        manager.addIngredient(name);
+    }
+
+    @FXML
+    public void actAddTypeAddType(ActionEvent event) {
+        String name = tfNameAddType.getText();
+        manager.addFoodType(name);
+    }
+
 }
