@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
@@ -18,12 +17,12 @@
                   <Separator orientation="VERTICAL" prefHeight="85.0" prefWidth="18.0" visible="false" />
                   <Label text="Nombre:" />
                   <Separator orientation="VERTICAL" prefHeight="85.0" prefWidth="83.0" visible="false" />
-                  <JFXTextField focusColor="#ffd800" />
+                  <JFXTextField fx:id="tfNameAddType" focusColor="#ffd800" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <JFXButton text="Agregar" />
+                  <JFXButton onAction="#actAddTypeAddType" text="Agregar" />
                </children>
             </HBox>
          </children>
