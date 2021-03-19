@@ -39,11 +39,11 @@ public class RestaurantManager {
     /**
      * The Ois.
      */
-    ObjectInputStream ois;
+    private ObjectInputStream ois;
     /**
      * The File.
      */
-    File file;
+    private File file;
 
     private List<Ingredients> ingredients;
     private List<Product> products;
@@ -279,6 +279,12 @@ public class RestaurantManager {
         return ret;
     }
 
+    /**
+     * Add food type boolean.
+     *
+     * @param name the name
+     * @return the boolean
+     */
     public boolean addFoodType(String name){
         boolean ret = true;
         FoodType foodType = new FoodType(activeUser, activeUser, name);
@@ -319,6 +325,14 @@ public class RestaurantManager {
         return ret;
     }
 
+    /**
+     * Add employee boolean.
+     *
+     * @param firstName the first name
+     * @param lastName  the last name
+     * @param id        the id
+     * @return the boolean
+     */
     public boolean addEmployee(String firstName, String lastName, String id){
         boolean ret = true;
         Employee employee = new Employee(activeUser, activeUser, firstName,lastName, id);
@@ -366,12 +380,17 @@ public class RestaurantManager {
      * @param type        the type
      * @param ingredients the ingredients
      * @param size        the size
-     * @param price       the price
      * @return the boolean
      */
-    public boolean addProduct(String name, FoodType type, List<Ingredients> ingredients, List<Size> size, ArrayList<Double> price){
+    public boolean addProduct(String name, String type, List<Ingredients> ingredients, List<Size> size){
         boolean ret = true;
-        Product product = new Product(activeUser, activeUser, name, type, ingredients, size, price);
+        FoodType foodType = null;
+        for(int i = 0; i < foodTypes.size(); i++){
+            if(type.equals(foodTypes.get(i).getName())){
+                foodType = foodTypes.get(i);
+            }
+        }
+        Product product = new Product(activeUser, activeUser, name, foodType, ingredients, size);
         for(int i = 0; i < products.size() && ret; i++){
             if(products.get(i).getName().equals(name)){
                 ret = false;
@@ -406,7 +425,14 @@ public class RestaurantManager {
         return ret;
     }
 
-    //Edit methods
+    /**
+     * Edit ingredient boolean.
+     *
+     * @param oldName the old name
+     * @param newName the new name
+     * @return the boolean
+     */
+//Edit methods
     public boolean editIngredient(String oldName, String newName){
         boolean ret = false;
         for(int i = 0; i < ingredients.size() && !ret; i++){
@@ -418,6 +444,13 @@ public class RestaurantManager {
         return ret;
     }
 
+    /**
+     * New size size.
+     *
+     * @param size  the size
+     * @param price the price
+     * @return the size
+     */
     public Size newSize(String size, double price){
         Size size1 = new Size(size, price);
         return size1;
@@ -567,6 +600,12 @@ public class RestaurantManager {
         this.employees = employees;
     }
 
+    /**
+     * Search ingredient ingredients.
+     *
+     * @param name the name
+     * @return the ingredients
+     */
     public Ingredients searchIngredient(String name){
         boolean found = false;
         Ingredients ingredient = null;

@@ -20,6 +20,7 @@ import javafx.scene.layout.VBox;
 import model.*;
 
 import java.io.IOException;
+import java.util.List;
 
 public class RestaurantAdministratorGUI {
 
@@ -252,6 +253,12 @@ public class RestaurantAdministratorGUI {
             alert.setHeaderText(null);
             alert.setContentText("User created successfully");
             alert.showAndWait();
+
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(LOGIN_FXML));
+            fxmlLoader.setController(this);
+            Parent login = fxmlLoader.load();
+
+            bpPaneMain.setCenter(login);
         }else{
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Error");
@@ -440,7 +447,25 @@ public class RestaurantAdministratorGUI {
 
     @FXML
     public void actAddProductAddProduct(ActionEvent event) {
+        String productName = tfNameAddProduct.getText();
+        String foodType = cbTypeAddProduct.getSelectionModel().getSelectedItem();
+        List<Ingredients> ingredients = tvIngredientsAddProduct.getItems();
+        List<Size> sizesList = tvSizeAddProduct.getItems();
 
+        if(!(productName.equals(""))&&!(foodType.equals(""))&&(ingredients.get(0)!=null) && (sizesList.get(0)!=null)){
+            manager.addProduct(productName, foodType, ingredients, sizesList);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information");
+            alert.setHeaderText(null);
+            alert.setContentText("Producto añadido con exito");
+            alert.showAndWait();
+        }else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Revise todos los campos antes de crear un producto");
+            alert.showAndWait();
+        }
     }
 
     @FXML

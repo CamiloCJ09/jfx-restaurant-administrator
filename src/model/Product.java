@@ -12,7 +12,7 @@ public class Product extends RestaurantObject{
     private boolean status;
 
     //Methods
-    public Product(User creator, User modifier, String name, FoodType type, List<Ingredients> ingredients, List<Size> size, ArrayList<Double> price) {
+    public Product(User creator, User modifier, String name, FoodType type, List<Ingredients> ingredients, List<Size> size) {
         super(creator, modifier);
         this.name = name;
         this.type = type;
