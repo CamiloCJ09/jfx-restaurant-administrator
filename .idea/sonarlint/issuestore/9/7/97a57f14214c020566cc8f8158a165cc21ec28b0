@@ -1,30 +1,32 @@
 
-
-java:S2159‰"zRemove this call to "equals"; comparisons against null always return false; consider using '== null' to check for nullity.(şéâÌıÿÿÿÿ8‹ìÙÅ„/
 Ÿ
-java:S1186Ê"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¯¢–Á8‹ìÙÅ„/
-?	java:S131Û""Add a default case to this switch.(ûè¬8‹ìÙÅ„/
-g
-java:S1858Û"I"getSelectedItem" returns a string, there's no need to call "toString()".(ûè¬8‹ìÙÅ„/
+java:S1186à"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¯¢–Á8¤Ñå„/
 l
-java:S1858»"I"getSelectedItem" returns a string, there's no need to call "toString()".(ïğ¿¤şÿÿÿÿ8‹ìÙÅ„/
-Ÿ
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(÷ğè½8‹ìÙÅ„/
-g
-java:S2583"DChange this condition so that it does not always evaluate to "false"(Ò€˜˜şÿÿÿÿ8‹ìÙÅ„/
-—
-java:S2159‘"zRemove this call to "equals"; comparisons against null always return false; consider using '== null' to check for nullity.(·­çR8‹ìÙÅ„/
-d
-java:S1192Ñ"FDefine a constant instead of duplicating this literal "Error" 3 times.(µûø–8ªšòÆ„/
+java:S1858Ñ"I"getSelectedItem" returns a string, there's no need to call "toString()".(ïğ¿¤şÿÿÿÿ8¤Ñå„/
 a
-java:S2583‘"DChange this condition so that it does not always evaluate to "false"(·­çR8‹ìÙÅ„/
+java:S2583§"DChange this condition so that it does not always evaluate to "false"(·­çR8¤Ñå„/
 ¤
-java:S1186Ô"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ü—ìŠûÿÿÿÿ8‹ìÙÅ„/
-
-java:S2159"zRemove this call to "equals"; comparisons against null always return false; consider using '== null' to check for nullity.(Ò€˜˜şÿÿÿÿ8‹ìÙÅ„/
+java:S1186å"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(İ‘€‘ıÿÿÿÿ8¤Ñå„/
 Ÿ
-java:S1186»"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¼•¹œ8‹ìÙÅ„/
+java:S1186Î"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¼•¹œ8¤Ñå„/
 ¤
-java:S1186Ï"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(İ‘€‘ıÿÿÿÿ8‹ìÙÅ„/
+java:S1186ê"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ü—ìŠûÿÿÿÿ8¤Ñå„/
+
+java:S2159Ÿ"zRemove this call to "equals"; comparisons against null always return false; consider using '== null' to check for nullity.(şéâÌıÿÿÿÿ8¤Ñå„/
+?	java:S131ñ""Add a default case to this switch.(ûè¬8¤Ñå„/
+d
+java:S1192ä"FDefine a constant instead of duplicating this literal "Error" 3 times.(µûø–8¤Ñå„/
+
+java:S2159£"zRemove this call to "equals"; comparisons against null always return false; consider using '== null' to check for nullity.(Ò€˜˜şÿÿÿÿ8¤Ñå„/
 g
-java:S2583‰"DChange this condition so that it does not always evaluate to "false"(şéâÌıÿÿÿÿ8‹ìÙÅ„/
+java:S2583£"DChange this condition so that it does not always evaluate to "false"(Ò€˜˜şÿÿÿÿ8¤Ñå„/
+g
+java:S2583Ÿ"DChange this condition so that it does not always evaluate to "false"(şéâÌıÿÿÿÿ8¤Ñå„/
+œ
+java:S1130ÿ"yRemove the declaration of thrown exception 'java.lang.ClassNotFoundException', as it cannot be thrown from method's body.(£Ÿ•ıÿÿÿÿ8È¹æ„/
+—
+java:S2159§"zRemove this call to "equals"; comparisons against null always return false; consider using '== null' to check for nullity.(·­çR8¤Ñå„/
+g
+java:S1858ñ"I"getSelectedItem" returns a string, there's no need to call "toString()".(ûè¬8¤Ñå„/
+Ÿ
+java:S1186³"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(÷ğè½8¤Ñå„/

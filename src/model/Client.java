@@ -1,6 +1,6 @@
 package model;
 
-public class Client extends Person{
+public class Client extends Person implements Comparable<Client>{
 
     //Attributes
     private String address;
@@ -13,6 +13,11 @@ public class Client extends Person{
         this.address = address;
         this.tel = tel;
         this.observations = observations;
+    }
+
+    @Override
+    public int compareTo(Client otherClient) {
+        return this.getLastName().compareToIgnoreCase(otherClient.getLastName());
     }
 
     public String getAddress() {

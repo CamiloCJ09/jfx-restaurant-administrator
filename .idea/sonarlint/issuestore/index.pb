@@ -33,3 +33,5 @@ J
 src/ui/Main.java,e\b\ebe8214aea720e1ed7c01e1c59390b69406ecdc1
 =
 data/users.cd,0\7\07e6fe0d10ee2cca4f51401b8cfaeb60c4ff22e5
+C
+src/model/Size.java,a\f\afe81f6d9a5eb400c8e1644ae90ffe02be9188a0

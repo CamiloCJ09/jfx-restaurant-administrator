@@ -252,7 +252,7 @@ public class RestaurantAdministratorGUI {
     }
 
     @FXML
-    public void actSignupSignup(ActionEvent event) throws IOException {
+    public void actSignupSignup(ActionEvent event) throws IOException, ClassNotFoundException {
         String firstName = tfFirstNameSignup.getText();
         String lastName = tfLastNameSignup.getText();
         String id = tfIdentificationSignup.getText();
@@ -276,7 +276,6 @@ public class RestaurantAdministratorGUI {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(LOGIN_FXML));
             fxmlLoader.setController(this);
             Parent login = fxmlLoader.load();
-
             bpPaneMain.setCenter(login);
         }else{
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -285,6 +284,10 @@ public class RestaurantAdministratorGUI {
             alert.setContentText("Revisa que los campos hayan sido llenados correctamente y que las contraseñas sean iguales");
             alert.showAndWait();
         }
+    }
+
+    public void loadAllData() throws IOException, ClassNotFoundException {
+        manager.loadUsersData();
     }
 
     public void setupOrderScreen(){

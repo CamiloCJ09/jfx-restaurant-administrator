@@ -28,7 +28,7 @@ public class Main extends Application{
         Parent signIn = fxmlLoader2.load();
 
         restaurantAdministratorGUI.getMainPanePrincipal().setCenter(signIn);
-
+        restaurantAdministratorGUI.loadAllData();
 
     }
     public static void main(String[] args){

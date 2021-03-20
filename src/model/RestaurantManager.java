@@ -2,6 +2,7 @@ package model;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -133,6 +134,18 @@ public class RestaurantManager {
         oss = new ObjectOutputStream(new FileOutputStream(USERS_PATH));
         oss.writeObject(users);
         oss.close();
+    }
+
+    public void loadUsersData() throws IOException, ClassNotFoundException {
+        file = new File(USERS_PATH);
+        //boolean loaded = false;
+        if(file.exists()){
+            ois = new ObjectInputStream(new FileInputStream(file));
+            users = (List)ois.readObject();
+            ois.close();
+            //loaded = true;
+        }
+        //return loaded;
     }
 
     /**
@@ -310,7 +323,6 @@ public class RestaurantManager {
      * @param observations the observations
      * @return the boolean
      */
-//Todo: Add the sorted added method
     public boolean addClient(String firstName, String lastName, String id, String address, String tel, String observations){
         boolean ret = true;
         Client client = new Client(activeUser, activeUser, firstName, lastName, id, address, tel, observations);
@@ -320,7 +332,16 @@ public class RestaurantManager {
             }
         }
         if(ret){
-            clients.add(client);
+            if(clients.isEmpty()){
+                clients.add(client);
+            }else{
+                int i = 0;
+                while(i < clients.size() && client.compareTo(clients.get(i))>0){
+                    i++;
+                }
+                clients.add(i, client);
+            }
+
         }
         return ret;
     }
