@@ -412,17 +412,8 @@ public class RestaurantAdministratorGUI {
         String lastName = tfLastNameAddClient.getText();
         String id = tfIdAddClient.getText();
         String address = tfAddressAddClient.getText();
-        if(address.equals(null)){
-            address = "";
-        }
         String tel = tfTelAddClient.getText();
-        if(tel.equals(null)){
-            tel = "";
-        }
         String observations = taObservationsAddClient.getText();
-        if(observations.equals(null)){
-            observations = "";
-        }
         manager.addClient(firstName, lastName, id, address, tel, observations);
     }
 
@@ -498,7 +489,7 @@ public class RestaurantAdministratorGUI {
     }
 
     @FXML
-    void actDisplaySizesOrder(ActionEvent event) {
+    public void actDisplaySizesOrder(ActionEvent event) {
         String productName = cbProductOrder.getSelectionModel().getSelectedItem();
         for(int i = 0; i < manager.findProduct(productName).getSizes().size(); i++){
             cbSizeOrder.getItems().add(manager.findProduct(productName).getSizes().get(i).getSize());
@@ -506,7 +497,7 @@ public class RestaurantAdministratorGUI {
     }
 
     @FXML
-    void actDisplayUPriceOrder(ActionEvent event) {
+    public void actDisplayUPriceOrder(ActionEvent event) {
         String productName = cbProductOrder.getSelectionModel().getSelectedItem();
         String sizes = cbSizeOrder.getSelectionModel().getSelectedItem();
         for(int i = 0; i < manager.findProduct(productName).getSizes().size(); i++){
@@ -517,7 +508,7 @@ public class RestaurantAdministratorGUI {
         }
     }
     @FXML
-    void actDisplayTPriceOrder(KeyEvent event) {
+    public void actDisplayTPriceOrder(KeyEvent event) {
         if (!tfAmountOrder.getText().equals("")){
             int amount = Integer.parseInt(tfAmountOrder.getText());
             double unitPrice = Double.parseDouble(tfUPriceOrder.getText());
@@ -525,5 +516,9 @@ public class RestaurantAdministratorGUI {
             tfTPriceOrder.setText(value);
         }
     }
+
+    //Todo: add import data method and connect it with restaurant manager
+    //Todo: add export data methods and connect them with restaurant manager
+
 
 }

@@ -2,7 +2,6 @@ package model;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -67,6 +66,35 @@ public class RestaurantManager {
         foodTypes = new ArrayList<>();
         users = new ArrayList<>();
         employees = new ArrayList<>();
+    }
+
+
+
+    public void exportEmployeesData(String fileName, String delimeterChar) throws FileNotFoundException {
+
+    }
+    public void exportProductsData(String fileName, String delimeterChar) throws FileNotFoundException {
+
+    }
+    public void exportOrderData(String fileName, String delimeterChar) throws FileNotFoundException {
+
+    }
+
+    public void importClientsData(String fileName) throws IOException{
+        BufferedReader br = new BufferedReader(new FileReader(fileName));
+        String line = br.readLine();
+        while(line != null){
+            String[] parts = line.split("CHANGE HERE"); //CHANGE THE SPLIT CHARACTER
+            String firstName = parts[0];
+            String lastName = parts[1];
+            String id = parts[2];
+            String address = parts[3];
+            String tel = parts[4];
+            String observations = "";
+
+            addClient(firstName, lastName, id, address, tel, observations);
+            line = br.readLine();
+        }
     }
 
     /**
