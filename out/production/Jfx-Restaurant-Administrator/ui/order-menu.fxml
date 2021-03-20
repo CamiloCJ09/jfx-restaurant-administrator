@@ -108,7 +108,7 @@
           <TableColumn fx:id="tcProductOrder" prefWidth="75.0" text="Producto" />
             <TableColumn fx:id="tcSizeOrder" prefWidth="75.0" text="Tamaño" />
             <TableColumn fx:id="tcAmountOrder" prefWidth="75.0" text="Cantidad" />
-          <TableColumn prefWidth="284.0" text="Precio">
+            <TableColumn prefWidth="128.0" text="Precio">
                <columns>
                   <TableColumn fx:id="tcUPriceOrder" prefWidth="128.0" text="Unitario" />
                   <TableColumn fx:id="tcTPriceOrder" prefWidth="171.0" text="Total" />

@@ -5,16 +5,16 @@ public class OrderMenuItem extends RestaurantObject{
     private String productName;
     private String size;
     private String amount;
-    private String uPrice;
-    private String tPrice;
+    private String priceU;
+    private String priceT;
 
     public OrderMenuItem(User creator, User modifier, Product product, Size size, double amount){
         super(creator, modifier);
         this.productName = product.getName();
         this.size = size.getSize();
         this.amount = String.valueOf(amount);
-        this.uPrice = String.valueOf(size.getPrice());
-        this.tPrice = String.valueOf(size.getPrice()*amount);
+        this.priceU = String.valueOf(size.getPrice());
+        this.priceT = String.valueOf(size.getPrice()*amount);
     }
 
     public String getProductName() {
@@ -41,19 +41,19 @@ public class OrderMenuItem extends RestaurantObject{
         this.amount = amount;
     }
 
-    public String getuPrice() {
-        return uPrice;
+    public String getPriceU() {
+        return priceU;
     }
 
-    public void setuPrice(String uPrice) {
-        this.uPrice = uPrice;
+    public void setPriceU(String priceU) {
+        this.priceU = priceU;
     }
 
-    public String gettPrice() {
-        return tPrice;
+    public String getPriceT() {
+        return priceT;
     }
 
-    public void settPrice(String tPrice) {
-        this.tPrice = tPrice;
+    public void setPriceT(String priceT) {
+        this.priceT = priceT;
     }
 }

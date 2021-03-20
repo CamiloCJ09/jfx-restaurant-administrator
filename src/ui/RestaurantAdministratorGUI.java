@@ -302,8 +302,8 @@ public class RestaurantAdministratorGUI {
         tcProductOrder.setCellValueFactory(new PropertyValueFactory<>("productName"));
         tcSizeOrder.setCellValueFactory(new PropertyValueFactory<>("size"));
         tcAmountOrder.setCellValueFactory(new PropertyValueFactory<>("amount"));
-        tcUPriceOrder.setCellValueFactory(new PropertyValueFactory<>("uPrice"));
-        tcTPriceOrder.setCellValueFactory(new PropertyValueFactory<>("tPrice"));
+        tcUPriceOrder.setCellValueFactory(new PropertyValueFactory<>("priceU"));
+        tcTPriceOrder.setCellValueFactory(new PropertyValueFactory<>("priceT"));
     }
 
 
@@ -359,13 +359,14 @@ public class RestaurantAdministratorGUI {
                 manager.findSize(manager.findProduct(cbProductOrder.getSelectionModel().getSelectedItem().toString()), cbSizeOrder.getSelectionModel().getSelectedItem().toString()),
                 Double.parseDouble(tfAmountOrder.getText())
         ));
+        System.out.println(manager.findSize(manager.findProduct(cbProductOrder.getSelectionModel().getSelectedItem().toString()), cbSizeOrder.getSelectionModel().getSelectedItem().toString()).getPrice());
         tvOrdersOrder.setItems(orderItems);
         tvOrdersOrder.refresh();
     }
 
     @FXML
     public void actDeleteOrder(ActionEvent event) {
-
+        orderItems.remove(tvOrdersOrder.getSelectionModel().getSelectedItem());
     }
 
     @FXML
