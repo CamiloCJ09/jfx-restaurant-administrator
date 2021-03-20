@@ -501,8 +501,7 @@ public class RestaurantManager {
      * @return the size
      */
     public Size newSize(String size, double price){
-        Size size1 = new Size(size, price);
-        return size1;
+        return new Size(activeUser, activeUser,size, price);
     }
 
     //Other methods

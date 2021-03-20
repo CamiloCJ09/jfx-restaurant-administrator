@@ -1,10 +1,11 @@
 package model;
 
-public class Size {
+public class Size extends RestaurantObject{
     private String size;
     private double price;
 
-    public Size(String size, double price){
+    public Size(User creator, User modifier, String size, double price){
+        super(creator modifier);
         this.size = size;
         this.price = price;
     }
