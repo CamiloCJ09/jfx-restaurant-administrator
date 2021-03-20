@@ -400,17 +400,15 @@ public class RestaurantManager {
      * Add order boolean.
      *
      * @param code         the code
-     * @param quantity     the quantity
-     * @param products     the products
      * @param time         the time
      * @param observations the observations
      * @param deliverer    the deliverer
      * @param client       the client
      * @return the boolean
      */
-    public boolean addOrder(String code, ArrayList<Integer> quantity, ArrayList<Product> products, Date time, String observations, Employee deliverer, Client client){
+    public boolean addOrder(String code, List<OrderMenuItem> items, Date time, String observations, Employee deliverer, Client client){
         boolean ret = true;
-        Order order = new Order(activeUser, activeUser, code, quantity, products, time, observations, deliverer, client);
+        Order order = new Order(activeUser, activeUser, code, items, time, observations, deliverer, client);
         for(int i = 0; i < orders.size() && ret; i++){
             if(orders.get(i).getCode().equals(code)){
                 ret = false;
@@ -420,6 +418,15 @@ public class RestaurantManager {
             orders.add(order);
         }
         return ret;
+    }
+
+    public OrderMenuItem newOrderMenuItem(Product product, Size size, double amount){
+        OrderMenuItem item = new OrderMenuItem(activeUser, activeUser, product, size, amount);
+        return item;
+    }
+
+    public Size findSize(Product product, String size){
+        return product.findSize(size);
     }
 
     /**

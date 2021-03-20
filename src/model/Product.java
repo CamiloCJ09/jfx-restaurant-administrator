@@ -64,4 +64,16 @@ public class Product extends RestaurantObject{
     public void setSizes(List<Size> sizes) {
         this.sizes = sizes;
     }
+
+    public Size findSize(String size){
+        boolean found = false;
+        Size rSize = null;
+        for(int i = 0; i<sizes.size() && !found; i++){
+            if(sizes.get(i).getSize().equals(size)){
+                rSize = sizes.get(i);
+                found = true;
+            }
+        }
+        return rSize;
+    }
 }

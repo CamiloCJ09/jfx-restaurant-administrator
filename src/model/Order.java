@@ -2,13 +2,13 @@ package model;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Order extends RestaurantObject{
 
     //Attributes
     private String code;
-    private ArrayList<Integer> quantity;
-    private ArrayList<Product> products;
+    private List<OrderMenuItem> items;
     private Date time;
     private String observations;
     private Status status;
@@ -16,11 +16,10 @@ public class Order extends RestaurantObject{
     private Client client;
 
     //Methods
-    public Order(User creator, User modifier, String code, ArrayList<Integer> quantity, ArrayList<Product> products, Date time, String observations, Employee deliverer, Client client) {
+    public Order(User creator, User modifier, String code, List<OrderMenuItem> items, Date time, String observations, Employee deliverer, Client client) {
         super(creator, modifier);
         this.code = code;
-        this.quantity = quantity;
-        this.products = products;
+        this.items = items;
         this.time = time;
         this.observations = observations;
         this.status = Status.SOLICITED;
@@ -34,22 +33,6 @@ public class Order extends RestaurantObject{
 
     public void setCode(String code) {
         this.code = code;
-    }
-
-    public ArrayList<Integer> getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(ArrayList<Integer> quantity) {
-        this.quantity = quantity;
-    }
-
-    public ArrayList<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(ArrayList<Product> products) {
-        this.products = products;
     }
 
     public Date getTime() {
@@ -90,5 +73,13 @@ public class Order extends RestaurantObject{
 
     public void setClient(Client client) {
         this.client = client;
+    }
+
+    public List<OrderMenuItem> getItems() {
+        return items;
+    }
+
+    public void setItems(List<OrderMenuItem> items) {
+        this.items = items;
     }
 }

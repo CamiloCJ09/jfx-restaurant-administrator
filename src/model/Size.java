@@ -5,7 +5,7 @@ public class Size extends RestaurantObject{
     private double price;
 
     public Size(User creator, User modifier, String size, double price){
-        super(creator modifier);
+        super(creator, modifier);
         this.size = size;
         this.price = price;
     }

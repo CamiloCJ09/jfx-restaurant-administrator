@@ -49,6 +49,8 @@ public class RestaurantAdministratorGUI {
 
     private ObservableList<Size> tempSizes;
 
+    private ObservableList<OrderMenuItem> orderItems;
+
     @FXML
     private BorderPane bpPaneMain;
 
@@ -179,26 +181,22 @@ public class RestaurantAdministratorGUI {
     private TableColumn<Ingredients, String> tcIngredientsAddProduct;
 
     @FXML
-    private TableView<?> tvOrdersOrder;
+    private TableView<OrderMenuItem> tvOrdersOrder;
 
     @FXML
-    private TableColumn<?, ?> tcProductOrder;
+    private TableColumn<OrderMenuItem, String> tcProductOrder;
 
     @FXML
-    private TableColumn<?, ?> tcSizeOrder;
+    private TableColumn<OrderMenuItem, String> tcSizeOrder;
 
     @FXML
-    private TableColumn<?, ?> tcAmountOrder;
+    private TableColumn<OrderMenuItem, String> tcAmountOrder;
 
     @FXML
-    private TableColumn<?, ?> tcUPriceOrder;
+    private TableColumn<OrderMenuItem, String> tcUPriceOrder;
 
     @FXML
-    private TableColumn<?, ?> tcTPriceOrder;
-
-    @FXML
-    private TableColumn<?, ?> tcObservationsOrder;
-
+    private TableColumn<OrderMenuItem, String> tcTPriceOrder;
 
     public RestaurantAdministratorGUI(){
         manager = new RestaurantManager();
@@ -300,6 +298,12 @@ public class RestaurantAdministratorGUI {
         for(int c = 0; c<manager.getProducts().size(); c++){
             cbProductOrder.getItems().add(manager.getProducts().get(c).getName());
         }
+        orderItems = FXCollections.observableArrayList();
+        tcProductOrder.setCellValueFactory(new PropertyValueFactory<>("productName"));
+        tcSizeOrder.setCellValueFactory(new PropertyValueFactory<>("size"));
+        tcAmountOrder.setCellValueFactory(new PropertyValueFactory<>("amount"));
+        tcUPriceOrder.setCellValueFactory(new PropertyValueFactory<>("uPrice"));
+        tcTPriceOrder.setCellValueFactory(new PropertyValueFactory<>("tPrice"));
     }
 
 
@@ -350,7 +354,13 @@ public class RestaurantAdministratorGUI {
 
     @FXML
     public void actAddOrderOrder(ActionEvent event) {
-
+        orderItems.add(manager.newOrderMenuItem(
+                manager.findProduct(cbProductOrder.getSelectionModel().getSelectedItem().toString()),
+                manager.findSize(manager.findProduct(cbProductOrder.getSelectionModel().getSelectedItem().toString()), cbSizeOrder.getSelectionModel().getSelectedItem().toString()),
+                Double.parseDouble(tfAmountOrder.getText())
+        ));
+        tvOrdersOrder.setItems(orderItems);
+        tvOrdersOrder.refresh();
     }
 
     @FXML
@@ -490,6 +500,7 @@ public class RestaurantAdministratorGUI {
 
     @FXML
     public void actDisplaySizesOrder(ActionEvent event) {
+        cbSizeOrder.getItems().clear();
         String productName = cbProductOrder.getSelectionModel().getSelectedItem();
         for(int i = 0; i < manager.findProduct(productName).getSizes().size(); i++){
             cbSizeOrder.getItems().add(manager.findProduct(productName).getSizes().get(i).getSize());
