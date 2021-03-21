@@ -4,6 +4,8 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -28,4 +30,18 @@
          </children>
       </VBox>
    </center>
+   <right>
+      <VBox alignment="CENTER" prefHeight="600.0" prefWidth="535.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView fx:id="tvIngredientsAddIngredient" prefHeight="457.0" prefWidth="535.0">
+              <columns>
+                <TableColumn fx:id="tcNameAddIngredient" prefWidth="75.0" text="Nombre" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </children>
+      </VBox>
+   </right>
 </BorderPane>

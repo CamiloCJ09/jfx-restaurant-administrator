@@ -4,6 +4,8 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -31,7 +33,7 @@
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Separator orientation="VERTICAL" prefHeight="86.0" prefWidth="17.0" visible="false" />
-                  <Label text="Número de identifiación:" />
+                  <Label text="Número de identificación:" />
                   <Separator orientation="VERTICAL" prefHeight="200.0" visible="false" />
                   <JFXTextField fx:id="tfIdAddEmployee" focusColor="#ffd800" />
                </children>
@@ -44,4 +46,20 @@
          </children>
       </VBox>
    </center>
+   <right>
+      <VBox alignment="CENTER" prefHeight="600.0" prefWidth="598.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView fx:id="tvEmployeesAddEmployee" prefHeight="421.0" prefWidth="598.0">
+              <columns>
+                <TableColumn fx:id="tcFirstNameAddEmployee" prefWidth="75.0" text="Nombres" />
+                <TableColumn fx:id="tcLastNameAddEmployee" prefWidth="75.0" text="Apellidos" />
+                  <TableColumn fx:id="tcIdAddEmployee" prefWidth="75.0" text="Identificación" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </children>
+      </VBox>
+   </right>
 </BorderPane>

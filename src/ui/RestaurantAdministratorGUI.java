@@ -56,6 +56,12 @@ public class RestaurantAdministratorGUI {
 
     private ObservableList<Client> clients;
 
+    private ObservableList<Employee> employees;
+
+    private ObservableList<Ingredients> ingredients;
+
+    private ObservableList<FoodType> types;
+
     @FXML
     private BorderPane bpPaneMain;
 
@@ -224,6 +230,30 @@ public class RestaurantAdministratorGUI {
     @FXML
     private TableColumn<?, ?> tcObservationsAddClient;
 
+    @FXML
+    private TableView<Employee> tvEmployeesAddEmployee;
+
+    @FXML
+    private TableColumn<Employee, String> tcFirstNameAddEmployee;
+
+    @FXML
+    private TableColumn<Employee, String> tcLastNameAddEmployee;
+
+    @FXML
+    private TableColumn<Employee, String> tcIdAddEmployee;
+
+    @FXML
+    private TableView<Ingredients> tvIngredientsAddIngredient;
+
+    @FXML
+    private TableColumn<Ingredients, String> tcNameAddIngredient;
+
+    @FXML
+    private TableView<FoodType> tvTypesAddType;
+
+    @FXML
+    private TableColumn<FoodType, String> tcNameAddType;
+
     public RestaurantAdministratorGUI(){
         manager = new RestaurantManager();
     }
@@ -314,7 +344,13 @@ public class RestaurantAdministratorGUI {
         manager.loadUsersData();
     }
 
-    public void setupClientsAddClientsScreen(){
+    public void setupClientsAddClientsScreen() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADDCLIENT_FXML));
+        fxmlLoader.setController(this);
+        Parent addclient = fxmlLoader.load();
+
+        bpPaneAdd.setCenter(addclient);
+
         clients = FXCollections.observableArrayList(manager.getClients());
         tcFirstNameAddClient.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         tcLastNameAddClient.setCellValueFactory(new PropertyValueFactory<>("lastName"));
@@ -415,19 +451,11 @@ public class RestaurantAdministratorGUI {
         FXMLLoader fxmlLoader;
         switch (cbTypeAdd.getSelectionModel().getSelectedItem().toString()){
             case("Empleado"):
-                fxmlLoader = new FXMLLoader(getClass().getResource(ADDEMPLOYEE_FXML));
-                fxmlLoader.setController(this);
-                Parent addemployee = fxmlLoader.load();
+                setupAddEmployeeScreen();
 
-                bpPaneAdd.setCenter(addemployee);
             break;
             case("Cliente"):
-                fxmlLoader = new FXMLLoader(getClass().getResource(ADDCLIENT_FXML));
-                fxmlLoader.setController(this);
-                Parent addclient = fxmlLoader.load();
-
                 setupClientsAddClientsScreen();
-                bpPaneAdd.setCenter(addclient);
             break;
             case("Producto"):
                 fxmlLoader = new FXMLLoader(getClass().getResource(ADDPRODUCT_FXML));
@@ -438,24 +466,16 @@ public class RestaurantAdministratorGUI {
                 setupAddProductScene();
             break;
             case("Ingrediente"):
-                fxmlLoader = new FXMLLoader(getClass().getResource(ADDINGREDIENT_FXML));
-                fxmlLoader.setController(this);
-                Parent addingredient = fxmlLoader.load();
-
-                bpPaneAdd.setCenter(addingredient);
+                setupAddIngredientScreen();
             break;
             case("Tipo de comida"):
-                fxmlLoader = new FXMLLoader(getClass().getResource(ADDTYPE_FXML));
-                fxmlLoader.setController(this);
-                Parent addtype = fxmlLoader.load();
-
-                bpPaneAdd.setCenter(addtype);
+                setupAddTypeScreen();
             break;
         }
     }
 
     @FXML
-    public void actAddClientAddClient(ActionEvent event) {
+    public void actAddClientAddClient(ActionEvent event) throws IOException {
         String firstName = tfFirstNameAddClient.getText();
         String lastName = tfLastNameAddClient.getText();
         String id = tfIdAddClient.getText();
@@ -464,27 +484,29 @@ public class RestaurantAdministratorGUI {
         String observations = taObservationsAddClient.getText();
         manager.addClient(firstName, lastName, id, address, tel, observations);
         setupClientsAddClientsScreen();
-        tvClientsAddClient.refresh();
     }
 
     @FXML
-    public void actAddEmployeeAddEmployee(ActionEvent event) {
+    public void actAddEmployeeAddEmployee(ActionEvent event) throws IOException {
         String firstName = tfFirstNameAddEmployee.getText();
         String lastName = tfLastNameAddEmployee.getText();
         String id = tfIdAddEmployee.getText();
         manager.addEmployee(firstName, lastName, id);
+        setupAddEmployeeScreen();
     }
 
     @FXML
-    public void actAddIngredientAddIngredient(ActionEvent event) {
+    public void actAddIngredientAddIngredient(ActionEvent event) throws IOException {
         String name = tfNameAddIngredient.getText();
         manager.addIngredient(name);
+        setupAddIngredientScreen();
     }
 
     @FXML
-    public void actAddTypeAddType(ActionEvent event) {
+    public void actAddTypeAddType(ActionEvent event) throws IOException {
         String name = tfNameAddType.getText();
         manager.addFoodType(name);
+        setupAddTypeScreen();
     }
 
     private void setupAddProductScene(){
@@ -572,21 +594,56 @@ public class RestaurantAdministratorGUI {
     //Todo: add export data methods and connect them with restaurant manager
 
     @FXML
-    void actImportUsersData(ActionEvent event) throws IOException {
+    public void actImportUsersData(ActionEvent event) throws IOException {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Selecciona el archivo");
         fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Csv files", "*.csv"));
         Stage primaryStage = (Stage)bpPaneMain.getScene().getWindow();
         File fileToSave = fileChooser.showOpenDialog(primaryStage);
-        String url = fileToSave.toPath().toString();
         if(fileToSave != null){
+            String url = fileToSave.toPath().toString();
             manager.importClientsData(url);
         }else{
             System.out.println("No funciona rey");
         }
-        tvClientsAddClient.refresh();
-
+        setupClientsAddClientsScreen();
     }
 
+    public void setupAddEmployeeScreen() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADDEMPLOYEE_FXML));
+        fxmlLoader.setController(this);
+        Parent addemployee = fxmlLoader.load();
 
+        bpPaneAdd.setCenter(addemployee);
+
+        employees = FXCollections.observableArrayList(manager.getEmployees());
+        tcFirstNameAddEmployee.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        tcLastNameAddEmployee.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        tcIdAddEmployee.setCellValueFactory(new PropertyValueFactory<>("id"));
+        tvEmployeesAddEmployee.setItems(employees);
+    }
+
+    public void setupAddIngredientScreen() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADDINGREDIENT_FXML));
+        fxmlLoader.setController(this);
+        Parent addingredient = fxmlLoader.load();
+
+        bpPaneAdd.setCenter(addingredient);
+
+        ingredients = FXCollections.observableArrayList(manager.getIngredients());
+        tcNameAddIngredient.setCellValueFactory(new PropertyValueFactory<>("name"));
+        tvIngredientsAddIngredient.setItems(ingredients);
+    }
+
+    public void setupAddTypeScreen() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADDTYPE_FXML));
+        fxmlLoader.setController(this);
+        Parent addtype = fxmlLoader.load();
+
+        bpPaneAdd.setCenter(addtype);
+
+        types = FXCollections.observableArrayList(manager.getFoodTypes());
+        tcNameAddType.setCellValueFactory(new PropertyValueFactory<>("name"));
+        tvTypesAddType.setItems(types);
+    }
 }
