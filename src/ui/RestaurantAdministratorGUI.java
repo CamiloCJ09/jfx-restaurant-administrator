@@ -646,4 +646,5 @@ public class RestaurantAdministratorGUI {
         tcNameAddType.setCellValueFactory(new PropertyValueFactory<>("name"));
         tvTypesAddType.setItems(types);
     }
+
 }

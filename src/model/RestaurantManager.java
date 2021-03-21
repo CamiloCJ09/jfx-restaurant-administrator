@@ -98,6 +98,21 @@ public class RestaurantManager {
         }
     }
 
+    public void importProductsData(String fileName) throws IOException{
+        BufferedReader br = new BufferedReader(new FileReader(fileName));
+        String line = br.readLine();
+        //Add cleaning line
+        while(line != null){
+            String[] parts = line.split(";");
+            String name = parts[0];
+            String type = parts[1];
+            String[] ingredients = parts[2].split("\\|");
+            //Todo: Complete
+            line = br.readLine();
+        }
+
+    }
+
     /**
      * Save ingredients data.
      *
@@ -309,7 +324,7 @@ public class RestaurantManager {
         Ingredients ingredient = new Ingredients(activeUser, activeUser, ingredientName);
         boolean ret = true; //if cant added return false
         for(int i = 0; i < ingredients.size() && ret; i++){
-            if(ingredients.get(i).getName().equals(ingredientName)){
+            if(ingredients.get(i).getName().equalsIgnoreCase(ingredientName)){
                 ret = false;
             }
         }
