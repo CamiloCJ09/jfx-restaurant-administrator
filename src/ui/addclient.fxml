@@ -36,7 +36,7 @@
                   <HBox alignment="CENTER_LEFT" prefHeight="89.0" prefWidth="519.0">
                      <children>
                         <Separator orientation="VERTICAL" prefHeight="86.0" prefWidth="17.0" visible="false" />
-                        <Label text="Número de identifiación:" />
+                        <Label text="Número de identificación:" />
                         <Separator orientation="VERTICAL" prefHeight="200.0" visible="false" />
                         <JFXTextField fx:id="tfIdAddClient" focusColor="#ffd800" prefHeight="25.0" prefWidth="173.0" />
                      </children>
@@ -62,7 +62,7 @@
                         <Separator orientation="VERTICAL" prefHeight="86.0" prefWidth="18.0" visible="false" />
                         <Label text="Observaciones:" />
                         <Separator orientation="VERTICAL" prefHeight="86.0" prefWidth="59.0" visible="false" />
-                        <JFXTextArea fx:id="taObservationsAddClient" focusColor="#ffd800" prefHeight="91.0" prefWidth="367.0" />
+                        <JFXTextArea fx:id="taObservationsAddClient" focusColor="#ffd800" prefHeight="107.0" prefWidth="253.0" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -74,7 +74,7 @@
             </VBox>
          </center>
          <right>
-            <VBox alignment="CENTER" prefHeight="600.0" prefWidth="463.0" BorderPane.alignment="CENTER">
+            <VBox alignment="CENTER" prefHeight="600.0" prefWidth="561.0" BorderPane.alignment="CENTER">
                <children>
                   <TableView fx:id="tvClientsAddClient" prefHeight="486.0" prefWidth="476.0">
                     <columns>
@@ -83,7 +83,11 @@
                         <TableColumn fx:id="tcIDAddClient" minWidth="7.0" prefWidth="73.0" text="ID" />
                         <TableColumn fx:id="tcAddressAddClient" minWidth="0.0" prefWidth="81.0" text="Direccion" />
                         <TableColumn fx:id="tcTelAddClient" prefWidth="72.0" text="Telefono" />
+                        <TableColumn fx:id="tcObservationsAddClient" prefWidth="72.0" text="Observaciones" />
                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
                   </TableView>
                </children>
             </VBox>

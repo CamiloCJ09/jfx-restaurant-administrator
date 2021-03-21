@@ -51,6 +51,8 @@ public class RestaurantAdministratorGUI {
 
     private ObservableList<OrderMenuItem> orderItems;
 
+    private ObservableList<Client> clients;
+
     @FXML
     private BorderPane bpPaneMain;
 
@@ -216,6 +218,9 @@ public class RestaurantAdministratorGUI {
     @FXML
     private TableColumn<Client, String> tcTelAddClient;
 
+    @FXML
+    private TableColumn<?, ?> tcObservationsAddClient;
+
     public RestaurantAdministratorGUI(){
         manager = new RestaurantManager();
     }
@@ -307,8 +312,13 @@ public class RestaurantAdministratorGUI {
     }
 
     public void setupClientsAddClientsScreen(){
-        ObservableList<Client> tempClients = FXCollections.observableArrayList();
+        clients = FXCollections.observableArrayList(manager.getClients());
         tcFirstNameAddClient.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        tcLastNameAddClient.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        tcIDAddClient.setCellValueFactory(new PropertyValueFactory<>("id"));
+        tcAddressAddClient.setCellValueFactory(new PropertyValueFactory<>("address"));
+        tcTelAddClient.setCellValueFactory(new PropertyValueFactory<>("tel"));
+        tvClientsAddClient.setItems(clients);
     }
 
     public void setupOrderScreen(){
@@ -450,6 +460,8 @@ public class RestaurantAdministratorGUI {
         String tel = tfTelAddClient.getText();
         String observations = taObservationsAddClient.getText();
         manager.addClient(firstName, lastName, id, address, tel, observations);
+        setupClientsAddClientsScreen();
+        tvClientsAddClient.refresh();
     }
 
     @FXML
