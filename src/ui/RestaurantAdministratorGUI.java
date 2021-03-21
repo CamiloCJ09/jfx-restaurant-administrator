@@ -22,9 +22,14 @@ import model.*;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.Clock;
+import java.time.LocalDate;
 import java.util.List;
 
 public class RestaurantAdministratorGUI {
+
+    private Clock clock;
+
 
     private RestaurantManager manager;
 
@@ -287,6 +292,10 @@ public class RestaurantAdministratorGUI {
                 mbMenuMain.setVisible(true);
                 mbMenuMain.setDisable(false);
                 setupOrderScreen();
+                String[] dateFields = java.time.Instant.now().toString().split("T");
+                String[] timeFields = dateFields[1].split("\\.");
+                tfDateOrder.setText(dateFields[0]+" "+timeFields[0]);
+
             }else{
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Error");
@@ -377,10 +386,10 @@ public class RestaurantAdministratorGUI {
     }
 
     public void setupOrderScreen(){
-        for(int a = 0; a<manager.getEmployees().size(); a++){
+        for (int a = 0; a < manager.getEmployees().size(); a++) {
             cbEmployeeOrder.getItems().add(manager.getEmployees().get(a).getFirstName() + " " + manager.getEmployees().get(a).getLastName());
         }
-        for(int b = 0; b<manager.getClients().size(); b++){
+        for (int b = 0; b < manager.getClients().size(); b++) {
             cbClientOrder.getItems().add(manager.getClients().get(b).getFirstName() + " " + manager.getClients().get(b).getLastName());
         }
         for(int c = 0; c<manager.getProducts().size(); c++){
@@ -392,6 +401,9 @@ public class RestaurantAdministratorGUI {
         tcAmountOrder.setCellValueFactory(new PropertyValueFactory<>("amount"));
         tcUPriceOrder.setCellValueFactory(new PropertyValueFactory<>("priceU"));
         tcTPriceOrder.setCellValueFactory(new PropertyValueFactory<>("priceT"));
+        String[] dateFields = java.time.Instant.now().toString().split("T");
+        String[] timeFields = dateFields[1].split("\\.");
+        tfDateOrder.setText(dateFields[0]+" "+timeFields[0]);
     }
 
 
@@ -506,13 +518,19 @@ public class RestaurantAdministratorGUI {
         String address = tfAddressAddClient.getText();
         String tel = tfTelAddClient.getText();
         String observations = taObservationsAddClient.getText();
-        if(btnAddClientAddClient.getText().equals("Agregar")){
-            manager.addClient(firstName, lastName, id, address, tel, observations);
-            setupClientsAddClientsScreen();
-        } else{
-            manager.editClient(tvClientsAddClient.getSelectionModel().getSelectedIndex(), firstName, lastName, id, address, tel, observations);
-            btnAddClientAddClient.setText("Agregar");
+        if(!(firstName.equals("")) && !(lastName.equals("")) && !(id.equals(""))){
+            if(btnAddClientAddClient.getText().equals("Agregar")){
+                manager.addClient(firstName, lastName, id, address, tel, observations);
+                setupClientsAddClientsScreen();
+            } else{
+                manager.editClient(tvClientsAddClient.getSelectionModel().getSelectedIndex(), firstName, lastName, id, address, tel, observations);
+                btnAddClientAddClient.setText("Agregar");
+            }
+            tvClientsAddClient.refresh();
+        }else{
+            System.out.println("Que dijiste pues pri");
         }
+
         manager.saveClientsData();
         tvClientsAddClient.refresh();
         tfFirstNameAddClient.clear();

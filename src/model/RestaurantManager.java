@@ -321,7 +321,8 @@ public class RestaurantManager {
                 ret = false;
             }
         }
-        if(ret){
+        if(ret && (!firstName.equals("")&&!lastName.equals("")&&!id.equals("")
+                &&!userName.equals("")&&!password.equals(""))){
             employees.add(user);
             users.add(user);
         }

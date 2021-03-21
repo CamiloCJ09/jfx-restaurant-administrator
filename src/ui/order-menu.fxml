@@ -46,7 +46,7 @@
                      </font>
                   </Label>
                   <Separator orientation="VERTICAL" prefHeight="41.0" prefWidth="50.0" visible="false" />
-                  <JFXTextField fx:id="tfDateOrder" focusColor="#ffd800" prefHeight="25.0" prefWidth="154.0" />
+                  <JFXTextField fx:id="tfDateOrder" editable="false" focusColor="#ffd800" prefHeight="25.0" prefWidth="154.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
