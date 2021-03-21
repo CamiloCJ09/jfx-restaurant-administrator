@@ -500,20 +500,15 @@ public class RestaurantManager {
     /**
      * Edit ingredient boolean.
      *
-     * @param oldName the old name
+     * @param index the index
      * @param newName the new name
      * @return the boolean
      */
 //Edit methods
-    public boolean editIngredient(String oldName, String newName){
-        boolean ret = false;
-        for(int i = 0; i < ingredients.size() && !ret; i++){
-            if(ingredients.get(i).getName().equals(newName)){
-                ingredients.get(i).setName(newName);
-                ret = true;
-            }
-        }
-        return ret;
+    public void editIngredient(int index, String newName){
+        Ingredients ingredient = ingredients.get(index);
+        ingredient.setName(newName);
+        ingredients.set(index, ingredient);
     }
 
     public void editClient(int index, String firstName, String lastName, String id, String address, String tel, String observations){
@@ -525,6 +520,20 @@ public class RestaurantManager {
         client.setTel(tel);
         client.setObservations(observations);
         clients.set(index, client);
+    }
+
+    public void editEmployee(int index, String firstName, String lastName, String id){
+        Employee employee = employees.get(index);
+        employee.setFirstName(firstName);
+        employee.setLastName(lastName);
+        employee.setId(id);
+        employees.set(index, employee);
+    }
+
+    public void editType(int index, String name){
+        FoodType type = foodTypes.get(index);
+        type.setName(name);
+        foodTypes.set(index, type);
     }
 
     /**
