@@ -1,13 +1,9 @@
 
-y
-java:S1488³"[Immediately return this expression instead of assigning it to the temporary variable "ret".(ùôÈ8‹ìÙÅ„/
-y
-java:S1488¨"[Immediately return this expression instead of assigning it to the temporary variable "ret".(ùôÈ8‹ìÙÅ„/
-‘
-java:S1319ö"sThe type of the "products" object should be an interface such as "List" rather than the implementation "ArrayList".(“êû‡8Ò‚ì¾ƒ/
-{
-java:S1488Ó"]Immediately return this expression instead of assigning it to the temporary variable "size1".(Ù×½°8‹ìÙÅ„/
+
+java:S1186I"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ïç½ç8§¾õƒ…/
 
-java:S4144²"^Update this method so that its implementation is not identical to "deleteProduct" on line 423.(­æ‚ôÿÿÿÿÿ8‹ìÙÅ„/
-‘
-java:S1319ö"sThe type of the "quantity" object should be an interface such as "List" rather than the implementation "ArrayList".(“êû‡8Ò‚ì¾ƒ/
+java:S4144Ş"^Update this method so that its implementation is not identical to "deleteProduct" on line 467.(­æ‚ôÿÿÿÿÿ8Ã§ö……/
+£
+java:S1186L"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(§üšÒüÿÿÿÿ8¸åõ……/
+£
+java:S1186O"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ã«ü²ıÿÿÿÿ8£¥‡†…/
