@@ -198,6 +198,24 @@ public class RestaurantAdministratorGUI {
     @FXML
     private TableColumn<OrderMenuItem, String> tcTPriceOrder;
 
+    @FXML
+    private TableView<Client> tvClientsAddClient;
+
+    @FXML
+    private TableColumn<Client, String> tcFirstNameAddClient;
+
+    @FXML
+    private TableColumn<Client, String> tcLastNameAddClient;
+
+    @FXML
+    private TableColumn<Client, String> tcIDAddClient;
+
+    @FXML
+    private TableColumn<Client, String> tcAddressAddClient;
+
+    @FXML
+    private TableColumn<Client, String> tcTelAddClient;
+
     public RestaurantAdministratorGUI(){
         manager = new RestaurantManager();
     }
@@ -286,6 +304,11 @@ public class RestaurantAdministratorGUI {
 
     public void loadAllData() throws IOException, ClassNotFoundException {
         manager.loadUsersData();
+    }
+
+    public void setupClientsAddClientsScreen(){
+        ObservableList<Client> tempClients = FXCollections.observableArrayList();
+        tcFirstNameAddClient.setCellValueFactory(new PropertyValueFactory<>("firstName"));
     }
 
     public void setupOrderScreen(){
@@ -390,6 +413,7 @@ public class RestaurantAdministratorGUI {
                 fxmlLoader.setController(this);
                 Parent addclient = fxmlLoader.load();
 
+                setupClientsAddClientsScreen();
                 bpPaneAdd.setCenter(addclient);
             break;
             case("Producto"):

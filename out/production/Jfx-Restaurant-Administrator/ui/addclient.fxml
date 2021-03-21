@@ -5,68 +5,89 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-         <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+      <BorderPane BorderPane.alignment="CENTER">
+         <center>
+            <VBox prefHeight="600.0" prefWidth="441.0">
                <children>
-                  <Separator orientation="VERTICAL" prefHeight="85.0" prefWidth="18.0" visible="false" />
-                  <Label text="Nombres:" />
-                  <Separator orientation="VERTICAL" prefHeight="85.0" prefWidth="83.0" visible="false" />
-                  <JFXTextField fx:id="tfFirstNameAddClient" focusColor="#ffd800" />
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Separator orientation="VERTICAL" prefHeight="85.0" prefWidth="18.0" visible="false" />
+                        <Label text="Nombres:" />
+                        <Separator orientation="VERTICAL" prefHeight="85.0" prefWidth="83.0" visible="false" />
+                        <JFXTextField fx:id="tfFirstNameAddClient" focusColor="#ffd800" prefHeight="25.0" prefWidth="175.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="85.0" prefWidth="609.0">
+                     <children>
+                        <Separator orientation="VERTICAL" prefHeight="85.0" prefWidth="17.0" visible="false" />
+                        <Label text="Apellidos:" />
+                        <Separator orientation="VERTICAL" prefHeight="85.0" prefWidth="85.0" visible="false" />
+                        <JFXTextField fx:id="tfLastNameAddClient" focusColor="#ffd800" prefHeight="25.0" prefWidth="174.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="89.0" prefWidth="519.0">
+                     <children>
+                        <Separator orientation="VERTICAL" prefHeight="86.0" prefWidth="17.0" visible="false" />
+                        <Label text="Número de identifiación:" />
+                        <Separator orientation="VERTICAL" prefHeight="200.0" visible="false" />
+                        <JFXTextField fx:id="tfIdAddClient" focusColor="#ffd800" prefHeight="25.0" prefWidth="173.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Separator orientation="VERTICAL" prefHeight="86.0" prefWidth="17.0" visible="false" />
+                        <Label text="Dirección:" />
+                        <Separator orientation="VERTICAL" prefHeight="86.0" prefWidth="84.0" visible="false" />
+                        <JFXTextField fx:id="tfAddressAddClient" focusColor="#ffd800" prefHeight="25.0" prefWidth="175.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="88.0" prefWidth="523.0">
+                     <children>
+                        <Separator orientation="VERTICAL" prefHeight="86.0" prefWidth="17.0" visible="false" />
+                        <Label text="Teléfono" />
+                        <Separator orientation="VERTICAL" prefHeight="86.0" prefWidth="91.0" visible="false" />
+                        <JFXTextField fx:id="tfTelAddClient" focusColor="#ffd800" prefHeight="25.0" prefWidth="178.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Separator orientation="VERTICAL" prefHeight="86.0" prefWidth="18.0" visible="false" />
+                        <Label text="Observaciones:" />
+                        <Separator orientation="VERTICAL" prefHeight="86.0" prefWidth="59.0" visible="false" />
+                        <JFXTextArea fx:id="taObservationsAddClient" focusColor="#ffd800" prefHeight="91.0" prefWidth="367.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <JFXButton onAction="#actAddClientAddClient" text="Agregar" />
+                     </children>
+                  </HBox>
                </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+            </VBox>
+         </center>
+         <right>
+            <VBox alignment="CENTER" prefHeight="600.0" prefWidth="463.0" BorderPane.alignment="CENTER">
                <children>
-                  <Separator orientation="VERTICAL" prefHeight="85.0" prefWidth="17.0" visible="false" />
-                  <Label text="Apellidos:" />
-                  <Separator orientation="VERTICAL" prefHeight="85.0" prefWidth="85.0" visible="false" />
-                  <JFXTextField fx:id="tfLastNameAddClient" focusColor="#ffd800" />
+                  <TableView fx:id="tvClientsAddClient" prefHeight="486.0" prefWidth="476.0">
+                    <columns>
+                      <TableColumn fx:id="tcFirstNameAddClient" prefWidth="107.0" text="Nombres" />
+                      <TableColumn fx:id="tcLastNameAddClient" prefWidth="111.0" text="Apellidos" />
+                        <TableColumn fx:id="tcIDAddClient" minWidth="7.0" prefWidth="73.0" text="ID" />
+                        <TableColumn fx:id="tcAddressAddClient" minWidth="0.0" prefWidth="81.0" text="Direccion" />
+                        <TableColumn fx:id="tcTelAddClient" prefWidth="72.0" text="Telefono" />
+                    </columns>
+                  </TableView>
                </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <Separator orientation="VERTICAL" prefHeight="86.0" prefWidth="17.0" visible="false" />
-                  <Label text="Número de identifiación:" />
-                  <Separator orientation="VERTICAL" prefHeight="200.0" visible="false" />
-                  <JFXTextField fx:id="tfIdAddClient" focusColor="#ffd800" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <Separator orientation="VERTICAL" prefHeight="86.0" prefWidth="17.0" visible="false" />
-                  <Label text="Dirección:" />
-                  <Separator orientation="VERTICAL" prefHeight="86.0" prefWidth="84.0" visible="false" />
-                  <JFXTextField fx:id="tfAddressAddClient" focusColor="#ffd800" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <Separator orientation="VERTICAL" prefHeight="86.0" prefWidth="17.0" visible="false" />
-                  <Label text="Teléfono" />
-                  <Separator orientation="VERTICAL" prefHeight="86.0" prefWidth="91.0" visible="false" />
-                  <JFXTextField fx:id="tfTelAddClient" focusColor="#ffd800" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <Separator orientation="VERTICAL" prefHeight="86.0" prefWidth="18.0" visible="false" />
-                  <Label text="Observaciones:" />
-                  <Separator orientation="VERTICAL" prefHeight="86.0" prefWidth="59.0" visible="false" />
-                  <JFXTextArea fx:id="taObservationsAddClient" focusColor="#ffd800" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <JFXButton onAction="#actAddClientAddClient" text="Agregar" />
-               </children>
-            </HBox>
-         </children>
-      </VBox>
+            </VBox>
+         </right>
+      </BorderPane>
    </center>
 </BorderPane>
