@@ -1,5 +1,7 @@
 package model;
 
+import javafx.collections.ObservableList;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,17 +9,17 @@ public class Product extends RestaurantObject{
     //Attributes
     private String name;
     private FoodType type;
-    private List<Ingredients> ingredients;
-    private List<Size> sizes;
+    private ArrayList<Ingredients> ingredients;
+    private ArrayList<Size> sizes;
     private boolean status;
 
     //Methods
-    public Product(User creator, User modifier, String name, FoodType type, List<Ingredients> ingredients, List<Size> size) {
+    public Product(User creator, User modifier, String name, FoodType type, ObservableList<Ingredients> ingredients, ObservableList<Size> size) {
         super(creator, modifier);
         this.name = name;
         this.type = type;
-        this.ingredients = ingredients;
-        this.sizes = size;
+        this.ingredients = new ArrayList<>(ingredients);
+        this.sizes = new ArrayList<>(size);
         this.status = true;
     }
 
@@ -37,8 +39,20 @@ public class Product extends RestaurantObject{
         this.type = type;
     }
 
+    public ArrayList<Ingredients> getIngredients() {
+        return ingredients;
+    }
+
     public void setIngredients(ArrayList<Ingredients> ingredients) {
         this.ingredients = ingredients;
+    }
+
+    public ArrayList<Size> getSizes() {
+        return sizes;
+    }
+
+    public void setSizes(ArrayList<Size> sizes) {
+        this.sizes = sizes;
     }
 
     public boolean isStatus() {
@@ -47,22 +61,6 @@ public class Product extends RestaurantObject{
 
     public void setStatus(boolean status) {
         this.status = status;
-    }
-
-    public List<Ingredients> getIngredients() {
-        return ingredients;
-    }
-
-    public void setIngredients(List<Ingredients> ingredients) {
-        this.ingredients = ingredients;
-    }
-
-    public List<Size> getSizes() {
-        return sizes;
-    }
-
-    public void setSizes(List<Size> sizes) {
-        this.sizes = sizes;
     }
 
     public Size findSize(String size){

@@ -1,5 +1,7 @@
 package model;
 
+import javafx.collections.ObservableList;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Date;
@@ -10,6 +12,7 @@ import java.util.List;
  */
 public class RestaurantManager {
 
+    public final static String EMPLOYEES_PATH = "data/employees.cd";
     /**
      * The constant INGREDIENTS_PATH.
      */
@@ -179,6 +182,11 @@ public class RestaurantManager {
         oss.writeObject(users);
         oss.close();
     }
+    public void saveEmployeesData() throws IOException{
+        oss = new ObjectOutputStream(new FileOutputStream(EMPLOYEES_PATH));
+        oss.writeObject(employees);
+        oss.close();
+    }
 
     public void loadUsersData() throws IOException, ClassNotFoundException {
         file = new File(USERS_PATH);
@@ -200,16 +208,13 @@ public class RestaurantManager {
      * @throws ClassNotFoundException the class not found exception
      */
 //Load data
-    public boolean loadIngredientsData() throws IOException, ClassNotFoundException {
+    public void loadIngredientsData() throws IOException, ClassNotFoundException {
         file = new File(INGREDIENTS_PATH);
-        boolean loaded = false;
         if(file.exists()){
             ois = new ObjectInputStream(new FileInputStream(file));
             ingredients = (List)ois.readObject();
             ois.close();
-            loaded = true;
         }
-        return loaded;
     }
 
     /**
@@ -219,16 +224,13 @@ public class RestaurantManager {
      * @throws IOException            the io exception
      * @throws ClassNotFoundException the class not found exception
      */
-    public boolean loadProductData() throws IOException, ClassNotFoundException {
+    public void loadProductData() throws IOException, ClassNotFoundException {
         file = new File(PRODUCTS_PATH);
-        boolean loaded = false;
         if(file.exists()){
             ois = new ObjectInputStream(new FileInputStream(file));
             products = (List)ois.readObject();
             ois.close();
-            loaded = true;
         }
-        return loaded;
     }
 
     /**
@@ -238,16 +240,13 @@ public class RestaurantManager {
      * @throws IOException            the io exception
      * @throws ClassNotFoundException the class not found exception
      */
-    public boolean loadOrdersData() throws IOException, ClassNotFoundException {
+    public void loadOrdersData() throws IOException, ClassNotFoundException {
         file = new File(ORDERS_PATH);
-        boolean loaded = false;
         if(file.exists()){
             ois = new ObjectInputStream(new FileInputStream(file));
             orders = (List)ois.readObject();
             ois.close();
-            loaded = true;
         }
-        return loaded;
     }
 
     /**
@@ -257,16 +256,31 @@ public class RestaurantManager {
      * @throws IOException            the io exception
      * @throws ClassNotFoundException the class not found exception
      */
-    public boolean loadClientsData() throws IOException, ClassNotFoundException{
+    public void loadClientsData() throws IOException, ClassNotFoundException{
         file = new File(CLIENTS_PATH);
-        boolean loaded = false;
         if(file.exists()){
             ois = new ObjectInputStream(new FileInputStream(file));
             clients = (List)ois.readObject();
             ois.close();
-            loaded = true;
         }
-        return loaded;
+    }
+
+    public void loadEmployeeData() throws IOException, ClassNotFoundException{
+        file = new File(EMPLOYEES_PATH);
+        if(file.exists()){
+            ois = new ObjectInputStream(new FileInputStream(file));
+            employees = (List)ois.readObject();
+            ois.close();
+        }
+    }
+
+    public void loadFoodTypeData() throws IOException, ClassNotFoundException{
+        file = new File(FOODTYPES_PATH);
+        if(file.exists()){
+            ois = new ObjectInputStream(new FileInputStream(file));
+            foodTypes = (List)ois.readObject();
+            ois.close();
+        }
     }
 
     /**
@@ -454,7 +468,7 @@ public class RestaurantManager {
      * @param size        the size
      * @return the boolean
      */
-    public boolean addProduct(String name, String type, List<Ingredients> ingredients, List<Size> size){
+    public boolean addProduct(String name, String type, ObservableList<Ingredients> ingredients, ObservableList<Size> size){
         boolean ret = true;
         FoodType foodType = null;
         for(int i = 0; i < foodTypes.size(); i++){

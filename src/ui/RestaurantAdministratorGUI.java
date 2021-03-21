@@ -352,6 +352,11 @@ public class RestaurantAdministratorGUI {
 
     public void loadAllData() throws IOException, ClassNotFoundException {
         manager.loadUsersData();
+        manager.loadClientsData();
+        manager.loadEmployeeData();
+        manager.loadIngredientsData();
+        manager.loadFoodTypeData();
+        manager.loadProductData();
     }
 
     public void setupClientsAddClientsScreen() throws IOException {
@@ -498,6 +503,7 @@ public class RestaurantAdministratorGUI {
             manager.editClient(tvClientsAddClient.getSelectionModel().getSelectedIndex(), firstName, lastName, id, address, tel, observations);
             btnAddClientAddClient.setText("Agregar");
         }
+        manager.saveClientsData();
         tvClientsAddClient.refresh();
         tfFirstNameAddClient.clear();
         tfLastNameAddClient.clear();
@@ -519,6 +525,7 @@ public class RestaurantAdministratorGUI {
             manager.editEmployee(tvEmployeesAddEmployee.getSelectionModel().getSelectedIndex(), firstName, lastName, id);
             btnAddEmployeeAddEmployee.setText("Agregar");
         }
+        manager.saveEmployeesData();
         tvEmployeesAddEmployee.refresh();
         tfFirstNameAddEmployee.clear();
         tfLastNameAddEmployee.clear();
@@ -535,6 +542,7 @@ public class RestaurantAdministratorGUI {
             manager.editIngredient(tvIngredientsAddIngredient.getSelectionModel().getSelectedIndex(), name);
             btnAddIngredientAddIngredient.setText("Agregar");
         }
+        manager.saveIngredientsData();
         tvIngredientsAddIngredient.refresh();
         tfNameAddIngredient.clear();
     }
@@ -549,6 +557,7 @@ public class RestaurantAdministratorGUI {
             manager.editType(tvTypesAddType.getSelectionModel().getSelectedIndex(), name);
             btnAddTypeAddType.setText("Agregar");
         }
+        manager.saveFoodTypesData();
         tvTypesAddType.refresh();
         tfNameAddType.clear();
     }
@@ -575,14 +584,15 @@ public class RestaurantAdministratorGUI {
     }
 
     @FXML
-    public void actAddProductAddProduct(ActionEvent event) {
+    public void actAddProductAddProduct(ActionEvent event) throws IOException {
         String productName = tfNameAddProduct.getText();
         String foodType = cbTypeAddProduct.getSelectionModel().getSelectedItem();
-        List<Ingredients> ingredients = tvIngredientsAddProduct.getItems();
-        List<Size> sizesList = tvSizeAddProduct.getItems();
+        ObservableList<Ingredients> ingredients = tvIngredientsAddProduct.getItems();
+        ObservableList<Size> sizesList = tvSizeAddProduct.getItems();
 
         if(!(productName.equals(""))&&!(foodType.equals(""))&&(!ingredients.isEmpty()) && (!sizesList.isEmpty())){
             manager.addProduct(productName, foodType, ingredients, sizesList);
+            manager.saveProductData();
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information");
             alert.setHeaderText(null);
@@ -647,6 +657,7 @@ public class RestaurantAdministratorGUI {
         if(fileToSave != null){
             String url = fileToSave.toPath().toString();
             manager.importClientsData(url);
+            manager.saveClientsData();
         }else{
             System.out.println("No funciona rey");
         }
