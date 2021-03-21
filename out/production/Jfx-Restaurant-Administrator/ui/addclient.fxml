@@ -76,6 +76,7 @@
          <right>
             <VBox alignment="CENTER" prefHeight="600.0" prefWidth="561.0" BorderPane.alignment="CENTER">
                <children>
+                  <JFXButton buttonType="RAISED" onAction="#actImportUsersData" style="-fx-background-color: #e4be00;" text="IMPORT USERS DATA" textAlignment="JUSTIFY" />
                   <TableView fx:id="tvClientsAddClient" prefHeight="486.0" prefWidth="476.0">
                     <columns>
                       <TableColumn fx:id="tcFirstNameAddClient" prefWidth="107.0" text="Nombres" />

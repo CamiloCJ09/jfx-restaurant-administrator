@@ -18,8 +18,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import model.*;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -567,6 +570,23 @@ public class RestaurantAdministratorGUI {
 
     //Todo: add import data method and connect it with restaurant manager
     //Todo: add export data methods and connect them with restaurant manager
+
+    @FXML
+    void actImportUsersData(ActionEvent event) throws IOException {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Selecciona el archivo");
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Csv files", "*.csv"));
+        Stage primaryStage = (Stage)bpPaneMain.getScene().getWindow();
+        File fileToSave = fileChooser.showOpenDialog(primaryStage);
+        String url = fileToSave.toPath().toString();
+        if(fileToSave != null){
+            manager.importClientsData(url);
+        }else{
+            System.out.println("No funciona rey");
+        }
+        tvClientsAddClient.refresh();
+
+    }
 
 
 }

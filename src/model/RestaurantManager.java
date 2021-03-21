@@ -82,9 +82,10 @@ public class RestaurantManager {
 
     public void importClientsData(String fileName) throws IOException{
         BufferedReader br = new BufferedReader(new FileReader(fileName));
-        String line = br.readLine();
+        String line = br.readLine(); //Clean first line
+        line = br.readLine();
         while(line != null){
-            String[] parts = line.split("CHANGE HERE"); //CHANGE THE SPLIT CHARACTER
+            String[] parts = line.split(","); //CHANGE THE SPLIT CHARACTER
             String firstName = parts[0];
             String lastName = parts[1];
             String id = parts[2];
