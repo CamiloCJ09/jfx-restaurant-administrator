@@ -331,6 +331,7 @@ public class RestaurantAdministratorGUI {
         if((!firstName.equals("")&&!lastName.equals("")&&!id.equals("")
         &&!userName.equals("")&&!password.equals(""))&&created &&!passValid){
             manager.saveUsersData();
+            manager.saveEmployeesData();
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information");
             alert.setHeaderText(null);
@@ -441,14 +442,23 @@ public class RestaurantAdministratorGUI {
 
     @FXML
     public void actAddOrderOrder(ActionEvent event) {
-        orderItems.add(manager.newOrderMenuItem(
-                manager.findProduct(cbProductOrder.getSelectionModel().getSelectedItem().toString()),
-                manager.findSize(manager.findProduct(cbProductOrder.getSelectionModel().getSelectedItem().toString()), cbSizeOrder.getSelectionModel().getSelectedItem().toString()),
-                Double.parseDouble(tfAmountOrder.getText())
-        ));
-        System.out.println(manager.findSize(manager.findProduct(cbProductOrder.getSelectionModel().getSelectedItem().toString()), cbSizeOrder.getSelectionModel().getSelectedItem().toString()).getPrice());
-        tvOrdersOrder.setItems(orderItems);
-        tvOrdersOrder.refresh();
+        boolean alreadyIs = false;
+        for(int i = 0; i<orderItems.size(); i++){
+            if(orderItems.get(i).getProductName().equals(cbProductOrder.getSelectionModel().getSelectedItem())){
+                if(orderItems.get(i).getSize().equals(cbSizeOrder.getSelectionModel().getSelectedItem())){
+                    alreadyIs = true;
+                }
+            }
+        }
+        if(!alreadyIs){
+            orderItems.add(manager.newOrderMenuItem(
+                    manager.findProduct(cbProductOrder.getSelectionModel().getSelectedItem().toString()),
+                    manager.findSize(manager.findProduct(cbProductOrder.getSelectionModel().getSelectedItem().toString()), cbSizeOrder.getSelectionModel().getSelectedItem().toString()),
+                    Double.parseDouble(tfAmountOrder.getText())
+            ));
+            tvOrdersOrder.setItems(orderItems);
+            tvOrdersOrder.refresh();
+        }
     }
 
     @FXML
@@ -578,9 +588,17 @@ public class RestaurantAdministratorGUI {
 
     @FXML
     public void actAddIngredientAddProduct(ActionEvent event) {
-        tempIngredients.add(manager.searchIngredient(cbIngredientsAddProduct.getSelectionModel().getSelectedItem().toString()));
-        tvIngredientsAddProduct.setItems(tempIngredients);
-        tvIngredientsAddProduct.refresh();
+        boolean alreadyIs = false;
+        for(int i = 0; i<tempIngredients.size(); i++){
+            if(tempIngredients.get(i).getName().equals(cbIngredientsAddProduct.getSelectionModel().getSelectedItem())){
+                alreadyIs = true;
+            }
+        }
+        if(!alreadyIs){
+            tempIngredients.add(manager.searchIngredient(cbIngredientsAddProduct.getSelectionModel().getSelectedItem().toString()));
+            tvIngredientsAddProduct.setItems(tempIngredients);
+            tvIngredientsAddProduct.refresh();
+        }
     }
 
     @FXML
@@ -609,9 +627,17 @@ public class RestaurantAdministratorGUI {
 
     @FXML
     public void actAddSizeAddProduct(ActionEvent event) {
-        tempSizes.add(manager.newSize(tfSizeAddProduct.getText(), Double.parseDouble(tfPriceAddProduct.getText())));
-        tvSizeAddProduct.setItems(tempSizes);
-        tvSizeAddProduct.refresh();
+        boolean alreadyIs = false;
+        for(int i = 0; i<tempSizes.size(); i++){
+            if(tempSizes.get(i).getSize().equalsIgnoreCase(tfSizeAddProduct.getText())){
+                alreadyIs = true;
+            }
+        }
+        if(!alreadyIs){
+            tempSizes.add(manager.newSize(tfSizeAddProduct.getText(), Double.parseDouble(tfPriceAddProduct.getText())));
+            tvSizeAddProduct.setItems(tempSizes);
+            tvSizeAddProduct.refresh();
+        }
     }
 
     @FXML
