@@ -40,7 +40,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <JFXButton onAction="#actAddEmployeeAddEmployee" text="Agregar" />
+                  <JFXButton fx:id="btnAddEmployeeAddEmployee" onAction="#actAddEmployeeAddEmployee" text="Agregar" />
                </children>
             </HBox>
          </children>
@@ -50,7 +50,7 @@
       <VBox alignment="CENTER" prefHeight="600.0" prefWidth="598.0" BorderPane.alignment="CENTER">
          <children>
             <JFXButton buttonType="RAISED" onAction="#actImportEmployeesAddEmployees" style="-fx-background-color: #e4be00;" text="IMPORT EMPLOYEES" />
-            <TableView fx:id="tvEmployeesAddEmployee" prefHeight="421.0" prefWidth="598.0">
+            <TableView fx:id="tvEmployeesAddEmployee" onMouseClicked="#actEditEmployeeAddEmployee" prefHeight="421.0" prefWidth="598.0">
               <columns>
                 <TableColumn fx:id="tcFirstNameAddEmployee" prefWidth="75.0" text="Nombres" />
                 <TableColumn fx:id="tcLastNameAddEmployee" prefWidth="75.0" text="Apellidos" />

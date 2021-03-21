@@ -255,6 +255,15 @@ public class RestaurantAdministratorGUI {
     @FXML
     private JFXButton btnAddClientAddClient;
 
+    @FXML
+    private JFXButton btnAddIngredientAddIngredient;
+
+    @FXML
+    private JFXButton btnAddEmployeeAddEmployee;
+
+    @FXML
+    private JFXButton btnAddTypeAddType;
+
     public RestaurantAdministratorGUI(){
         manager = new RestaurantManager();
     }
@@ -488,9 +497,14 @@ public class RestaurantAdministratorGUI {
         } else{
             manager.editClient(tvClientsAddClient.getSelectionModel().getSelectedIndex(), firstName, lastName, id, address, tel, observations);
             btnAddClientAddClient.setText("Agregar");
-            tvClientsAddClient.refresh();
         }
         tvClientsAddClient.refresh();
+        tfFirstNameAddClient.clear();
+        tfLastNameAddClient.clear();
+        tfIdAddClient.clear();
+        tfAddressAddClient.clear();
+        tfTelAddClient.clear();
+        taObservationsAddClient.clear();
     }
 
     @FXML
@@ -498,22 +512,45 @@ public class RestaurantAdministratorGUI {
         String firstName = tfFirstNameAddEmployee.getText();
         String lastName = tfLastNameAddEmployee.getText();
         String id = tfIdAddEmployee.getText();
-        manager.addEmployee(firstName, lastName, id);
-        setupAddEmployeeScreen();
+        if(btnAddEmployeeAddEmployee.getText().equals("Agregar")){
+            manager.addEmployee(firstName, lastName, id);
+            setupAddEmployeeScreen();
+        } else{
+            manager.editEmployee(tvEmployeesAddEmployee.getSelectionModel().getSelectedIndex(), firstName, lastName, id);
+            btnAddEmployeeAddEmployee.setText("Agregar");
+        }
+        tvEmployeesAddEmployee.refresh();
+        tfFirstNameAddEmployee.clear();
+        tfLastNameAddEmployee.clear();
+        tfIdAddEmployee.clear();
     }
 
     @FXML
     public void actAddIngredientAddIngredient(ActionEvent event) throws IOException {
         String name = tfNameAddIngredient.getText();
-        manager.addIngredient(name);
-        setupAddIngredientScreen();
+        if(btnAddIngredientAddIngredient.getText().equals("Agregar")){
+            manager.addIngredient(name);
+            setupAddIngredientScreen();
+        } else{
+            manager.editIngredient(tvIngredientsAddIngredient.getSelectionModel().getSelectedIndex(), name);
+            btnAddIngredientAddIngredient.setText("Agregar");
+        }
+        tvIngredientsAddIngredient.refresh();
+        tfNameAddIngredient.clear();
     }
 
     @FXML
     public void actAddTypeAddType(ActionEvent event) throws IOException {
         String name = tfNameAddType.getText();
-        manager.addFoodType(name);
-        setupAddTypeScreen();
+        if(btnAddTypeAddType.getText().equals("Agregar")){
+            manager.addFoodType(name);
+            setupAddTypeScreen();
+        } else{
+            manager.editType(tvTypesAddType.getSelectionModel().getSelectedIndex(), name);
+            btnAddTypeAddType.setText("Agregar");
+        }
+        tvTypesAddType.refresh();
+        tfNameAddType.clear();
     }
 
     private void setupAddProductScene(){
@@ -655,7 +692,7 @@ public class RestaurantAdministratorGUI {
     }
 
     @FXML
-    void actEditAddClient(MouseEvent event) {
+    public void actEditAddClient(MouseEvent event) {
         if(event.getClickCount() == 2){
             tfFirstNameAddClient.setText(tvClientsAddClient.getSelectionModel().getSelectedItem().getFirstName());
             tfLastNameAddClient.setText(tvClientsAddClient.getSelectionModel().getSelectedItem().getLastName());
@@ -669,7 +706,36 @@ public class RestaurantAdministratorGUI {
     }
 
     @FXML
-    void actImportEmployeesAddEmployees(ActionEvent event) {
+    public void actImportEmployeesAddEmployees(ActionEvent event) {
 
+    }
+
+    @FXML
+    public void actEditIngredientAddIngredient(MouseEvent event) {
+        if(event.getClickCount() == 2){
+            tfNameAddIngredient.setText(tvIngredientsAddIngredient.getSelectionModel().getSelectedItem().getName());
+
+            btnAddIngredientAddIngredient.setText("Editar");
+        }
+    }
+
+    @FXML
+    public void actEditEmployeeAddEmployee(MouseEvent event) {
+        if(event.getClickCount() == 2){
+            tfFirstNameAddEmployee.setText(tvEmployeesAddEmployee.getSelectionModel().getSelectedItem().getFirstName());
+            tfLastNameAddEmployee.setText(tvEmployeesAddEmployee.getSelectionModel().getSelectedItem().getLastName());
+            tfIdAddEmployee.setText(tvEmployeesAddEmployee.getSelectionModel().getSelectedItem().getId());
+
+            btnAddEmployeeAddEmployee.setText("Editar");
+        }
+    }
+
+    @FXML
+    void actEditTypeAddType(MouseEvent event) {
+        if(event.getClickCount() == 2){
+            tfNameAddType.setText(tvTypesAddType.getSelectionModel().getSelectedItem().getName());
+
+            btnAddTypeAddType.setText("Editar");
+        }
     }
 }

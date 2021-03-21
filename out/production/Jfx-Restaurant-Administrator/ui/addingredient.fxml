@@ -24,7 +24,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <JFXButton onAction="#actAddIngredientAddIngredient" text="Agregar" />
+                  <JFXButton fx:id="btnAddIngredientAddIngredient" onAction="#actAddIngredientAddIngredient" text="Agregar" />
                </children>
             </HBox>
          </children>
@@ -33,7 +33,7 @@
    <right>
       <VBox alignment="CENTER" prefHeight="600.0" prefWidth="535.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView fx:id="tvIngredientsAddIngredient" prefHeight="457.0" prefWidth="535.0">
+            <TableView fx:id="tvIngredientsAddIngredient" onMouseClicked="#actEditIngredientAddIngredient" prefHeight="457.0" prefWidth="535.0">
               <columns>
                 <TableColumn fx:id="tcNameAddIngredient" prefWidth="75.0" text="Nombre" />
               </columns>
