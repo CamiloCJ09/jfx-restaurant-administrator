@@ -67,7 +67,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <JFXButton onAction="#actAddClientAddClient" text="Agregar" />
+                        <JFXButton fx:id="btnAddClientAddClient" onAction="#actAddClientAddClient" text="Agregar" />
                      </children>
                   </HBox>
                </children>
@@ -77,7 +77,7 @@
             <VBox alignment="CENTER" prefHeight="600.0" prefWidth="561.0" BorderPane.alignment="CENTER">
                <children>
                   <JFXButton buttonType="RAISED" onAction="#actImportUsersData" style="-fx-background-color: #e4be00;" text="IMPORT USERS DATA" textAlignment="JUSTIFY" />
-                  <TableView fx:id="tvClientsAddClient" prefHeight="486.0" prefWidth="476.0">
+                  <TableView fx:id="tvClientsAddClient" onMouseClicked="#actEditAddClient" prefHeight="486.0" prefWidth="476.0">
                     <columns>
                       <TableColumn fx:id="tcFirstNameAddClient" prefWidth="107.0" text="Nombres" />
                       <TableColumn fx:id="tcLastNameAddClient" prefWidth="111.0" text="Apellidos" />

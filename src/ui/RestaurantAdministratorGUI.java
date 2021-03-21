@@ -1,9 +1,6 @@
 package ui;
 
-import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXPasswordField;
-import com.jfoenix.controls.JFXTextArea;
-import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,6 +13,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
@@ -254,6 +252,9 @@ public class RestaurantAdministratorGUI {
     @FXML
     private TableColumn<FoodType, String> tcNameAddType;
 
+    @FXML
+    private JFXButton btnAddClientAddClient;
+
     public RestaurantAdministratorGUI(){
         manager = new RestaurantManager();
     }
@@ -452,7 +453,6 @@ public class RestaurantAdministratorGUI {
         switch (cbTypeAdd.getSelectionModel().getSelectedItem().toString()){
             case("Empleado"):
                 setupAddEmployeeScreen();
-
             break;
             case("Cliente"):
                 setupClientsAddClientsScreen();
@@ -482,8 +482,15 @@ public class RestaurantAdministratorGUI {
         String address = tfAddressAddClient.getText();
         String tel = tfTelAddClient.getText();
         String observations = taObservationsAddClient.getText();
-        manager.addClient(firstName, lastName, id, address, tel, observations);
-        setupClientsAddClientsScreen();
+        if(btnAddClientAddClient.getText().equals("Agregar")){
+            manager.addClient(firstName, lastName, id, address, tel, observations);
+            setupClientsAddClientsScreen();
+        } else{
+            manager.editClient(tvClientsAddClient.getSelectionModel().getSelectedIndex(), firstName, lastName, id, address, tel, observations);
+            btnAddClientAddClient.setText("Agregar");
+            tvClientsAddClient.refresh();
+        }
+        tvClientsAddClient.refresh();
     }
 
     @FXML
@@ -647,4 +654,22 @@ public class RestaurantAdministratorGUI {
         tvTypesAddType.setItems(types);
     }
 
+    @FXML
+    void actEditAddClient(MouseEvent event) {
+        if(event.getClickCount() == 2){
+            tfFirstNameAddClient.setText(tvClientsAddClient.getSelectionModel().getSelectedItem().getFirstName());
+            tfLastNameAddClient.setText(tvClientsAddClient.getSelectionModel().getSelectedItem().getLastName());
+            tfIdAddClient.setText(tvClientsAddClient.getSelectionModel().getSelectedItem().getId());
+            tfAddressAddClient.setText(tvClientsAddClient.getSelectionModel().getSelectedItem().getAddress());
+            tfTelAddClient.setText(tvClientsAddClient.getSelectionModel().getSelectedItem().getTel());
+            taObservationsAddClient.setText(tvClientsAddClient.getSelectionModel().getSelectedItem().getObservations());
+
+            btnAddClientAddClient.setText("Editar");
+        }
+    }
+
+    @FXML
+    void actImportEmployeesAddEmployees(ActionEvent event) {
+
+    }
 }

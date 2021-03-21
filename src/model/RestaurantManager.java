@@ -516,6 +516,17 @@ public class RestaurantManager {
         return ret;
     }
 
+    public void editClient(int index, String firstName, String lastName, String id, String address, String tel, String observations){
+        Client client = clients.get(index);
+        client.setFirstName(firstName);
+        client.setLastName(lastName);
+        client.setId(id);
+        client.setAddress(address);
+        client.setTel(tel);
+        client.setObservations(observations);
+        clients.set(index, client);
+    }
+
     /**
      * New size size.
      *
