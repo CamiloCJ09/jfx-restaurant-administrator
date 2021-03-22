@@ -22,8 +22,11 @@ import model.*;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.Clock;
+import java.time.Instant;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 public class RestaurantAdministratorGUI {
@@ -292,9 +295,9 @@ public class RestaurantAdministratorGUI {
                 mbMenuMain.setVisible(true);
                 mbMenuMain.setDisable(false);
                 setupOrderScreen();
-                String[] dateFields = java.time.Instant.now().toString().split("T");
-                String[] timeFields = dateFields[1].split("\\.");
-                tfDateOrder.setText(dateFields[0]+" "+timeFields[0]);
+//                String[] dateFields = java.time.Instant.now().toString().split("T");
+//                String[] timeFields = dateFields[1].split("\\.");
+//                tfDateOrder.setText(dateFields[0]+" "+timeFields[0]);
 
             }else{
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -401,9 +404,23 @@ public class RestaurantAdministratorGUI {
         tcAmountOrder.setCellValueFactory(new PropertyValueFactory<>("amount"));
         tcUPriceOrder.setCellValueFactory(new PropertyValueFactory<>("priceU"));
         tcTPriceOrder.setCellValueFactory(new PropertyValueFactory<>("priceT"));
-        String[] dateFields = java.time.Instant.now().toString().split("T");
+        //Clean this
+        Instant time = Instant.now();
+        String[] dateFields =time.toString().split("T");
         String[] timeFields = dateFields[1].split("\\.");
-        tfDateOrder.setText(dateFields[0]+" "+timeFields[0]);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd MM yyyy HH:mm:ss");
+        String timeWFormat = simpleDateFormat.format(Date.from(time));//We use it in the code for the order
+        Date date = Date.from(time); // Use it for the order attribute
+        String finalTime = simpleDateFormat.format(Date.from(time));
+        tfDateOrder.setText(finalTime.replace(" ", "/"));
+
+        //Auto-generated code
+
+        String code = (String.valueOf(timeWFormat.charAt(8))).concat(String.valueOf(timeWFormat.charAt(9))).concat(String.valueOf(timeWFormat.charAt(3))).
+                concat(String.valueOf(timeWFormat.charAt(4))).concat(String.valueOf(timeWFormat.charAt(0))).concat(String.valueOf(timeWFormat.charAt(1))).
+                concat(String.valueOf(manager.getOrders().size()));
+        //code.concat()
+        tfCodeOrder.setText(code);
     }
 
 
