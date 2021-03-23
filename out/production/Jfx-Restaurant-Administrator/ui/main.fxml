@@ -14,6 +14,8 @@
             <items>
               <MenuItem mnemonicParsing="false" onAction="#miAddItemsMain" text="Agregar items" />
                   <MenuItem mnemonicParsing="false" onAction="#miAddOrderMain" text="Agregar pedido" />
+                  <MenuItem mnemonicParsing="false" onAction="#miProductTableMain" text="Tabla de productos" />
+                  <MenuItem mnemonicParsing="false" onAction="#miOrderTableMain" text="Tabla de pedidos" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Editar">

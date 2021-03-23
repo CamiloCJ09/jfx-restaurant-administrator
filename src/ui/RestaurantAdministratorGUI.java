@@ -7,17 +7,17 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import model.*;
 
 import java.io.File;
@@ -54,6 +54,8 @@ public class RestaurantAdministratorGUI {
 
     public final static String ADDTYPE_FXML = "addtype.fxml";
 
+    public final static String TABLEPRODUCT_FXML = "tableproduct.fxml";
+
     private ObservableList<Ingredients> tempIngredients;
 
     private ObservableList<Size> tempSizes;
@@ -67,6 +69,10 @@ public class RestaurantAdministratorGUI {
     private ObservableList<Ingredients> ingredients;
 
     private ObservableList<FoodType> types;
+
+    private ObservableList<ProductItem> productItems;
+
+    private ObservableList<Ingredients> windowTempIngredients;
 
     @FXML
     private BorderPane bpPaneMain;
@@ -271,6 +277,30 @@ public class RestaurantAdministratorGUI {
 
     @FXML
     private JFXButton btnAddTypeAddType;
+
+    @FXML
+    private TableView<ProductItem> tvProductsTProduct;
+
+    @FXML
+    private TableColumn<ProductItem, String> tcProductTProduct;
+
+    @FXML
+    private TableColumn<ProductItem, String> tcTypeTProduct;
+
+    @FXML
+    private TableColumn<ProductItem, Void> tcIngredientsTProduct;
+
+    @FXML
+    private TableColumn<ProductItem, String> tcSizeTProduct;
+
+    @FXML
+    private TableColumn<ProductItem, String> tcPriceTProduct;
+
+    @FXML
+    private TableView<Ingredients> tvIngredientsWindowIngredients;
+
+    @FXML
+    private TableColumn<Ingredients, String> tcIngredientsWindowIngredients;
 
     public RestaurantAdministratorGUI(){
         manager = new RestaurantManager();
@@ -809,5 +839,86 @@ public class RestaurantAdministratorGUI {
 
             btnAddTypeAddType.setText("Editar");
         }
+    }
+
+    @FXML
+    void miOrderTableMain(ActionEvent event) throws IOException {
+
+    }
+
+    @FXML
+    void miProductTableMain(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(TABLEPRODUCT_FXML));
+        fxmlLoader.setController(this);
+        Parent tableproduct = fxmlLoader.load();
+
+        bpPaneMain.setCenter(tableproduct);
+        setupTableProduct();
+    }
+
+    public void setupTableProduct() throws IOException {
+        productItems = FXCollections.observableArrayList(manager.productToProductItem(manager.getProducts()));
+        tvProductsTProduct.setItems(productItems);
+        tcProductTProduct.setCellValueFactory(new PropertyValueFactory<>("name"));
+        tcTypeTProduct.setCellValueFactory(new PropertyValueFactory<>("foodType"));
+        tcSizeTProduct.setCellValueFactory(new PropertyValueFactory<>("size"));
+        tcPriceTProduct.setCellValueFactory(new PropertyValueFactory<>("price"));
+        setupButtonToTableProduct();
+    }
+
+    public void setupButtonToTableProduct() throws IOException{
+        Callback<TableColumn<ProductItem, Void>, TableCell<ProductItem, Void>> cellFactory = new Callback<TableColumn<ProductItem, Void>, TableCell<ProductItem, Void>>() {
+            @Override
+            public TableCell<ProductItem, Void> call(final TableColumn<ProductItem, Void> param) {
+                final TableCell<ProductItem, Void> cell = new TableCell<ProductItem, Void>() {
+
+                    private final Button btn = new Button("Ver");
+
+                    {
+                        btn.setOnAction((ActionEvent event) -> {
+                            System.out.println(getTableView().getItems().get(getIndex()).getName());
+                            try {
+                                showEmergentIngredients();
+                                setupTableViewWindowIngredients(getTableView().getItems().get(getIndex()).getIngredients());
+                                System.out.println(getTableView().getItems().get(getIndex()).getIngredients().get(0).getName());
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void updateItem(Void item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if(empty) {
+                            setGraphic(null);
+                        } else{
+                            setGraphic(btn);
+                        }
+                    }
+                };
+                return cell;
+            }
+        };
+        tcIngredientsTProduct.setCellFactory(cellFactory);
+    }
+
+    public void showEmergentIngredients() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("windowIngredients.fxml"));
+        fxmlLoader.setController(this);
+        Parent window = fxmlLoader.load();
+
+        Scene scene = new Scene(window);
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setScene(scene);
+        stage.setTitle("Ingredientes");
+        stage.show();
+    }
+
+    public void setupTableViewWindowIngredients(List<Ingredients> ingredients){
+        windowTempIngredients = FXCollections.observableArrayList(ingredients);
+        tvIngredientsWindowIngredients.setItems(windowTempIngredients);
+        tcIngredientsWindowIngredients.setCellValueFactory(new PropertyValueFactory<>("name"));
     }
 }

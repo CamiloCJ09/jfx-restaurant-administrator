@@ -489,6 +489,25 @@ public class RestaurantManager {
         return ret;
     }
 
+    public ArrayList<ProductItem> castToProductItem(Product product){
+        ArrayList<ProductItem> items = new ArrayList<>();
+        for(int i = 0; i < product.getSizes().size(); i++){
+            items.add(new ProductItem(product.getCreator(), product.getModifier(), product, i));
+        }
+        return items;
+    }
+
+    public ArrayList<ProductItem> productToProductItem(List<Product> products){
+        ArrayList<ProductItem> items = new ArrayList<>();
+        for(int i = 0; i < products.size(); i++){
+            ArrayList<ProductItem> tempItems = castToProductItem(products.get(i));
+            for(int b = 0; b < tempItems.size(); b++){
+                items.add(tempItems.get(b));
+            }
+        }
+        return items;
+    }
+
     /**
      * Delete product boolean.
      *
