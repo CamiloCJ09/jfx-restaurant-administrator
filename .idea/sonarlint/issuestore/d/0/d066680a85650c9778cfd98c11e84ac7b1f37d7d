@@ -1,3 +1,11 @@
 
+M
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8ÖŞ²°…/
+’
+java:S1319*"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÔÂ—êıÿÿÿÿ8”ıÆ°…/
 “
-java:S1319("vThe type of the "ingredients" object should be an interface such as "List" rather than the implementation "ArrayList".(‚–ï8ôêÙÅ„/
+java:S1319."vThe type of the "ingredients" object should be an interface such as "List" rather than the implementation "ArrayList".(‚–ï8”ıÆ°…/
+Œ
+java:S13192"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(î l8”ıÆ°…/
+’
+java:S13196"pThe type of the "sizes" object should be an interface such as "List" rather than the implementation "ArrayList".(Ó¶—Åùÿÿÿÿ8”ıÆ°…/

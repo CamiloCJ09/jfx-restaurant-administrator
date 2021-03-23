@@ -1,9 +1,17 @@
 
-
-java:S1186I"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ïç½ç8§¾õƒ…/
+F
+java:S1481o")Remove this unused "type" local variable.(µô¯è8ãô¬…/
 
-java:S4144Ş"^Update this method so that its implementation is not identical to "deleteProduct" on line 467.(­æ‚ôÿÿÿÿÿ8Ã§ö……/
+java:S4144ı"^Update this method so that its implementation is not identical to "deleteProduct" on line 498.(­æ‚ôÿÿÿÿÿ8Ã§ö……/
 £
-java:S1186L"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(§üšÒüÿÿÿÿ8¸åõ……/
+java:S1186R"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ã«ü²ıÿÿÿÿ8£¥‡†…/
+\
+java:S1117p"?Rename "ingredients" which hides the field declared at line 51.(äØ·8¯ ä¬…/
+
+java:S1186L"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ïç½ç8§¾õƒ…/
 £
-java:S1186O"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ã«ü²ıÿÿÿÿ8£¥‡†…/
+java:S1186O"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(§üšÒüÿÿÿÿ8¸åõ……/
+F
+java:S1481n")Remove this unused "name" local variable.(ûÔèÓ8ãô¬…/
+M
+java:S1481p"0Remove this unused "ingredients" local variable.(äØ·8¯ ä¬…/

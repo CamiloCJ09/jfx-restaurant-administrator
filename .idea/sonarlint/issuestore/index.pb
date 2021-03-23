@@ -39,3 +39,7 @@ L
 src/model/OrderMenuItem.java,7\f\7fc861a7e56143d037ba5883400e7c20dca348ee
 M
 src/model/EmployeeOrders.java,a\8\a8cb833c0f8780df3a615370accf4a16b3afec96
+G
+src/ui/addemployee.fxml,7\d\7d0750d3adfc9f21560c167ef5f39698830932bc
+I
+src/ui/addingredient.fxml,e\b\eb834fab605b85b127a3d95187b480ad914575f5
