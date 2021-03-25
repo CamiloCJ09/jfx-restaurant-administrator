@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
@@ -25,55 +26,78 @@
                   </Label>
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+            <HBox>
                <children>
-                  <Separator orientation="VERTICAL" prefHeight="41.0" prefWidth="20.0" visible="false" />
-                  <Label text="Código:">
-                     <font>
-                        <Font name="Berlin Sans FB" size="16.0" />
-                     </font>
-                  </Label>
-                  <Separator orientation="VERTICAL" prefHeight="41.0" prefWidth="91.0" visible="false" />
-                  <JFXTextField fx:id="tfCodeOrder" editable="false" focusColor="#ffd800" prefHeight="25.0" prefWidth="151.0" />
+                  <VBox prefHeight="229.0" prefWidth="1200.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Separator orientation="VERTICAL" prefHeight="41.0" prefWidth="20.0" visible="false" />
+                              <Label text="Código:">
+                                 <font>
+                                    <Font name="Berlin Sans FB" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Separator orientation="VERTICAL" prefHeight="41.0" prefWidth="91.0" visible="false" />
+                              <JFXTextField fx:id="tfCodeOrder" editable="false" focusColor="#ffd800" prefHeight="25.0" prefWidth="151.0" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Separator orientation="VERTICAL" prefHeight="41.0" prefWidth="20.0" visible="false" />
+                              <Label text="Fecha y hora:">
+                                 <font>
+                                    <Font name="Berlin Sans FB" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Separator orientation="VERTICAL" prefHeight="41.0" prefWidth="50.0" visible="false" />
+                              <JFXTextField fx:id="tfDateOrder" editable="false" focusColor="#ffd800" prefHeight="25.0" prefWidth="154.0" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Separator orientation="VERTICAL" prefHeight="42.0" prefWidth="20.0" visible="false" />
+                              <Label text="Empleado:">
+                                 <font>
+                                    <Font name="Berlin Sans FB" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Separator orientation="VERTICAL" prefHeight="42.0" prefWidth="68.0" visible="false" />
+                              <JFXComboBox fx:id="cbEmployeeOrder" focusColor="#ffd800" prefHeight="25.0" prefWidth="150.0" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Separator orientation="VERTICAL" prefHeight="42.0" prefWidth="20.0" visible="false" />
+                              <Label text="Cliente:">
+                                 <font>
+                                    <Font name="Berlin Sans FB" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Separator orientation="VERTICAL" prefHeight="42.0" prefWidth="91.0" visible="false" />
+                              <JFXComboBox fx:id="cbClientOrder" focusColor="#ffd800" prefHeight="25.0" prefWidth="150.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="183.0" prefWidth="1557.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label text="Observaciones:">
+                                 <font>
+                                    <Font name="Berlin Sans FB Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Separator disable="true" orientation="VERTICAL" prefHeight="183.0" prefWidth="50.0" visible="false" />
+                              <JFXTextArea fx:id="taObservationsAddOrder" focusColor="#ffd800" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <Separator orientation="VERTICAL" prefHeight="41.0" prefWidth="20.0" visible="false" />
-                  <Label text="Fecha y hora:">
-                     <font>
-                        <Font name="Berlin Sans FB" size="16.0" />
-                     </font>
-                  </Label>
-                  <Separator orientation="VERTICAL" prefHeight="41.0" prefWidth="50.0" visible="false" />
-                  <JFXTextField fx:id="tfDateOrder" editable="false" focusColor="#ffd800" prefHeight="25.0" prefWidth="154.0" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <Separator orientation="VERTICAL" prefHeight="42.0" prefWidth="20.0" visible="false" />
-                  <Label text="Empleado:">
-                     <font>
-                        <Font name="Berlin Sans FB" size="16.0" />
-                     </font>
-                  </Label>
-                  <Separator orientation="VERTICAL" prefHeight="42.0" prefWidth="68.0" visible="false" />
-                  <JFXComboBox fx:id="cbEmployeeOrder" focusColor="#ffd800" prefHeight="25.0" prefWidth="150.0" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <Separator orientation="VERTICAL" prefHeight="42.0" prefWidth="20.0" visible="false" />
-                  <Label text="Cliente:">
-                     <font>
-                        <Font name="Berlin Sans FB" size="16.0" />
-                     </font>
-                  </Label>
-                  <Separator orientation="VERTICAL" prefHeight="42.0" prefWidth="91.0" visible="false" />
-                  <JFXComboBox fx:id="cbClientOrder" focusColor="#ffd800" prefHeight="25.0" prefWidth="150.0" />
-               </children>
-            </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0" />
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Label text="Producto:" />
@@ -96,40 +120,36 @@
                   <Separator orientation="VERTICAL" prefHeight="42.0" prefWidth="15.0" visible="false" />
                   <JFXTextField fx:id="tfTPriceOrder" editable="false" focusColor="#ffd800" prefHeight="25.0" prefWidth="147.0" />
                   <Separator orientation="VERTICAL" prefHeight="42.0" prefWidth="15.0" visible="false" />
-                  <JFXButton onAction="#actAddOrderOrder" text="Agregar" />
+                  <JFXButton onAction="#actAddOrderItemOrder" text="Agregar" />
                </children>
             </HBox>
          </children>
       </VBox>
    </top>
    <center>
-      <BorderPane>
-         <center>
-            <VBox>
-               <children>
-                  <TableView fx:id="tvOrdersOrder" prefHeight="493.0" prefWidth="1000.0">
-                    <columns>
-                      <TableColumn fx:id="tcProductOrder" prefWidth="75.0" text="Producto" />
-                        <TableColumn fx:id="tcSizeOrder" prefWidth="75.0" text="Tamaño" />
-                        <TableColumn fx:id="tcAmountOrder" prefWidth="75.0" text="Cantidad" />
-                        <TableColumn prefWidth="128.0" text="Precio">
-                           <columns>
-                              <TableColumn fx:id="tcUPriceOrder" prefWidth="128.0" text="Unitario" />
-                              <TableColumn fx:id="tcTPriceOrder" prefWidth="171.0" text="Total" />
-                           </columns>
-                        </TableColumn>
-                    </columns>
-                     <columnResizePolicy>
-                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                     </columnResizePolicy>
-                  </TableView>
-               </children>
-            </VBox>
-         </center>
-      </BorderPane>
+      <VBox prefHeight="400.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView fx:id="tvOrdersOrder" prefHeight="433.0" prefWidth="1000.0" VBox.vgrow="ALWAYS">
+              <columns>
+                <TableColumn fx:id="tcProductOrder" prefWidth="75.0" text="Producto" />
+                  <TableColumn fx:id="tcSizeOrder" prefWidth="75.0" text="Tamaño" />
+                  <TableColumn fx:id="tcAmountOrder" onEditCommit="#actEditAmountAddOrder" prefWidth="75.0" text="Cantidad" />
+                  <TableColumn prefWidth="128.0" text="Precio">
+                     <columns>
+                        <TableColumn fx:id="tcUPriceOrder" prefWidth="128.0" text="Unitario" />
+                        <TableColumn fx:id="tcTPriceOrder" prefWidth="171.0" text="Total" />
+                     </columns>
+                  </TableColumn>
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </children>
+      </VBox>
    </center>
    <right>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefHeight="396.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
             <JFXButton onAction="#actDeleteOrder" text="Eliminar" />
             <Separator prefHeight="42.0" prefWidth="100.0" />
@@ -138,6 +158,13 @@
       </VBox>
    </right>
    <left>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+      <VBox prefHeight="386.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
    </left>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="44.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+         <children>
+            <JFXButton onAction="#actAddOrderOrder" text="Agregar orden" />
+         </children>
+      </HBox>
+   </bottom>
 </BorderPane>
