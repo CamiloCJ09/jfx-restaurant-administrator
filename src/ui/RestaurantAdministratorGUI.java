@@ -325,9 +325,7 @@ public class RestaurantAdministratorGUI {
                 mbMenuMain.setVisible(true);
                 mbMenuMain.setDisable(false);
                 setupOrderScreen();
-//                String[] dateFields = java.time.Instant.now().toString().split("T");
-//                String[] timeFields = dateFields[1].split("\\.");
-//                tfDateOrder.setText(dateFields[0]+" "+timeFields[0]);
+                tempIngredients = FXCollections.observableArrayList(manager.getIngredients());
 
             }else{
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -615,8 +613,10 @@ public class RestaurantAdministratorGUI {
             setupAddIngredientScreen();
         } else{
             manager.editIngredient(tvIngredientsAddIngredient.getSelectionModel().getSelectedIndex(), name);
+
             btnAddIngredientAddIngredient.setText("Agregar");
         }
+        manager.saveProductData();
         manager.saveIngredientsData();
         tvIngredientsAddIngredient.refresh();
         tfNameAddIngredient.clear();
@@ -858,7 +858,14 @@ public class RestaurantAdministratorGUI {
 
     public void setupTableProduct() throws IOException {
         productItems = FXCollections.observableArrayList(manager.productToProductItem(manager.getProducts()));
+
         tvProductsTProduct.setItems(productItems);
+
+
+        //System.out.println(manager.productToProductItem(manager.getProducts()).get(3));
+        //System.out.println(productItems.get(5).getIngredients().get(3));
+
+
         tcProductTProduct.setCellValueFactory(new PropertyValueFactory<>("name"));
         tcTypeTProduct.setCellValueFactory(new PropertyValueFactory<>("foodType"));
         tcSizeTProduct.setCellValueFactory(new PropertyValueFactory<>("size"));
@@ -876,11 +883,11 @@ public class RestaurantAdministratorGUI {
 
                     {
                         btn.setOnAction((ActionEvent event) -> {
-                            System.out.println(getTableView().getItems().get(getIndex()).getName());
                             try {
+                                productItems = FXCollections.observableArrayList(manager.actualizeProductItemIngredientsList(productItems));
+                                //TODO: CHECK THIS OUT
                                 showEmergentIngredients();
                                 setupTableViewWindowIngredients(getTableView().getItems().get(getIndex()).getIngredients());
-                                System.out.println(getTableView().getItems().get(getIndex()).getIngredients().get(0).getName());
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }

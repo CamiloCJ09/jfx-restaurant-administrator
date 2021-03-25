@@ -1,5 +1,6 @@
 package model;
 
+import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 
 import java.io.*;
@@ -508,6 +509,17 @@ public class RestaurantManager {
         return items;
     }
 
+    public ObservableList<ProductItem> actualizeProductItemIngredientsList(ObservableList<ProductItem> listOfProductItems){
+        for(int i = 0; i <  products.size(); i++){
+            for(int j = 0; j < listOfProductItems.size(); j++){
+                if(products.get(i).getName().equals(listOfProductItems.get(j).getName())){
+                    listOfProductItems.get(j).setIngredients(products.get(i).getIngredients());
+                }
+            }
+        }
+        return listOfProductItems;
+    }
+
     /**
      * Delete product boolean.
      *
@@ -540,9 +552,14 @@ public class RestaurantManager {
      */
 //Edit methods
     public void editIngredient(int index, String newName){
-        Ingredients ingredient = ingredients.get(index);
-        ingredient.setName(newName);
-        ingredients.set(index, ingredient);
+        for(int i = 0; i < products.size(); i++){
+            for(int j = 0; j < products.get(i).getIngredients().size(); j++){
+                if(products.get(i).getIngredients().get(j).getName().equals(ingredients.get(index).getName())){
+                    products.get(i).getIngredients().set(j, ingredients.get(index));
+                }
+            }
+        }
+        ingredients.get(index).setName(newName);
     }
 
     public void editClient(int index, String firstName, String lastName, String id, String address, String tel, String observations){

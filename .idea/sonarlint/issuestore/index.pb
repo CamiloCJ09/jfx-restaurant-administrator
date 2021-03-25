@@ -43,3 +43,5 @@ G
 src/ui/addemployee.fxml,7\d\7d0750d3adfc9f21560c167ef5f39698830932bc
 I
 src/ui/addingredient.fxml,e\b\eb834fab605b85b127a3d95187b480ad914575f5
+J
+src/model/ProductItem.java,5\4\546c54672d6beb133bc19264936b4156584165cd
