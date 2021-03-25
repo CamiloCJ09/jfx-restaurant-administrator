@@ -59,6 +59,8 @@ public class RestaurantManager {
     //Active user
     private User activeUser;
 
+    private Date time;
+
     /**
      * Instantiates a new Restaurant manager.
      */
@@ -448,6 +450,7 @@ public class RestaurantManager {
         }
         if(ret){
             orders.add(order);
+            System.out.println("creadita papa");
         }
         return ret;
     }
@@ -457,8 +460,41 @@ public class RestaurantManager {
         return item;
     }
 
+    public ObservableOrder newObservableProduct(String code, List<OrderMenuItem> items, Date date, String observations, Status status, Employee employee, Client client, String tPrice){
+        ObservableOrder product = new ObservableOrder(activeUser, activeUser, code, items, date, observations, status, employee, client, tPrice);
+        return product;
+    }
+
     public Size findSize(Product product, String size){
         return product.findSize(size);
+    }
+
+    public Employee findEmployee(String name){
+        Employee employee = null;
+        boolean found = false;
+        String eName = "";
+        for(int i = 0; i<employees.size() && !found; i++){
+            eName = employees.get(i).getFirstName() + " " + employees.get(i).getLastName();
+            if(eName.equals(name)){
+                found = true;
+                employee = employees.get(i);
+            }
+        }
+        return employee;
+    }
+
+    public Client findClient(String name){
+        Client client = null;
+        boolean found = false;
+        String cName = "";
+        for(int i = 0; i<clients.size() && !found; i++){
+            cName = clients.get(i).getFirstName() + " " + clients.get(i).getLastName();
+            if(cName.equals(name)){
+                found = true;
+                client = clients.get(i);
+            }
+        }
+        return client;
     }
 
     /**
@@ -607,6 +643,16 @@ public class RestaurantManager {
             }
         }
         return tempProduct;
+    }
+
+    public int findProductIndex(String productName){
+        int index = 0;
+        for(int i = 0; i < products.size(); i++){
+            if(products.get(i).getName().equals(productName)){
+                index = i;
+            }
+        }
+        return index;
     }
 
     /**
@@ -769,5 +815,13 @@ public class RestaurantManager {
             }
         }
         return ingredient;
+    }
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
     }
 }

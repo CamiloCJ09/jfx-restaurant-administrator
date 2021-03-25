@@ -14,6 +14,7 @@ public class Order extends RestaurantObject{
     private Status status;
     private Employee deliverer;
     private Client client;
+    private String tPrice;
 
     //Methods
     public Order(User creator, User modifier, String code, List<OrderMenuItem> items, Date time, String observations, Employee deliverer, Client client) {
@@ -25,6 +26,11 @@ public class Order extends RestaurantObject{
         this.status = Status.SOLICITED;
         this.deliverer = deliverer;
         this.client = client;
+        Double price = 0.0;
+        for(int i = 0; i < items.size(); i++){
+            price += Double.valueOf(items.get(i).getPriceT());
+        }
+        this.tPrice = price.toString();
     }
 
     public String getCode() {
@@ -81,5 +87,13 @@ public class Order extends RestaurantObject{
 
     public void setItems(List<OrderMenuItem> items) {
         this.items = items;
+    }
+
+    public String gettPrice() {
+        return tPrice;
+    }
+
+    public void settPrice(String tPrice) {
+        this.tPrice = tPrice;
     }
 }

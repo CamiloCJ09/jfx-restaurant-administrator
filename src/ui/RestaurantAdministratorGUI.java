@@ -9,7 +9,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
@@ -26,6 +28,7 @@ import java.text.SimpleDateFormat;
 import java.time.Clock;
 import java.time.Instant;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -56,6 +59,8 @@ public class RestaurantAdministratorGUI {
 
     public final static String TABLEPRODUCT_FXML = "tableproduct.fxml";
 
+    public final static String TABLEORDER_FXML = "tableorder.fxml";
+
     private ObservableList<Ingredients> tempIngredients;
 
     private ObservableList<Size> tempSizes;
@@ -73,6 +78,8 @@ public class RestaurantAdministratorGUI {
     private ObservableList<ProductItem> productItems;
 
     private ObservableList<Ingredients> windowTempIngredients;
+
+    private ObservableList<ObservableOrder> orders;
 
     @FXML
     private BorderPane bpPaneMain;
@@ -302,6 +309,33 @@ public class RestaurantAdministratorGUI {
     @FXML
     private TableColumn<Ingredients, String> tcIngredientsWindowIngredients;
 
+    @FXML
+    private TableView<ObservableOrder> tvOrdersTOrder;
+
+    @FXML
+    private TableColumn<ObservableOrder, String> tcCodeTOrder;
+
+    @FXML
+    private TableColumn<ObservableOrder, String> tcDateTOrder;
+
+    @FXML
+    private TableColumn<Order, String> tcEmployeeTOrder;
+
+    @FXML
+    private TableColumn<ObservableOrder, String> tcClientTOrder;
+
+    @FXML
+    private TableColumn<ObservableOrder, String> tcTPriceTOrder;
+
+    @FXML
+    private TableColumn<ObservableOrder, String> tcObservationsTOrder;
+
+    @FXML
+    private TableColumn<?, ?> tcProductsTOrder;
+
+    @FXML
+    private JFXTextArea taObservationsAddOrder;
+
     public RestaurantAdministratorGUI(){
         manager = new RestaurantManager();
     }
@@ -432,6 +466,8 @@ public class RestaurantAdministratorGUI {
         tcAmountOrder.setCellValueFactory(new PropertyValueFactory<>("amount"));
         tcUPriceOrder.setCellValueFactory(new PropertyValueFactory<>("priceU"));
         tcTPriceOrder.setCellValueFactory(new PropertyValueFactory<>("priceT"));
+        tvOrdersOrder.setEditable(true);
+        tcAmountOrder.setCellFactory(TextFieldTableCell.forTableColumn());
         //Clean this
         Instant time = Instant.now();
         String[] dateFields =time.toString().split("T");
@@ -439,6 +475,7 @@ public class RestaurantAdministratorGUI {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd MM yyyy HH:mm:ss");
         String timeWFormat = simpleDateFormat.format(Date.from(time));//We use it in the code for the order
         Date date = Date.from(time); // Use it for the order attribute
+        manager.setTime(date);
         String finalTime = simpleDateFormat.format(Date.from(time));
         tfDateOrder.setText(finalTime.replace(" ", "/"));
 
@@ -498,7 +535,7 @@ public class RestaurantAdministratorGUI {
     }
 
     @FXML
-    public void actAddOrderOrder(ActionEvent event) {
+    public void actAddOrderItemOrder(ActionEvent event) {
         boolean alreadyIs = false;
         for(int i = 0; i<orderItems.size(); i++){
             if(orderItems.get(i).getProductName().equals(cbProductOrder.getSelectionModel().getSelectedItem())){
@@ -843,7 +880,13 @@ public class RestaurantAdministratorGUI {
 
     @FXML
     void miOrderTableMain(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(TABLEORDER_FXML));
+        fxmlLoader.setController(this);
+        Parent tableorder = fxmlLoader.load();
 
+        bpPaneMain.setCenter(tableorder);
+        System.out.println(manager.getOrders().get(0));
+        setupTableOrder();
     }
 
     @FXML
@@ -927,5 +970,44 @@ public class RestaurantAdministratorGUI {
         windowTempIngredients = FXCollections.observableArrayList(ingredients);
         tvIngredientsWindowIngredients.setItems(windowTempIngredients);
         tcIngredientsWindowIngredients.setCellValueFactory(new PropertyValueFactory<>("name"));
+    }
+
+    @FXML
+    public void actAddOrderOrder(ActionEvent event) {
+        String code = tfCodeOrder.getText();
+        List<OrderMenuItem> items = tvOrdersOrder.getItems();
+        Date time = manager.getTime();
+        String observations = taObservationsAddOrder.getText();
+        manager.addOrder(code, items, time, observations, manager.findEmployee(cbEmployeeOrder.getSelectionModel().getSelectedItem()), manager.findClient(cbClientOrder.getSelectionModel().getSelectedItem()));
+    }
+
+    @FXML
+    public void actEditAmountAddOrder(TableColumn.CellEditEvent<OrderMenuItem, String> amountEdit) {
+        orderItems.get(tvOrdersOrder.getSelectionModel().getSelectedIndex()).setAmount(amountEdit.getNewValue());
+        Double uPrice = Double.parseDouble(orderItems.get(tvOrdersOrder.getSelectionModel().getSelectedIndex()).getPriceU());
+        Double amount = Double.parseDouble(amountEdit.getNewValue());
+        Double tPrice = uPrice*amount;
+        orderItems.get(tvOrdersOrder.getSelectionModel().getSelectedIndex()).setPriceT(tPrice.toString());
+        tvOrdersOrder.refresh();
+    }
+
+    public void setupTableOrder(){
+        orders = FXCollections.observableArrayList();
+        for(int i = 0; i < manager.getOrders().size(); i++){
+            orders.add(manager.newObservableProduct(manager.getOrders().get(i).getCode(),
+                    manager.getOrders().get(i).getItems(),
+                    manager.getOrders().get(i).getTime(),
+                    manager.getOrders().get(i).getObservations(),
+                    manager.getOrders().get(i).getStatus(),
+                    manager.getOrders().get(i).getDeliverer(),
+                    manager.getOrders().get(i).getClient(),
+                    manager.getOrders().get(i).gettPrice()));
+        }
+        tvOrdersTOrder.getItems().addAll(orders);
+        tcCodeTOrder.setCellValueFactory(new PropertyValueFactory<>("code"));
+        tcDateTOrder.setCellValueFactory(new PropertyValueFactory<>("date"));
+        tcEmployeeTOrder.setCellValueFactory(new PropertyValueFactory<>("employee"));
+        tcClientTOrder.setCellValueFactory(new PropertyValueFactory<>("client"));
+        tcTPriceTOrder.setCellValueFactory(new PropertyValueFactory<>("priceT"));
     }
 }
