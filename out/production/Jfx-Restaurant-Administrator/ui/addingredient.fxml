@@ -24,7 +24,9 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <JFXButton fx:id="btnAddIngredientAddIngredient" onAction="#actAddIngredientAddIngredient" text="Agregar" />
+                  <JFXButton fx:id="btnAddIngredientAddIngredient" buttonType="RAISED" onAction="#actAddIngredientAddIngredient" text="Agregar" />
+                  <Separator opacity="0.0" orientation="VERTICAL" prefHeight="100.0" prefWidth="58.0" />
+                  <JFXButton buttonType="RAISED" onAction="#actOrderAlphabeticalAddIngredient" text="Ordenar alfabeticamente" />
                </children>
             </HBox>
          </children>

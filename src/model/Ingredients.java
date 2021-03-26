@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Comparator;
+
 public class Ingredients extends RestaurantObject{
     //Attributes
     private String name;
@@ -17,4 +19,6 @@ public class Ingredients extends RestaurantObject{
     public void setName(String name) {
         this.name = name;
     }
+
+
 }

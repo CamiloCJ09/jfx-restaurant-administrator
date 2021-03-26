@@ -885,7 +885,7 @@ public class RestaurantAdministratorGUI {
         Parent tableorder = fxmlLoader.load();
 
         bpPaneMain.setCenter(tableorder);
-        System.out.println(manager.getOrders().get(0));
+        //System.out.println(manager.getOrders().get(0));
         setupTableOrder();
     }
 
@@ -1010,4 +1010,12 @@ public class RestaurantAdministratorGUI {
         tcClientTOrder.setCellValueFactory(new PropertyValueFactory<>("client"));
         tcTPriceTOrder.setCellValueFactory(new PropertyValueFactory<>("priceT"));
     }
+
+    @FXML
+    void actOrderAlphabeticalAddIngredient(ActionEvent event) throws IOException {
+        manager.orderIngredientsByAlphabeticalOrder();
+        setupAddIngredientScreen();
+
+    }
+
 }

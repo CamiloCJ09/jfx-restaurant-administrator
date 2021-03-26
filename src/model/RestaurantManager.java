@@ -4,9 +4,7 @@ import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * The type Restaurant manager.
@@ -340,10 +338,10 @@ public class RestaurantManager {
      */
     public boolean addIngredient(String ingredientName){
         Ingredients ingredient = new Ingredients(activeUser, activeUser, ingredientName);
-        boolean ret = true; //if cant added return false
-        for(int i = 0; i < ingredients.size() && ret; i++){
-            if(ingredients.get(i).getName().equalsIgnoreCase(ingredientName)){
-                ret = false;
+        boolean ret = false; //if cant added return false
+        for(int i = 0; i < ingredients.size() && !ret; i++){
+            if(ingredients.get(i).getName().equalsIgnoreCase(ingredientName) && !ingredientName.equals("")){
+                ret = true;
             }
         }
         if(ret){
@@ -595,6 +593,7 @@ public class RestaurantManager {
                 }
             }
         }
+        ingredients.get(index).setModifier(activeUser);
         ingredients.get(index).setName(newName);
     }
 
@@ -606,6 +605,7 @@ public class RestaurantManager {
         client.setAddress(address);
         client.setTel(tel);
         client.setObservations(observations);
+        client.setModifier(activeUser);
         clients.set(index, client);
     }
 
@@ -614,12 +614,14 @@ public class RestaurantManager {
         employee.setFirstName(firstName);
         employee.setLastName(lastName);
         employee.setId(id);
+        employee.setModifier(activeUser);
         employees.set(index, employee);
     }
 
     public void editType(int index, String name){
         FoodType type = foodTypes.get(index);
         type.setName(name);
+        type.setModifier(activeUser);
         foodTypes.set(index, type);
     }
 
@@ -654,6 +656,20 @@ public class RestaurantManager {
         }
         return index;
     }
+
+
+    public void orderIngredientsByAlphabeticalOrder(){
+        Comparator<Ingredients> ingredientsOrder = (aIngredient, bIngredient) -> aIngredient.getName().compareToIgnoreCase(bIngredient.getName());
+        ingredients.sort(ingredientsOrder);
+    }
+
+
+
+
+
+
+    /////////////////// SETTERS AND GETTERS ///////////////////////////
+
 
     /**
      * Gets ingredients.
