@@ -81,6 +81,8 @@ public class RestaurantAdministratorGUI {
 
     private ObservableList<ObservableOrder> orders;
 
+    private ObservableList<OrderMenuItem> windowTempOrderItems;
+
     @FXML
     private BorderPane bpPaneMain;
 
@@ -328,13 +330,31 @@ public class RestaurantAdministratorGUI {
     private TableColumn<ObservableOrder, String> tcTPriceTOrder;
 
     @FXML
-    private TableColumn<ObservableOrder, String> tcObservationsTOrder;
+    private TableColumn<ObservableOrder, Void> tcObservationsTOrder;
 
     @FXML
-    private TableColumn<?, ?> tcProductsTOrder;
+    private TableColumn<ObservableOrder, Void> tcProductsTOrder;
 
     @FXML
     private JFXTextArea taObservationsAddOrder;
+
+    @FXML
+    private TableView<OrderMenuItem> tvOrderItemsWindowOrderItems;
+
+    @FXML
+    private TableColumn<OrderMenuItem, String> tcProductWindowOrderItems;
+
+    @FXML
+    private TableColumn<OrderMenuItem, String> tcSizeWindowOrderItems;
+
+    @FXML
+    private TableColumn<OrderMenuItem, String> tcAmountWindowOrderItems;
+
+    @FXML
+    private TableColumn<OrderMenuItem, String> tcUPriceWindowOrderItems;
+
+    @FXML
+    private TableColumn<OrderMenuItem, String> tcTPriceWindowOrderItems;
 
     public RestaurantAdministratorGUI(){
         manager = new RestaurantManager();
@@ -1009,6 +1029,8 @@ public class RestaurantAdministratorGUI {
         tcEmployeeTOrder.setCellValueFactory(new PropertyValueFactory<>("employee"));
         tcClientTOrder.setCellValueFactory(new PropertyValueFactory<>("client"));
         tcTPriceTOrder.setCellValueFactory(new PropertyValueFactory<>("priceT"));
+        setupButtonProductsTableOrders();
+        setupButtonObservationsTableOrders();
     }
 
     @FXML
@@ -1018,4 +1040,92 @@ public class RestaurantAdministratorGUI {
 
     }
 
+    public void setupButtonProductsTableOrders(){
+        Callback<TableColumn<ObservableOrder, Void>, TableCell<ObservableOrder, Void>> cellFactory = new Callback<TableColumn<ObservableOrder, Void>, TableCell<ObservableOrder, Void>>() {
+            @Override
+            public TableCell<ObservableOrder, Void> call(final TableColumn<ObservableOrder, Void> param) {
+                final TableCell<ObservableOrder, Void> cell = new TableCell<ObservableOrder, Void>() {
+
+                    private final Button btn = new Button("Ver");
+
+                    {
+                        btn.setOnAction((ActionEvent event) -> {
+                            try{
+                                windowTempOrderItems = FXCollections.observableArrayList(getTableView().getItems().get(getIndex()).getItems());
+                                setupTableWindowOrderItems();
+                            }catch (IOException e){
+
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void updateItem(Void item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if(empty) {
+                            setGraphic(null);
+                        } else{
+                            setGraphic(btn);
+                        }
+                    }
+                };
+                return cell;
+            }
+        };
+        tcProductsTOrder.setCellFactory(cellFactory);
+    }
+
+    public void setupButtonObservationsTableOrders(){
+        Callback<TableColumn<ObservableOrder, Void>, TableCell<ObservableOrder, Void>> cellFactory = new Callback<TableColumn<ObservableOrder, Void>, TableCell<ObservableOrder, Void>>() {
+            @Override
+            public TableCell<ObservableOrder, Void> call(final TableColumn<ObservableOrder, Void> param) {
+                final TableCell<ObservableOrder, Void> cell = new TableCell<ObservableOrder, Void>() {
+
+                    private final Button btn = new Button("Ver");
+
+                    {
+                        btn.setOnAction((ActionEvent event) -> {
+                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                            alert.setTitle("Observaciones");
+                            alert.setHeaderText("Observaciones de pedido:");
+                            alert.setContentText(getTableView().getItems().get(getIndex()).getObservations());
+                            alert.showAndWait();
+                        });
+                    }
+
+                    @Override
+                    public void updateItem(Void item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if(empty) {
+                            setGraphic(null);
+                        } else{
+                            setGraphic(btn);
+                        }
+                    }
+                };
+                return cell;
+            }
+        };
+        tcObservationsTOrder.setCellFactory(cellFactory);
+    }
+
+    public void setupTableWindowOrderItems() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("windoworderitems.fxml"));
+        fxmlLoader.setController(this);
+        Parent window = fxmlLoader.load();
+
+        Scene scene = new Scene(window);
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setScene(scene);
+        stage.setTitle("Order items");
+        stage.show();
+
+        tvOrderItemsWindowOrderItems.setItems(windowTempOrderItems);
+        tcProductWindowOrderItems.setCellValueFactory(new PropertyValueFactory<>("productName"));
+        tcSizeWindowOrderItems.setCellValueFactory(new PropertyValueFactory<>("size"));
+        tcAmountWindowOrderItems.setCellValueFactory(new PropertyValueFactory<>("amount"));
+        tcUPriceWindowOrderItems.setCellValueFactory(new PropertyValueFactory<>("priceU"));
+        tcTPriceWindowOrderItems.setCellValueFactory(new PropertyValueFactory<>("priceT"));
+    }
 }
