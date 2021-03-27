@@ -30,6 +30,6 @@
           </Menu>
         </menus>
       </MenuBar>
-      <BorderPane fx:id="bpPaneMain" prefHeight="380.0" prefWidth="600.0" />
+      <BorderPane fx:id="bpPaneMain" prefHeight="768.0" prefWidth="1100.0" VBox.vgrow="ALWAYS" />
    </children>
 </VBox>

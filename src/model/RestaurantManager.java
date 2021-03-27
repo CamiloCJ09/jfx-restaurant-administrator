@@ -663,6 +663,32 @@ public class RestaurantManager {
         ingredients.sort(ingredientsOrder);
     }
 
+    public Client findClientById(int clientId){
+        //Implement binary search
+        int id = clientId;
+        int k = 0;
+        int h = clients.size();
+        int pos = -1;
+
+        while(k <= h && pos<0){
+            int m = k + (h-1)/2;
+
+            if(Integer.parseInt(clients.get(m).getId()) == id){
+                pos = m;
+            }else if(Integer.parseInt(clients.get(m).getId()) < id){
+                k = m + 1;
+            }else{
+                h = m - 1;
+            }
+        }
+
+        if(pos == -1){
+            return null;
+        }else{
+            return clients.get(pos);
+        }
+    }
+
 
 
 

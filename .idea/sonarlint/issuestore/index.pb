@@ -47,3 +47,5 @@ J
 src/model/ProductItem.java,5\4\546c54672d6beb133bc19264936b4156584165cd
 N
 src/model/ObservableOrder.java,6\2\62c8d006c2faf989d53c923d6749bf374d855a56
+H
+src/ui/tableproduct.fxml,f\6\f6727d9cd8221eec4f35b3e87e91f565e2e2f69a
