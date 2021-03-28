@@ -1,73 +1,75 @@
 
-M
-java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8ÛÍŞ¼†/
-R
-java:S1128"0Remove this unused import 'java.time.LocalDate'.(›‘¬èıÿÿÿÿ8ÛÍŞ¼†/
-w
-java:S1450J"ZRemove the "ingredients" field and declare it as a local variable in the relevant methods.(„ßüü8ÛÍŞ¼†/
-e
-java:S1128"HRemove this unused import 'javafx.scene.control.cell.ComboBoxTableCell'.(¥øÖÊ8ÛÍŞ¼†/
-†
-java:S1450P"dRemove the "windowTempIngredients" field and declare it as a local variable in the relevant methods.(÷©—èÿÿÿÿÿ8ÛÍŞ¼†/
-x
-java:S1450F"VRemove the "clients" field and declare it as a local variable in the relevant methods.(‚å¹˜üÿÿÿÿ8ÛÍŞ¼†/
+Y	java:S110Á"<This class has 9 parents which is greater than 5 authorized.(š­…ç8ÄÈŒµ‡/
 q
 java:S1450L"TRemove the "types" field and declare it as a local variable in the relevant methods.(Ÿ­ô©8ÛÍŞ¼†/
+?	java:S131ö""Add a default case to this switch.(ûè¬8ÄÈŒµ‡/
+e
+java:S1192‰"GDefine a constant instead of duplicating this literal "Editar" 4 times.(‹´åÒ8ÄÈŒµ‡/
+j
+java:S1192"GDefine a constant instead of duplicating this literal "priceT" 3 times.(à™¥Äıÿÿÿÿ8ÄÈŒµ‡/
+F
+java:S1604Ö"(Make this anonymous inner class a lambda(çé©8ÄÈŒµ‡/
+M
+java:S1066Ù"/Merge this if statement with the enclosing one.(©’ŒÉ8ÄÈŒµ‡/
 K
 java:S1068%")Remove this unused "clock" private field.(Êë®“ûÿÿÿÿ8ÛÍŞ¼†/
+]
+java:S1117ƒ"?Rename "ingredients" which hides the field declared at line 74.(Ú©¤8ÄÈŒµ‡/
+œ
+java:S1130Ã"yRemove the declaration of thrown exception 'java.lang.ClassNotFoundException', as it cannot be thrown from method's body.(£Ÿ•ıÿÿÿÿ8ÄÈŒµ‡/
+Y	java:S110ä"<This class has 9 parents which is greater than 5 authorized.(š­…ç8ÄÈŒµ‡/
+F
+java:S1604á"(Make this anonymous inner class a lambda(íßÎÁ8ÄÈŒµ‡/
+l
+java:S1858á"I"getSelectedItem" returns a string, there's no need to call "toString()".(òú¦Âùÿÿÿÿ8ÄÈŒµ‡/
+R
+java:S1481•"/Remove this unused "timeFields" local variable.(Ã‹¸ßúÿÿÿÿ8ÄÈŒµ‡/
+F
+java:S1604¾"(Make this anonymous inner class a lambda(íßÎÁ8ÄÈŒµ‡/
+h
+java:S1128"FRemove this unused import 'javax.imageio.stream.FileImageInputStream'.(½ƒÊ³şÿÿÿÿ8ÏØ¡µ‡/
+|
+java:S1171Å"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8ÄÈŒµ‡/
+e
+java:S1128"HRemove this unused import 'javafx.scene.control.cell.ComboBoxTableCell'.(¥øÖÊ8ÛÍŞ¼†/
+g
+java:S1858ö"I"getSelectedItem" returns a string, there's no need to call "toString()".(ûè¬8ÄÈŒµ‡/
+x
+java:S1450F"VRemove the "clients" field and declare it as a local variable in the relevant methods.(‚å¹˜üÿÿÿÿ8ÛÍŞ¼†/
+f
+java:S1192—"HDefine a constant instead of duplicating this literal "Agregar" 8 times.(Š¾€º8ÄÈŒµ‡/
+†
+java:S1450P"dRemove the "windowTempIngredients" field and declare it as a local variable in the relevant methods.(÷©—èÿÿÿÿÿ8ÛÍŞ¼†/
+–
+java:S1130†"xRemove the declaration of thrown exception 'java.io.FileNotFoundException' which is a subclass of 'java.io.IOException'.(Û²·Â8·Œµ‡/
+Ÿ
+java:S1186¨"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(÷ğè½8ÄÈŒµ‡/
 w
-java:S1450R"URemove the "orders" field and declare it as a local variable in the relevant methods.(ùÍ³úşÿÿÿÿ8ÛÍŞ¼†/
+java:S1450J"ZRemove the "ingredients" field and declare it as a local variable in the relevant methods.(„ßüü8ÛÍŞ¼†/
+l
+java:S1858ù"I"getSelectedItem" returns a string, there's no need to call "toString()".(ïğ¿¤şÿÿÿÿ8ÄÈŒµ‡/
 u
 java:S1450H"XRemove the "employees" field and declare it as a local variable in the relevant methods.(ÒòÓ8ÛÍŞ¼†/
-f
-java:S1192ğ"HDefine a constant instead of duplicating this literal "Agregar" 8 times.(Š¾€º8º™¿‘‡/
-d
-java:S1192‚"FDefine a constant instead of duplicating this literal "Error" 3 times.(µûø–8º™¿‘‡/
-e
-java:S1192ß"GDefine a constant instead of duplicating this literal "Editar" 4 times.(‹´åÒ8º™¿‘‡/
-j
-java:S1192è"GDefine a constant instead of duplicating this literal "priceT" 3 times.(à™¥Äıÿÿÿÿ8º™¿‘‡/
-M
-java:S1066²"/Merge this if statement with the enclosing one.(©’ŒÉ8º™¿‘‡/
-^	java:S110¯"<This class has 9 parents which is greater than 5 authorized.(¡òäŞşÿÿÿÿ8º™¿‘‡/
-Y	java:S110—"<This class has 9 parents which is greater than 5 authorized.(š­…ç8º™¿‘‡/
-Y	java:S110º"<This class has 9 parents which is greater than 5 authorized.(š­…ç8º™¿‘‡/
-F
-java:S1604¬"(Make this anonymous inner class a lambda(çé©8º™¿‘‡/
-F
-java:S1604”"(Make this anonymous inner class a lambda(íßÎÁ8º™¿‘‡/
-F
-java:S1604·"(Make this anonymous inner class a lambda(íßÎÁ8º™¿‘‡/
-Ÿ
-java:S1186ê"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¼•¹œ8º™¿‘‡/
-Ÿ
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(÷ğè½8º™¿‘‡/
-¤
-java:S1186È"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ü—ìŠûÿÿÿÿ8º™¿‘‡/
-¤
-java:S1186ä"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(âçÕÏşÿÿÿÿ8º™¿‘‡/
-œ
-java:S1130"yRemove the declaration of thrown exception 'java.lang.ClassNotFoundException', as it cannot be thrown from method's body.(£Ÿ•ıÿÿÿÿ8º™¿‘‡/
-g
-java:S1858¹"I"getSelectedItem" returns a string, there's no need to call "toString()".(Íö°É8º™¿‘‡/
+^	java:S110Ù"<This class has 9 parents which is greater than 5 authorized.(¡òäŞşÿÿÿÿ8ÄÈŒµ‡/
 l
-java:S1858º"I"getSelectedItem" returns a string, there's no need to call "toString()".(òú¦Âùÿÿÿÿ8º™¿‘‡/
-l
-java:S1858º"I"getSelectedItem" returns a string, there's no need to call "toString()".(òú¦Âùÿÿÿÿ8º™¿‘‡/
-?	java:S131Ï""Add a default case to this switch.(ûè¬8º™¿‘‡/
-g
-java:S1858Ï"I"getSelectedItem" returns a string, there's no need to call "toString()".(ûè¬8º™¿‘‡/
-l
-java:S1858Ğ"I"getSelectedItem" returns a string, there's no need to call "toString()".(ïğ¿¤şÿÿÿÿ8º™¿‘‡/
-]
-java:S1117Ú"?Rename "ingredients" which hides the field declared at line 74.(Ú©¤8º™¿‘‡/
+java:S1858á"I"getSelectedItem" returns a string, there's no need to call "toString()".(òú¦Âùÿÿÿÿ8ÄÈŒµ‡/
+|
+java:S1171İ"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8ÄÈŒµ‡/
 Š
-java:S1130«"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(¹Ñƒ¯8º™¿‘‡/
-|
-java:S1171³"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8º™¿‘‡/
-|
-java:S1171›"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8º™¿‘‡/
-|
-java:S1171¾"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8º™¿‘‡/
+java:S1130Õ"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(¹Ñƒ¯8ÄÈŒµ‡/
+Ÿ
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¼•¹œ8ÄÈŒµ‡/
+d
+java:S1192¨"FDefine a constant instead of duplicating this literal "Error" 3 times.(µûø–8ÄÈŒµ‡/
+w
+java:S1450R"URemove the "orders" field and declare it as a local variable in the relevant methods.(ùÍ³úşÿÿÿÿ8ÛÍŞ¼†/
 R
-java:S1481î"/Remove this unused "timeFields" local variable.(Ã‹¸ßúÿÿÿÿ8º™¿‘‡/
+java:S1128"0Remove this unused import 'java.time.LocalDate'.(›‘¬èıÿÿÿÿ8ÛÍŞ¼†/
+¤
+java:S1186ï"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ü—ìŠûÿÿÿÿ8ÄÈŒµ‡/
+¤
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(âçÕÏşÿÿÿÿ8ÄÈŒµ‡/
+g
+java:S1858à"I"getSelectedItem" returns a string, there's no need to call "toString()".(Íö°É8ÄÈŒµ‡/
+|
+java:S1171è"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8ÄÈŒµ‡/

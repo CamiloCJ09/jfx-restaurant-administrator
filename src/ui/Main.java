@@ -5,10 +5,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class Main extends Application{
 
     private RestaurantAdministratorGUI restaurantAdministratorGUI;
-    public Main(){
+    public Main() throws IOException, ClassNotFoundException {
         restaurantAdministratorGUI = new RestaurantAdministratorGUI();
     }
     @Override
@@ -27,8 +29,9 @@ public class Main extends Application{
         fxmlLoader2.setController(restaurantAdministratorGUI);
         Parent signIn = fxmlLoader2.load();
 
+        restaurantAdministratorGUI.loadData();
         restaurantAdministratorGUI.getMainPanePrincipal().setCenter(signIn);
-        restaurantAdministratorGUI.loadAllData();
+        //restaurantAdministratorGUI.loadAllData();
 
     }
     public static void main(String[] args){

@@ -1,2 +1,4 @@
 
-]	java:S107"AConstructor has 8 parameters, which is greater than 7 authorized.(õÁÓÀ8ğì¾ƒ/
+]	java:S107"AConstructor has 8 parameters, which is greater than 7 authorized.(õÁÓÀ8ğì¾ƒ/
+S
+java:S1128"1Remove this unused import 'java.io.Serializable'.(èãîÂÿÿÿÿÿ8¯ıÓ³‡/

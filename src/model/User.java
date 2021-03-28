@@ -1,6 +1,11 @@
 package model;
 
-public class User extends Employee{
+import java.io.Serializable;
+
+public class User extends Employee implements Serializable {
+
+    public final static long serialVersionUID = 1;
+
     //Attributes
     private String userName;
     private String password;

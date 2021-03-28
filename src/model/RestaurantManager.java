@@ -13,41 +13,7 @@ public class RestaurantManager implements Serializable{
 
     public final static long serialVersionUID = 1;
 
-    public final static String EMPLOYEES_PATH = "data/employees.cd";
-    /**
-     * The constant INGREDIENTS_PATH.
-     */
-    public final static String INGREDIENTS_PATH = "data/ingredients.cd";
-    /**
-     * The constant PRODUCTS_PATH.
-     */
-    public final static String PRODUCTS_PATH = "data/products.cd";
-    /**
-     * The constant ORDERS_PATH.
-     */
-    public final static String ORDERS_PATH = "data/orders.cd";
-    /**
-     * The constant CLIENTS_PATH.
-     */
-    public final static String CLIENTS_PATH = "data/clients.cd";
-    /**
-     * The constant FOODTYPES_PATH.
-     */
-    public final static String FOODTYPES_PATH = "data/foodTypes.cd";
-    /**
-     * The constant USERS_PATH.
-     */
-    public final static String USERS_PATH = "data/users.cd";
 
-    private ObjectOutputStream oss;
-    /**
-     * The Ois.
-     */
-    private ObjectInputStream ois;
-    /**
-     * The File.
-     */
-    private File file;
 
     private List<Ingredients> ingredients;
     private List<Product> products;
@@ -119,172 +85,8 @@ public class RestaurantManager implements Serializable{
 
     }
 
-    /**
-     * Save ingredients data.
-     *
-     * @throws IOException the io exception
-     */
+
 //Serializable
-    public void saveIngredientsData() throws IOException {
-        oss = new ObjectOutputStream(new FileOutputStream(INGREDIENTS_PATH));
-        oss.writeObject(ingredients);
-        oss.close();
-    }
-
-    /**
-     * Save product data.
-     *
-     * @throws IOException the io exception
-     */
-    public void saveProductData() throws IOException {
-        oss = new ObjectOutputStream(new FileOutputStream(PRODUCTS_PATH));
-        oss.writeObject(products);
-        oss.close();
-    }
-
-    /**
-     * Save orders data.
-     *
-     * @throws IOException the io exception
-     */
-    public void saveOrdersData() throws IOException{
-        oss = new ObjectOutputStream(new FileOutputStream(ORDERS_PATH));
-        oss.writeObject(orders);
-        oss.close();
-    }
-
-    /**
-     * Save clients data.
-     *
-     * @throws IOException the io exception
-     */
-    public void saveClientsData() throws IOException{
-        oss = new ObjectOutputStream(new FileOutputStream(CLIENTS_PATH));
-        oss.writeObject(clients);
-        oss.close();
-    }
-
-    /**
-     * Save food types data.
-     *
-     * @throws IOException the io exception
-     */
-    public void saveFoodTypesData() throws IOException{
-        oss = new ObjectOutputStream(new FileOutputStream(FOODTYPES_PATH));
-        oss.writeObject(foodTypes);
-        oss.close();
-    }
-
-    /**
-     * Save users data.
-     *
-     * @throws IOException the io exception
-     */
-    public void saveUsersData() throws IOException{
-        oss = new ObjectOutputStream(new FileOutputStream(USERS_PATH));
-        oss.writeObject(users);
-        oss.close();
-    }
-    public void saveEmployeesData() throws IOException{
-        oss = new ObjectOutputStream(new FileOutputStream(EMPLOYEES_PATH));
-        oss.writeObject(employees);
-        oss.close();
-    }
-
-    public void loadUsersData() throws IOException, ClassNotFoundException {
-        file = new File(USERS_PATH);
-        //boolean loaded = false;
-        if(file.exists()){
-            ois = new ObjectInputStream(new FileInputStream(file));
-            users = (List)ois.readObject();
-            ois.close();
-            //loaded = true;
-        }
-        //return loaded;
-    }
-
-    /**
-     * Load ingredients data boolean.
-     *
-     * @return the boolean
-     * @throws IOException            the io exception
-     * @throws ClassNotFoundException the class not found exception
-     */
-//Load data
-    public void loadIngredientsData() throws IOException, ClassNotFoundException {
-        file = new File(INGREDIENTS_PATH);
-        if(file.exists()){
-            ois = new ObjectInputStream(new FileInputStream(file));
-            ingredients = (List)ois.readObject();
-            ois.close();
-        }
-    }
-
-    /**
-     * Load product data boolean.
-     *
-     * @return the boolean
-     * @throws IOException            the io exception
-     * @throws ClassNotFoundException the class not found exception
-     */
-    public void loadProductData() throws IOException, ClassNotFoundException {
-        file = new File(PRODUCTS_PATH);
-        if(file.exists()){
-            ois = new ObjectInputStream(new FileInputStream(file));
-            products = (List)ois.readObject();
-            ois.close();
-        }
-    }
-
-    /**
-     * Load orders data boolean.
-     *
-     * @return the boolean
-     * @throws IOException            the io exception
-     * @throws ClassNotFoundException the class not found exception
-     */
-    public void loadOrdersData() throws IOException, ClassNotFoundException {
-        file = new File(ORDERS_PATH);
-        if(file.exists()){
-            ois = new ObjectInputStream(new FileInputStream(file));
-            orders = (List)ois.readObject();
-            ois.close();
-        }
-    }
-
-    /**
-     * Load clients data boolean.
-     *
-     * @return the boolean
-     * @throws IOException            the io exception
-     * @throws ClassNotFoundException the class not found exception
-     */
-    public void loadClientsData() throws IOException, ClassNotFoundException{
-        file = new File(CLIENTS_PATH);
-        if(file.exists()){
-            ois = new ObjectInputStream(new FileInputStream(file));
-            clients = (List)ois.readObject();
-            ois.close();
-        }
-    }
-
-    public void loadEmployeeData() throws IOException, ClassNotFoundException{
-        file = new File(EMPLOYEES_PATH);
-        if(file.exists()){
-            ois = new ObjectInputStream(new FileInputStream(file));
-            employees = (List)ois.readObject();
-            ois.close();
-        }
-    }
-
-    public void loadFoodTypeData() throws IOException, ClassNotFoundException{
-        file = new File(FOODTYPES_PATH);
-        if(file.exists()){
-            ois = new ObjectInputStream(new FileInputStream(file));
-            foodTypes = (List)ois.readObject();
-            ois.close();
-        }
-    }
 
     /**
      * Active u ser boolean.
@@ -341,12 +143,16 @@ public class RestaurantManager implements Serializable{
     public boolean addIngredient(String ingredientName){
         Ingredients ingredient = new Ingredients(activeUser, activeUser, ingredientName);
         boolean ret = false; //if cant added return false
+        if(ingredients.isEmpty()){
+            ret = true;
+        }
         for(int i = 0; i < ingredients.size() && !ret; i++){
             if(ingredients.get(i).getName().equalsIgnoreCase(ingredientName) && !ingredientName.equals("")){
                 ret = true;
             }
         }
         if(ret){
+            System.out.println("Funciona melitico X2");
             ingredient.setCreator(activeUser);
             ingredient.setModifier(activeUser);
             ingredients.add(ingredient);
@@ -588,13 +394,15 @@ public class RestaurantManager implements Serializable{
      */
 //Edit methods
     public void editIngredient(int index, String newName){
+        /*
         for(int i = 0; i < products.size(); i++){
             for(int j = 0; j < products.get(i).getIngredients().size(); j++){
                 if(products.get(i).getIngredients().get(j).getName().equals(ingredients.get(index).getName())){
                     products.get(i).getIngredients().set(j, ingredients.get(index));
                 }
             }
-        }
+        }*/
+
         ingredients.get(index).setModifier(activeUser);
         ingredients.get(index).setName(newName);
     }
@@ -669,10 +477,18 @@ public class RestaurantManager implements Serializable{
         //Implement binary search
         Comparator<Client> clientOrder = (aClient, bClient) -> (int) (Long.parseLong(aClient.getId())-Long.parseLong(bClient.getId()));
         List<Client> clientsCopy = clients;
-        clientsCopy.sort(clientOrder);
-        //TODO: CAMBIAR POR ALGORITMO DE ORDENAMIENTO
+
+        //Selection sort by id
         for(int i = 0; i < clientsCopy.size(); i++){
-            System.out.println(clientsCopy.get(i).getId());
+            Client min = clientsCopy.get(i);
+            for(int j = i+1; j < clientsCopy.size(); j++){
+                if(Integer.parseInt(clientsCopy.get(j).getId()) < Integer.parseInt(min.getId())){
+                    Client temp = clientsCopy.get(j);
+                    clientsCopy.set(j,min);
+                    min = temp;
+                }
+            }
+            clientsCopy.set(i, min);
         }
 
         int id = clientId;
@@ -682,17 +498,13 @@ public class RestaurantManager implements Serializable{
 
         while(k <= h && pos<0){
             int m = (k+h)/2;
-            System.out.println("M: "+m);
-            System.out.println(Integer.parseInt(clientsCopy.get(m).getId()));
             if(Integer.parseInt(clientsCopy.get(m).getId()) == id){
                 pos = m;
                 System.out.println("Enontró: "+m);
 
             }else if(Integer.parseInt(clientsCopy.get(m).getId()) < id){
                 k = m + 1;
-                System.out.println("Menor");
             }else{
-                System.out.println("Mayor");
                 h = m - 1;
             }
         }

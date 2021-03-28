@@ -22,8 +22,8 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 import model.*;
 
-import java.io.File;
-import java.io.IOException;
+import javax.imageio.stream.FileImageInputStream;
+import java.io.*;
 import java.text.SimpleDateFormat;
 import java.time.Clock;
 import java.time.Instant;
@@ -374,9 +374,29 @@ public class RestaurantAdministratorGUI {
     @FXML
     private JFXTextArea tfObservationsFindClientByID;
 
-    public RestaurantAdministratorGUI(){
+    private final static String LA_CASA_DORADA_PATH = "data/LaCasaDorada.cb";
+
+    public RestaurantAdministratorGUI() throws IOException, ClassNotFoundException {
         manager = new RestaurantManager();
+        loadData();
     }
+
+    public void saveAllData() throws IOException{
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(LA_CASA_DORADA_PATH));
+        oos.writeObject(this.manager);
+        oos.close();
+    }
+
+    public void loadData() throws IOException, FileNotFoundException, ClassNotFoundException {
+        File file = new File(LA_CASA_DORADA_PATH);
+        if (file.exists()){
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
+            RestaurantManager temp = (RestaurantManager) ois.readObject();
+            this.manager = temp;
+            ois.close();
+        }
+    }
+
     public void setFirstPane() throws IOException {
 
     }
@@ -442,8 +462,7 @@ public class RestaurantAdministratorGUI {
         boolean created = manager.addUser(firstName, lastName, id, userName, password);
         if((!firstName.equals("")&&!lastName.equals("")&&!id.equals("")
         &&!userName.equals("")&&!password.equals(""))&&created &&!passValid){
-            manager.saveUsersData();
-            manager.saveEmployeesData();
+            saveAllData();
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information");
             alert.setHeaderText(null);
@@ -463,14 +482,6 @@ public class RestaurantAdministratorGUI {
         }
     }
 
-    public void loadAllData() throws IOException, ClassNotFoundException {
-        manager.loadUsersData();
-        manager.loadClientsData();
-        manager.loadEmployeeData();
-        manager.loadIngredientsData();
-        manager.loadFoodTypeData();
-        manager.loadProductData();
-    }
 
     public void setupClientsAddClientsScreen() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADDCLIENT_FXML));
@@ -651,7 +662,7 @@ public class RestaurantAdministratorGUI {
             System.out.println("Que dijiste pues pri");
         }
 
-        manager.saveClientsData();
+        //manager.saveClientsData();
         tvClientsAddClient.refresh();
         tfFirstNameAddClient.clear();
         tfLastNameAddClient.clear();
@@ -673,7 +684,7 @@ public class RestaurantAdministratorGUI {
             manager.editEmployee(tvEmployeesAddEmployee.getSelectionModel().getSelectedIndex(), firstName, lastName, id);
             btnAddEmployeeAddEmployee.setText("Agregar");
         }
-        manager.saveEmployeesData();
+        //manager.saveEmployeesData();
         tvEmployeesAddEmployee.refresh();
         tfFirstNameAddEmployee.clear();
         tfLastNameAddEmployee.clear();
@@ -684,6 +695,7 @@ public class RestaurantAdministratorGUI {
     public void actAddIngredientAddIngredient(ActionEvent event) throws IOException {
         String name = tfNameAddIngredient.getText();
         if(btnAddIngredientAddIngredient.getText().equals("Agregar")){
+            System.out.println("Funciona melitico");
             manager.addIngredient(name);
             setupAddIngredientScreen();
         } else{
@@ -691,8 +703,9 @@ public class RestaurantAdministratorGUI {
 
             btnAddIngredientAddIngredient.setText("Agregar");
         }
-        manager.saveProductData();
-        manager.saveIngredientsData();
+        saveAllData();
+//        manager.saveProductData();
+//        manager.saveIngredientsData();
         tvIngredientsAddIngredient.refresh();
         tfNameAddIngredient.clear();
     }
@@ -707,7 +720,7 @@ public class RestaurantAdministratorGUI {
             manager.editType(tvTypesAddType.getSelectionModel().getSelectedIndex(), name);
             btnAddTypeAddType.setText("Agregar");
         }
-        manager.saveFoodTypesData();
+        saveAllData();
         tvTypesAddType.refresh();
         tfNameAddType.clear();
     }
@@ -750,7 +763,7 @@ public class RestaurantAdministratorGUI {
 
         if(!(productName.equals(""))&&!(foodType.equals(""))&&(!ingredients.isEmpty()) && (!sizesList.isEmpty())){
             manager.addProduct(productName, foodType, ingredients, sizesList);
-            manager.saveProductData();
+            saveAllData();
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information");
             alert.setHeaderText(null);
@@ -823,10 +836,11 @@ public class RestaurantAdministratorGUI {
         if(fileToSave != null){
             String url = fileToSave.toPath().toString();
             manager.importClientsData(url);
-            manager.saveClientsData();
+            //manager.saveClientsData();
         }else{
             System.out.println("No funciona rey");
         }
+        saveAllData();
         setupClientsAddClientsScreen();
     }
 
@@ -1157,7 +1171,7 @@ public class RestaurantAdministratorGUI {
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setScene(scene);
-        stage.setTitle("Order items");
+        stage.setTitle("CLIENTES");
         stage.show();
 
     }

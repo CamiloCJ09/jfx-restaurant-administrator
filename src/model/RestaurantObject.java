@@ -3,6 +3,7 @@ package model;
 import java.io.Serializable;
 
 public abstract class RestaurantObject implements Serializable {
+
     public final static long serialVersionUID = 1;
 
     private User creator;
