@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -31,7 +32,12 @@
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <HBox prefHeight="100.0" prefWidth="435.0" />
-            <HBox prefHeight="100.0" prefWidth="403.0" />
+            <HBox prefHeight="100.0" prefWidth="362.0" />
+            <HBox alignment="BOTTOM_LEFT" layoutX="445.0" layoutY="10.0" prefHeight="100.0" prefWidth="386.0">
+               <children>
+                  <JFXButton buttonType="RAISED" onAction="#actSortByPriceTableProduct" text="ORDENAR POR PRECIO ASCENDENTE" />
+               </children>
+            </HBox>
          </children></HBox>
    </top>
    <bottom>

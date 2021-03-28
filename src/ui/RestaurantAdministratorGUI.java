@@ -662,7 +662,7 @@ public class RestaurantAdministratorGUI {
             System.out.println("Que dijiste pues pri");
         }
 
-        //manager.saveClientsData();
+        saveAllData();
         tvClientsAddClient.refresh();
         tfFirstNameAddClient.clear();
         tfLastNameAddClient.clear();
@@ -684,7 +684,8 @@ public class RestaurantAdministratorGUI {
             manager.editEmployee(tvEmployeesAddEmployee.getSelectionModel().getSelectedIndex(), firstName, lastName, id);
             btnAddEmployeeAddEmployee.setText("Agregar");
         }
-        //manager.saveEmployeesData();
+
+        saveAllData();
         tvEmployeesAddEmployee.refresh();
         tfFirstNameAddEmployee.clear();
         tfLastNameAddEmployee.clear();
@@ -693,6 +694,7 @@ public class RestaurantAdministratorGUI {
 
     @FXML
     public void actAddIngredientAddIngredient(ActionEvent event) throws IOException {
+        //TODO: ALERTS
         String name = tfNameAddIngredient.getText();
         if(btnAddIngredientAddIngredient.getText().equals("Agregar")){
             System.out.println("Funciona melitico");
@@ -968,6 +970,10 @@ public class RestaurantAdministratorGUI {
         setupButtonToTableProduct();
     }
 
+    public void sortTableProductsByPriceAscendant(ObservableList<ProductItem> products){
+        manager.sortedListOfProductsByPrice(products);
+    }
+
     public void setupButtonToTableProduct() throws IOException{
         Callback<TableColumn<ProductItem, Void>, TableCell<ProductItem, Void>> cellFactory = new Callback<TableColumn<ProductItem, Void>, TableCell<ProductItem, Void>>() {
             @Override
@@ -1186,5 +1192,14 @@ public class RestaurantAdministratorGUI {
         tfTelFindClientByID.setText(clientParts.get(3));
         tfObservationsFindClientByID.setText(clientParts.get(4));
 
+    }
+
+    @FXML
+    void actSortByPriceTableProduct(ActionEvent event) throws IOException {
+        ObservableList<ProductItem> list = tvProductsTProduct.getItems();
+        sortTableProductsByPriceAscendant(list);
+        tvProductsTProduct.setItems(list);
+        setupButtonToTableProduct();
+        tvProductsTProduct.refresh();
     }
 }

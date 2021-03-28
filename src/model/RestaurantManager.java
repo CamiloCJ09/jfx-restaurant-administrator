@@ -142,22 +142,28 @@ public class RestaurantManager implements Serializable{
      */
     public boolean addIngredient(String ingredientName){
         Ingredients ingredient = new Ingredients(activeUser, activeUser, ingredientName);
-        boolean ret = false; //if cant added return false
+
         if(ingredients.isEmpty()){
-            ret = true;
-        }
-        for(int i = 0; i < ingredients.size() && !ret; i++){
-            if(ingredients.get(i).getName().equalsIgnoreCase(ingredientName) && !ingredientName.equals("")){
-                ret = true;
-            }
-        }
-        if(ret){
-            System.out.println("Funciona melitico X2");
             ingredient.setCreator(activeUser);
             ingredient.setModifier(activeUser);
             ingredients.add(ingredient);
+        }else{
+            boolean ret = false; //if cant added return false
+            for(int i = 0; i < ingredients.size() && !ret; i++){
+                if(ingredients.get(i).getName().equalsIgnoreCase(ingredientName) && !ingredientName.equals("")){
+                    ret = true;
+                }
+            }
+            if(!ret){
+                System.out.println("Funciona melitico X2");
+                ingredient.setCreator(activeUser);
+                ingredient.setModifier(activeUser);
+                ingredients.add(ingredient);
+            }
         }
-        return ret;
+
+
+        return true;
     }
 
     /**
@@ -394,17 +400,17 @@ public class RestaurantManager implements Serializable{
      */
 //Edit methods
     public void editIngredient(int index, String newName){
-        /*
-        for(int i = 0; i < products.size(); i++){
-            for(int j = 0; j < products.get(i).getIngredients().size(); j++){
-                if(products.get(i).getIngredients().get(j).getName().equals(ingredients.get(index).getName())){
-                    products.get(i).getIngredients().set(j, ingredients.get(index));
-                }
-            }
-        }*/
 
-        ingredients.get(index).setModifier(activeUser);
-        ingredients.get(index).setName(newName);
+        boolean out = true;
+        for(int i = 0; i < ingredients.size(); i++){
+            if(index != i && ingredients.get(i).getName().equalsIgnoreCase(newName)){
+                out = false;
+            }
+        }
+        if(out){
+            ingredients.get(index).setModifier(activeUser);
+            ingredients.get(index).setName(newName);
+        }
     }
 
     public void editClient(int index, String firstName, String lastName, String id, String address, String tel, String observations){
@@ -473,6 +479,12 @@ public class RestaurantManager implements Serializable{
         ingredients.sort(ingredientsOrder);
     }
 
+    public List<ProductItem> sortedListOfProductsByPrice(ObservableList<ProductItem> products){
+        Comparator<ProductItem> productsOrder = (aProduct, bProduct) -> (int)(Double.parseDouble(aProduct.getPrice())-Double.parseDouble(bProduct.getPrice()));
+        products.sort(productsOrder);
+        return products;
+    }
+
     public Client findClientById(int clientId){
         //Implement binary search
         Comparator<Client> clientOrder = (aClient, bClient) -> (int) (Long.parseLong(aClient.getId())-Long.parseLong(bClient.getId()));
@@ -482,13 +494,17 @@ public class RestaurantManager implements Serializable{
         for(int i = 0; i < clientsCopy.size(); i++){
             Client min = clientsCopy.get(i);
             for(int j = i+1; j < clientsCopy.size(); j++){
-                if(Integer.parseInt(clientsCopy.get(j).getId()) < Integer.parseInt(min.getId())){
+                if(clientOrder.compare(clientsCopy.get(j),min) < 0){
                     Client temp = clientsCopy.get(j);
                     clientsCopy.set(j,min);
                     min = temp;
                 }
             }
             clientsCopy.set(i, min);
+        }
+
+        for(int i = 0; i < clientsCopy.size(); i++){
+            System.out.println(clientsCopy.get(i).getId());
         }
 
         int id = clientId;
@@ -500,7 +516,6 @@ public class RestaurantManager implements Serializable{
             int m = (k+h)/2;
             if(Integer.parseInt(clientsCopy.get(m).getId()) == id){
                 pos = m;
-                System.out.println("Enontró: "+m);
 
             }else if(Integer.parseInt(clientsCopy.get(m).getId()) < id){
                 k = m + 1;
