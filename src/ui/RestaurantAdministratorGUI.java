@@ -356,6 +356,24 @@ public class RestaurantAdministratorGUI {
     @FXML
     private TableColumn<OrderMenuItem, String> tcTPriceWindowOrderItems;
 
+    @FXML
+    private JFXTextField tfClientIdFindClientByID;
+
+    @FXML
+    private JFXTextField tfNameFindClientByID;
+
+    @FXML
+    private JFXTextField tfLastNameFindClientByID;
+
+    @FXML
+    private JFXTextField tfAddressFindClientByID;
+
+    @FXML
+    private JFXTextField tfTelFindClientByID;
+
+    @FXML
+    private JFXTextArea tfObservationsFindClientByID;
+
     public RestaurantAdministratorGUI(){
         manager = new RestaurantManager();
     }
@@ -1127,5 +1145,32 @@ public class RestaurantAdministratorGUI {
         tcAmountWindowOrderItems.setCellValueFactory(new PropertyValueFactory<>("amount"));
         tcUPriceWindowOrderItems.setCellValueFactory(new PropertyValueFactory<>("priceU"));
         tcTPriceWindowOrderItems.setCellValueFactory(new PropertyValueFactory<>("priceT"));
+    }
+
+    @FXML
+    void actSearchClientByIDAddClient(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("findClientByID.fxml"));
+        fxmlLoader.setController(this);
+        Parent window = fxmlLoader.load();
+
+        Scene scene = new Scene(window);
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setScene(scene);
+        stage.setTitle("Order items");
+        stage.show();
+
+    }
+
+    @FXML
+    void actFindClientByID(ActionEvent event) {
+        ArrayList<String> clientParts = manager.clientsAtributes(manager.findClientById(Integer.parseInt(tfClientIdFindClientByID.getText())));
+
+        tfNameFindClientByID.setText(clientParts.get(0));
+        tfLastNameFindClientByID.setText(clientParts.get(1));
+        tfAddressFindClientByID.setText(clientParts.get(2));
+        tfTelFindClientByID.setText(clientParts.get(3));
+        tfObservationsFindClientByID.setText(clientParts.get(4));
+
     }
 }

@@ -1,61 +1,73 @@
 
-^	java:S110›"<This class has 9 parents which is greater than 5 authorized.(¡òäŞşÿÿÿÿ8ÛÍŞ¼†/
-?	java:S131»""Add a default case to this switch.(ûè¬8ÛÍŞ¼†/
 M
 java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8ÛÍŞ¼†/
-Ÿ
-java:S1186Ö"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¼•¹œ8ÛÍŞ¼†/
-w
-java:S1450J"ZRemove the "ingredients" field and declare it as a local variable in the relevant methods.(„ßüü8ÛÍŞ¼†/
-Ÿ
-java:S1186í"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(÷ğè½8ÛÍŞ¼†/
-|
-java:S1171Ÿ"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8ÛÍŞ¼†/
-e
-java:S1192Ë"GDefine a constant instead of duplicating this literal "Editar" 4 times.(‹´åÒ8ÛÍŞ¼†/
-u
-java:S1450H"XRemove the "employees" field and declare it as a local variable in the relevant methods.(ÒòÓ8ÛÍŞ¼†/
-w
-java:S1450R"URemove the "orders" field and declare it as a local variable in the relevant methods.(ùÍ³úşÿÿÿÿ8ÛÍŞ¼†/
-F
-java:S1604˜"(Make this anonymous inner class a lambda(çé©8ÛÍŞ¼†/
-¤
-java:S1186Ğ"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(âçÕÏşÿÿÿÿ8ÛÍŞ¼†/
-e
-java:S1128"HRemove this unused import 'javafx.scene.control.cell.ComboBoxTableCell'.(¥øÖÊ8ÛÍŞ¼†/
-l
-java:S1858¦"I"getSelectedItem" returns a string, there's no need to call "toString()".(òú¦Âùÿÿÿÿ8ÛÍŞ¼†/
-d
-java:S1192î"FDefine a constant instead of duplicating this literal "Error" 3 times.(µûø–8ÛÍŞ¼†/
-x
-java:S1450F"VRemove the "clients" field and declare it as a local variable in the relevant methods.(‚å¹˜üÿÿÿÿ8ÛÍŞ¼†/
-g
-java:S1858»"I"getSelectedItem" returns a string, there's no need to call "toString()".(ûè¬8ÛÍŞ¼†/
-M
-java:S1066"/Merge this if statement with the enclosing one.(©’ŒÉ8ÛÍŞ¼†/
-f
-java:S1192Ü"HDefine a constant instead of duplicating this literal "Agregar" 8 times.(Š¾€º8ÛÍŞ¼†/
-K
-java:S1068%")Remove this unused "clock" private field.(Êë®“ûÿÿÿÿ8ÛÍŞ¼†/
-œ
-java:S1130‰"yRemove the declaration of thrown exception 'java.lang.ClassNotFoundException', as it cannot be thrown from method's body.(£Ÿ•ıÿÿÿÿ8ÛÍŞ¼†/
-g
-java:S1858¥"I"getSelectedItem" returns a string, there's no need to call "toString()".(Íö°É8ÛÍŞ¼†/
-¤
-java:S1186´"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ü—ìŠûÿÿÿÿ8ÛÍŞ¼†/
 R
 java:S1128"0Remove this unused import 'java.time.LocalDate'.(›‘¬èıÿÿÿÿ8ÛÍŞ¼†/
-]
-java:S1117Æ"?Rename "ingredients" which hides the field declared at line 74.(Ú©¤8ÛÍŞ¼†/
+w
+java:S1450J"ZRemove the "ingredients" field and declare it as a local variable in the relevant methods.(„ßüü8ÛÍŞ¼†/
+e
+java:S1128"HRemove this unused import 'javafx.scene.control.cell.ComboBoxTableCell'.(¥øÖÊ8ÛÍŞ¼†/
 †
 java:S1450P"dRemove the "windowTempIngredients" field and declare it as a local variable in the relevant methods.(÷©—èÿÿÿÿÿ8ÛÍŞ¼†/
-Š
-java:S1130—"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(¹Ñƒ¯8ÛÍŞ¼†/
-R
-java:S1481Ú"/Remove this unused "timeFields" local variable.(Ã‹¸ßúÿÿÿÿ8ÛÍŞ¼†/
-l
-java:S1858¦"I"getSelectedItem" returns a string, there's no need to call "toString()".(òú¦Âùÿÿÿÿ8ÛÍŞ¼†/
+x
+java:S1450F"VRemove the "clients" field and declare it as a local variable in the relevant methods.(‚å¹˜üÿÿÿÿ8ÛÍŞ¼†/
 q
 java:S1450L"TRemove the "types" field and declare it as a local variable in the relevant methods.(Ÿ­ô©8ÛÍŞ¼†/
+K
+java:S1068%")Remove this unused "clock" private field.(Êë®“ûÿÿÿÿ8ÛÍŞ¼†/
+w
+java:S1450R"URemove the "orders" field and declare it as a local variable in the relevant methods.(ùÍ³úşÿÿÿÿ8ÛÍŞ¼†/
+u
+java:S1450H"XRemove the "employees" field and declare it as a local variable in the relevant methods.(ÒòÓ8ÛÍŞ¼†/
+f
+java:S1192ğ"HDefine a constant instead of duplicating this literal "Agregar" 8 times.(Š¾€º8º™¿‘‡/
+d
+java:S1192‚"FDefine a constant instead of duplicating this literal "Error" 3 times.(µûø–8º™¿‘‡/
+e
+java:S1192ß"GDefine a constant instead of duplicating this literal "Editar" 4 times.(‹´åÒ8º™¿‘‡/
+j
+java:S1192è"GDefine a constant instead of duplicating this literal "priceT" 3 times.(à™¥Äıÿÿÿÿ8º™¿‘‡/
+M
+java:S1066²"/Merge this if statement with the enclosing one.(©’ŒÉ8º™¿‘‡/
+^	java:S110¯"<This class has 9 parents which is greater than 5 authorized.(¡òäŞşÿÿÿÿ8º™¿‘‡/
+Y	java:S110—"<This class has 9 parents which is greater than 5 authorized.(š­…ç8º™¿‘‡/
+Y	java:S110º"<This class has 9 parents which is greater than 5 authorized.(š­…ç8º™¿‘‡/
+F
+java:S1604¬"(Make this anonymous inner class a lambda(çé©8º™¿‘‡/
+F
+java:S1604”"(Make this anonymous inner class a lambda(íßÎÁ8º™¿‘‡/
+F
+java:S1604·"(Make this anonymous inner class a lambda(íßÎÁ8º™¿‘‡/
+Ÿ
+java:S1186ê"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¼•¹œ8º™¿‘‡/
+Ÿ
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(÷ğè½8º™¿‘‡/
+¤
+java:S1186È"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ü—ìŠûÿÿÿÿ8º™¿‘‡/
+¤
+java:S1186ä"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(âçÕÏşÿÿÿÿ8º™¿‘‡/
+œ
+java:S1130"yRemove the declaration of thrown exception 'java.lang.ClassNotFoundException', as it cannot be thrown from method's body.(£Ÿ•ıÿÿÿÿ8º™¿‘‡/
+g
+java:S1858¹"I"getSelectedItem" returns a string, there's no need to call "toString()".(Íö°É8º™¿‘‡/
 l
-java:S1858¼"I"getSelectedItem" returns a string, there's no need to call "toString()".(ïğ¿¤şÿÿÿÿ8ÛÍŞ¼†/
+java:S1858º"I"getSelectedItem" returns a string, there's no need to call "toString()".(òú¦Âùÿÿÿÿ8º™¿‘‡/
+l
+java:S1858º"I"getSelectedItem" returns a string, there's no need to call "toString()".(òú¦Âùÿÿÿÿ8º™¿‘‡/
+?	java:S131Ï""Add a default case to this switch.(ûè¬8º™¿‘‡/
+g
+java:S1858Ï"I"getSelectedItem" returns a string, there's no need to call "toString()".(ûè¬8º™¿‘‡/
+l
+java:S1858Ğ"I"getSelectedItem" returns a string, there's no need to call "toString()".(ïğ¿¤şÿÿÿÿ8º™¿‘‡/
+]
+java:S1117Ú"?Rename "ingredients" which hides the field declared at line 74.(Ú©¤8º™¿‘‡/
+Š
+java:S1130«"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(¹Ñƒ¯8º™¿‘‡/
+|
+java:S1171³"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8º™¿‘‡/
+|
+java:S1171›"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8º™¿‘‡/
+|
+java:S1171¾"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8º™¿‘‡/
+R
+java:S1481î"/Remove this unused "timeFields" local variable.(Ã‹¸ßúÿÿÿÿ8º™¿‘‡/

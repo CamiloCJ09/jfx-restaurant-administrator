@@ -1,5 +1,7 @@
 package model;
 
+import java.io.Serializable;
+
 public class Client extends Person implements Comparable<Client>{
 
     //Attributes

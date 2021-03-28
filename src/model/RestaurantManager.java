@@ -9,7 +9,9 @@ import java.util.*;
 /**
  * The type Restaurant manager.
  */
-public class RestaurantManager {
+public class RestaurantManager implements Serializable{
+
+    public final static long serialVersionUID = 1;
 
     public final static String EMPLOYEES_PATH = "data/employees.cd";
     /**
@@ -665,19 +667,32 @@ public class RestaurantManager {
 
     public Client findClientById(int clientId){
         //Implement binary search
+        Comparator<Client> clientOrder = (aClient, bClient) -> (int) (Long.parseLong(aClient.getId())-Long.parseLong(bClient.getId()));
+        List<Client> clientsCopy = clients;
+        clientsCopy.sort(clientOrder);
+        //TODO: CAMBIAR POR ALGORITMO DE ORDENAMIENTO
+        for(int i = 0; i < clientsCopy.size(); i++){
+            System.out.println(clientsCopy.get(i).getId());
+        }
+
         int id = clientId;
         int k = 0;
-        int h = clients.size();
+        int h = clients.size()-1;
         int pos = -1;
 
         while(k <= h && pos<0){
-            int m = k + (h-1)/2;
-
-            if(Integer.parseInt(clients.get(m).getId()) == id){
+            int m = (k+h)/2;
+            System.out.println("M: "+m);
+            System.out.println(Integer.parseInt(clientsCopy.get(m).getId()));
+            if(Integer.parseInt(clientsCopy.get(m).getId()) == id){
                 pos = m;
-            }else if(Integer.parseInt(clients.get(m).getId()) < id){
+                System.out.println("Enontró: "+m);
+
+            }else if(Integer.parseInt(clientsCopy.get(m).getId()) < id){
                 k = m + 1;
+                System.out.println("Menor");
             }else{
+                System.out.println("Mayor");
                 h = m - 1;
             }
         }
@@ -685,11 +700,22 @@ public class RestaurantManager {
         if(pos == -1){
             return null;
         }else{
-            return clients.get(pos);
+            return clientsCopy.get(pos);
         }
     }
 
-
+    public ArrayList<String> clientsAtributes(Client aClient){
+        ArrayList<String> clientParts = new ArrayList<>();
+        System.out.println(aClient.getFirstName());
+        if(aClient != null){
+            clientParts.add(aClient.getFirstName());
+            clientParts.add(aClient.getLastName());
+            clientParts.add(aClient.getAddress());
+            clientParts.add(aClient.getTel());
+            clientParts.add(aClient.getObservations());
+        }
+        return clientParts;
+    }
 
 
 
