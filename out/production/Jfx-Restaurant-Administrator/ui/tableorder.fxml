@@ -14,7 +14,7 @@
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
    </right>
    <center>
-      <TableView fx:id="tvOrdersTOrder" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="tvOrdersTOrder" onMouseClicked="#actEditOrderTableOrders" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="tcCodeTOrder" prefWidth="75.0" text="Código" />
           <TableColumn fx:id="tcDateTOrder" prefWidth="75.0" text="Fecha y hora" />

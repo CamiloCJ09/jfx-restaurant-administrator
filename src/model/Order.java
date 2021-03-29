@@ -8,7 +8,7 @@ public class Order extends RestaurantObject{
 
     //Attributes
     private String code;
-    private List<OrderMenuItem> items;
+    private ArrayList<OrderMenuItem> items;
     private Date time;
     private String observations;
     private Status status;
@@ -20,7 +20,7 @@ public class Order extends RestaurantObject{
     public Order(User creator, User modifier, String code, List<OrderMenuItem> items, Date time, String observations, Employee deliverer, Client client) {
         super(creator, modifier);
         this.code = code;
-        this.items = items;
+        this.items = new ArrayList<>(items);
         this.time = time;
         this.observations = observations;
         this.status = Status.SOLICITED;
@@ -85,7 +85,7 @@ public class Order extends RestaurantObject{
         return items;
     }
 
-    public void setItems(List<OrderMenuItem> items) {
+    public void setItems(ArrayList<OrderMenuItem> items) {
         this.items = items;
     }
 

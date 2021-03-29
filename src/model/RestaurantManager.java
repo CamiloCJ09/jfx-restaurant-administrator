@@ -295,6 +295,20 @@ public class RestaurantManager implements Serializable{
         return employee;
     }
 
+    public int findEmployeeIndex(String name){
+        int index = 0;
+        boolean found = false;
+        String eName = "";
+        for(int i = 0; i<employees.size() && !found; i++){
+            eName = employees.get(i).getFirstName() + " " + employees.get(i).getLastName();
+            if(eName.equals(name)){
+                found = true;
+                index = i;
+            }
+        }
+        return index;
+    }
+
     public Client findClient(String name){
         Client client = null;
         boolean found = false;
@@ -307,6 +321,19 @@ public class RestaurantManager implements Serializable{
             }
         }
         return client;
+    }
+
+    public int findIndexType(String productName, String typeName){
+        int index = 0;
+        boolean found = false;
+        Product product = findProduct(productName);
+        for(int i = 0; i<foodTypes.size() && !found; i++){
+            if(foodTypes.get(i).getName().equals(typeName)){
+                index = i;
+                found = true;
+            }
+        }
+        return index;
     }
 
     /**
@@ -441,6 +468,34 @@ public class RestaurantManager implements Serializable{
         foodTypes.set(index, type);
     }
 
+    public void editProduct(int index, String productName, String foodType, ObservableList<Ingredients> ingredients, ObservableList<Size> sizes){
+        boolean found = false;
+        FoodType type = null;
+        for(int i = 0; i<foodTypes.size() && !found; i++){
+            if(foodTypes.get(i).getName().equals(foodType)){
+                type = foodTypes.get(i);
+                found = true;
+            }
+        }
+        Product product = products.get(index);
+        product.setName(productName);
+        product.setType(type);
+        product.setIngredients(new ArrayList<Ingredients>(ingredients));
+        product.setSizes(new ArrayList<Size>(sizes));
+        products.set(index, product);
+        System.out.println("si funciono menor");
+    }
+
+    public void editOrder(int index, List<OrderMenuItem> items, Date time, String observations, Employee deliverer, Client client){
+        Order order = orders.get(index);
+        order.setItems(new ArrayList<>(items));
+        order.setTime(time);
+        order.setObservations(observations);
+        order.setDeliverer(deliverer);
+        order.setClient(client);
+        orders.set(index, order);
+    }
+
     /**
      * New size size.
      *
@@ -473,6 +528,29 @@ public class RestaurantManager implements Serializable{
         return index;
     }
 
+    public int findOrderIndex(String code){
+        boolean found = false;
+        int index = 0;
+        for(int i = 0; i<orders.size() && !found; i++){
+            if(orders.get(i).getCode().equals(code)){
+                index = i;
+                found = true;
+            }
+        }
+        return index;
+    }
+
+    public Order findOrder(String code){
+        boolean found = false;
+        Order order = null;
+        for(int i = 0; i<orders.size() && !found; i++){
+            if(orders.get(i).getCode().equals(code)){
+                order = orders.get(i);
+                found = true;
+            }
+        }
+        return order;
+    }
 
     public void orderIngredientsByAlphabeticalOrder(){
         Comparator<Ingredients> ingredientsOrder = (aIngredient, bIngredient) -> aIngredient.getName().compareToIgnoreCase(bIngredient.getName());
@@ -529,6 +607,18 @@ public class RestaurantManager implements Serializable{
         }else{
             return clientsCopy.get(pos);
         }
+    }
+
+    public int findClientByIdIndex(int clientId){
+        boolean found = false;
+        int index = 0;
+        for(int i = 0; i<clients.size() && !found; i++){
+            if(Integer.parseInt(clients.get(i).getId()) == clientId){
+                index = i;
+                found = true;
+            }
+        }
+        return index;
     }
 
     public ArrayList<String> clientsAtributes(Client aClient){

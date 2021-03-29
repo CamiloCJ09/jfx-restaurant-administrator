@@ -61,6 +61,8 @@ public class RestaurantAdministratorGUI {
 
     public final static String TABLEORDER_FXML = "tableorder.fxml";
 
+    public final static String ORDERMENU_FXML = "order-menu.fxml";
+
     private ObservableList<Ingredients> tempIngredients;
 
     private ObservableList<Size> tempSizes;
@@ -374,6 +376,15 @@ public class RestaurantAdministratorGUI {
     @FXML
     private JFXTextArea tfObservationsFindClientByID;
 
+    @FXML
+    private JFXButton btnAddProductAddProduct;
+
+    @FXML
+    private Label lblTitleOrderMenu;
+
+    @FXML
+    private JFXButton btnAddOrderAddOrder;
+
     private final static String LA_CASA_DORADA_PATH = "data/LaCasaDorada.cb";
 
     public RestaurantAdministratorGUI() throws IOException, ClassNotFoundException {
@@ -519,10 +530,10 @@ public class RestaurantAdministratorGUI {
         tcAmountOrder.setCellFactory(TextFieldTableCell.forTableColumn());
         //Clean this
         Instant time = Instant.now();
-        String[] dateFields =time.toString().split("T");
+        String[] dateFields = time.toString().split("T");
         String[] timeFields = dateFields[1].split("\\.");
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd MM yyyy HH:mm:ss");
-        String timeWFormat = simpleDateFormat.format(Date.from(time));//We use it in the code for the order
+        String timeWFormat = dateToWFormart(Date.from(time));
         Date date = Date.from(time); // Use it for the order attribute
         manager.setTime(date);
         String finalTime = simpleDateFormat.format(Date.from(time));
@@ -537,6 +548,11 @@ public class RestaurantAdministratorGUI {
         tfCodeOrder.setText(code);
     }
 
+    public String dateToWFormart(Date date){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd MM yyyy HH:mm:ss");
+        String timeWFormat = simpleDateFormat.format(date);
+        return timeWFormat;
+    }
 
     @FXML
     public void miAboutMain(ActionEvent event) {
@@ -763,20 +779,28 @@ public class RestaurantAdministratorGUI {
         ObservableList<Ingredients> ingredients = tvIngredientsAddProduct.getItems();
         ObservableList<Size> sizesList = tvSizeAddProduct.getItems();
 
-        if(!(productName.equals(""))&&!(foodType.equals(""))&&(!ingredients.isEmpty()) && (!sizesList.isEmpty())){
-            manager.addProduct(productName, foodType, ingredients, sizesList);
+        if(btnAddProductAddProduct.getText().equals("Agregar")){
+            if(!(productName.equals(""))&&!(foodType.equals(""))&&(!ingredients.isEmpty()) && (!sizesList.isEmpty())){
+                manager.addProduct(productName, foodType, ingredients, sizesList);
+                saveAllData();
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information");
+                alert.setHeaderText(null);
+                alert.setContentText("Producto añadido con exito");
+                alert.showAndWait();
+            }else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText(null);
+                alert.setContentText("Revise todos los campos antes de crear un producto");
+                alert.showAndWait();
+            }
+        } else{
+            manager.editProduct(manager.findProductIndex(tvProductsTProduct.getSelectionModel().getSelectedItem().getName()),
+                    productName, foodType, ingredients, sizesList);
+            btnAddProductAddProduct.setText("Agregar");
+            setupTableProduct();
             saveAllData();
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Information");
-            alert.setHeaderText(null);
-            alert.setContentText("Producto añadido con exito");
-            alert.showAndWait();
-        }else{
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText(null);
-            alert.setContentText("Revise todos los campos antes de crear un producto");
-            alert.showAndWait();
         }
     }
 
@@ -1031,16 +1055,25 @@ public class RestaurantAdministratorGUI {
     }
 
     @FXML
-    public void actAddOrderOrder(ActionEvent event) {
+    public void actAddOrderOrder(ActionEvent event) throws IOException {
         String code = tfCodeOrder.getText();
         List<OrderMenuItem> items = tvOrdersOrder.getItems();
         Date time = manager.getTime();
         String observations = taObservationsAddOrder.getText();
-        manager.addOrder(code, items, time, observations, manager.findEmployee(cbEmployeeOrder.getSelectionModel().getSelectedItem()), manager.findClient(cbClientOrder.getSelectionModel().getSelectedItem()));
+        if(btnAddOrderAddOrder.getText().equals("Agregar orden")){
+            manager.addOrder(code, items, time, observations, manager.findEmployee(cbEmployeeOrder.getSelectionModel().getSelectedItem()), manager.findClient(cbClientOrder.getSelectionModel().getSelectedItem()));
+        } else{
+            manager.editOrder(manager.findOrderIndex(tvOrdersTOrder.getSelectionModel().getSelectedItem().getCode()),
+                    items, time, observations, manager.findEmployee(cbEmployeeOrder.getSelectionModel().getSelectedItem()),
+                    manager.findClient(cbClientOrder.getSelectionModel().getSelectedItem()));
+            btnAddOrderAddOrder.setText("Agregar orden");
+        }
+        saveAllData();
     }
 
     @FXML
     public void actEditAmountAddOrder(TableColumn.CellEditEvent<OrderMenuItem, String> amountEdit) {
+        System.out.println(tvOrdersOrder.getSelectionModel().getSelectedIndex());
         orderItems.get(tvOrdersOrder.getSelectionModel().getSelectedIndex()).setAmount(amountEdit.getNewValue());
         Double uPrice = Double.parseDouble(orderItems.get(tvOrdersOrder.getSelectionModel().getSelectedIndex()).getPriceU());
         Double amount = Double.parseDouble(amountEdit.getNewValue());
@@ -1201,5 +1234,79 @@ public class RestaurantAdministratorGUI {
         tvProductsTProduct.setItems(list);
         setupButtonToTableProduct();
         tvProductsTProduct.refresh();
+    }
+
+    @FXML
+    void actEditProductProductTable(MouseEvent event) throws IOException {
+        if(event.getClickCount() == 2){
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(ADDPRODUCT_FXML));
+            loader.setController(this);
+            Parent window = loader.load();
+
+            Scene scene = new Scene(window);
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Editar producto");
+            stage.show();
+            setupEditProductScene();
+        }
+    }
+
+    public void setupEditProductScene(){
+        setupAddProductScene();
+        tempIngredients.addAll(FXCollections.observableList(manager.findProduct(tvProductsTProduct.getSelectionModel().getSelectedItem().getName()).getIngredients()));
+        tempSizes.addAll(FXCollections.observableList(manager.findProduct(tvProductsTProduct.getSelectionModel().getSelectedItem().getName()).getSizes()));
+        tfNameAddProduct.setText(manager.findProduct(tvProductsTProduct.getSelectionModel().getSelectedItem().getName()).getName());
+        cbTypeAddProduct.getSelectionModel().select(manager.findIndexType(manager.findProduct(tvProductsTProduct.getSelectionModel().getSelectedItem().getName()).getName(),
+                manager.findProduct(tvProductsTProduct.getSelectionModel().getSelectedItem().getName()).getType().getName()));
+        tvIngredientsAddProduct.setItems(tempIngredients);
+        tvSizeAddProduct.setItems(tempSizes);
+        btnAddProductAddProduct.setText("Editar");
+    }
+
+    @FXML
+    void actDeleteIngredientAddProduct(ActionEvent event) {
+        tempIngredients.remove(tvIngredientsAddProduct.getSelectionModel().getSelectedIndex());
+        tvIngredientsAddProduct.refresh();
+    }
+
+    @FXML
+    void actDeleteSizeAddProduct(ActionEvent event) {
+        tempSizes.remove(tvSizeAddProduct.getSelectionModel().getSelectedIndex());
+        tvSizeAddProduct.refresh();
+    }
+
+    @FXML
+    void actEditOrderTableOrders(MouseEvent event) throws IOException {
+        if(event.getClickCount() == 2){
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(ORDERMENU_FXML));
+            loader.setController(this);
+            Parent window = loader.load();
+
+            Scene scene = new Scene(window);
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Editar orden");
+            stage.show();
+            lblTitleOrderMenu.setText("Editar orden");
+            setupEditOrderScene();
+        }
+    }
+
+    public void setupEditOrderScene(){
+        setupOrderScreen();
+        String time = dateToWFormart(manager.findOrder(tvOrdersTOrder.getSelectionModel().getSelectedItem().getCode()).getTime());
+        time = time.replace(" ", "/");
+        tfCodeOrder.setText(manager.findOrder(tvOrdersTOrder.getSelectionModel().getSelectedItem().getCode()).getCode());
+        tfDateOrder.setText(time);
+        cbEmployeeOrder.getSelectionModel().select(manager.findEmployeeIndex(manager.findOrder(tvOrdersTOrder.getSelectionModel().getSelectedItem().getCode()).getDeliverer().getFirstName() +
+                " "+manager.findOrder(tvOrdersTOrder.getSelectionModel().getSelectedItem().getCode()).getDeliverer().getLastName()));
+        cbClientOrder.getSelectionModel().select(manager.findClientByIdIndex(Integer.parseInt(manager.findOrder(tvOrdersTOrder.getSelectionModel().getSelectedItem().getCode()).getClient().getId())));
+        taObservationsAddOrder.setText(manager.findOrder(tvOrdersTOrder.getSelectionModel().getSelectedItem().getCode()).getObservations());
+        orderItems.setAll(FXCollections.observableList(manager.findOrder(tvOrdersTOrder.getSelectionModel().getSelectedItem().getCode()).getItems()));
+        tvOrdersOrder.setItems(orderItems);
+        btnAddOrderAddOrder.setText("Editar");
     }
 }

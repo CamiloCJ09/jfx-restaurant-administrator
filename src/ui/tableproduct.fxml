@@ -15,7 +15,7 @@
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
    </right>
    <center>
-      <TableView fx:id="tvProductsTProduct" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="tvProductsTProduct" onMouseClicked="#actEditProductProductTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="tcProductTProduct" prefWidth="75.0" text="Producto" />
           <TableColumn fx:id="tcTypeTProduct" prefWidth="75.0" text="Tipo de comida" />

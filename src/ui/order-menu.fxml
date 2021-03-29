@@ -19,7 +19,7 @@
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label text="Menú de pedidos">
+                  <Label fx:id="lblTitleOrderMenu" text="Menú de pedidos">
                      <font>
                         <Font name="Book Antiqua" size="25.0" />
                      </font>
@@ -159,7 +159,7 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="44.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
          <children>
-            <JFXButton onAction="#actAddOrderOrder" text="Agregar orden" />
+            <JFXButton fx:id="btnAddOrderAddOrder" onAction="#actAddOrderOrder" text="Agregar orden" />
          </children>
       </HBox>
    </bottom>
