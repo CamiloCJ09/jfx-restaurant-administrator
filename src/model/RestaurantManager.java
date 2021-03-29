@@ -88,21 +88,19 @@ public class RestaurantManager implements Serializable{
             String type = parts[1];
             addFoodType(type);
 
-            String[] ingredients = parts[2].split(",");
+            String[] ingredients1 = parts[2].split(",");
             ArrayList<Ingredients> productIngredients = new ArrayList<>();
 
-            for(int i = 0; i < ingredients.length; i++){
-                Ingredients ingredient = new Ingredients(activeUser, activeUser, ingredients[i].replace(" ",""));
-                addIngredient(ingredients[i].replace(" ", ""));
-                productIngredients.add(ingredient);
+            for(int i = 0; i < ingredients1.length; i++){
+                //Ingredients ingredient = new Ingredients(activeUser, activeUser, ingredients[i].replace(" ",""));
+                System.out.println(ingredients1[i]);
+                addIngredient(ingredients1[i].replace(" ", ""));
+                productIngredients.add(findIngredientByName(ingredients1[i].replace(" ","")));
             }
 
             String[] sizes = parts[3].split(",");
             String[] pricesForEachSize = parts[4].split(",");
             ArrayList<Size> productSizes = new ArrayList<>();
-            for(int i = 0; i < pricesForEachSize.length; i++){
-                System.out.println(pricesForEachSize[i]);
-            }
             for(int i = 0; i < sizes.length; i++){
                 Size size = new Size(activeUser, activeUser, sizes[i].replace(" ", ""), Double.parseDouble(pricesForEachSize[i].replace(" ","")));
                 productSizes.add(size);
@@ -130,7 +128,6 @@ public class RestaurantManager implements Serializable{
         String line = br.readLine();
         line = br.readLine();
         while(line != null){
-            System.out.println(line);
             String[] parts = line.split(",");
 
             Date aDate = new Date(parts[0]);
@@ -139,11 +136,10 @@ public class RestaurantManager implements Serializable{
             Employee aEmployee = new Employee(activeUser, activeUser, parts[2], parts[3], parts[4]);
             addEmployee(parts[2], parts[3], parts[4]);
 
-
-            Client aClient = new Client(activeUser, activeUser, parts[5], parts[6], parts[7], parts[8], parts[9],"");
             boolean clientCreated = addClient(parts[5], parts[6], parts[7], parts[8], parts[9],"");
+            Client aClient = findClientById(Integer.parseInt(parts[7]));
 
-            String productName = parts[10];
+                    String productName = parts[10];
             String type = parts[11];
             boolean foodTypeAdded = addFoodType(type);
             FoodType fType = null;
@@ -180,16 +176,13 @@ public class RestaurantManager implements Serializable{
                     FXCollections.observableArrayList(productIngredients), FXCollections.observableArrayList(productSizes));
             addProduct(productName,type,
                     FXCollections.observableArrayList(productIngredients), FXCollections.observableArrayList(productSizes));
-            System.out.println("PRODUCTOOOO + "+aProduct.getIngredients().get(0));
             ArrayList<OrderMenuItem> orderMenuItems = new ArrayList<>();
             for(int i = 0; i < productSizes.size(); i++){
                 OrderMenuItem orderMenuItem = new OrderMenuItem(activeUser, activeUser, aProduct, productSizes.get(i), Double.parseDouble(parts[18]));
                 orderMenuItems.add(orderMenuItem);
             }
 
-            Order order = new Order(activeUser, activeUser, code, orderMenuItems,aDate, "", aEmployee, aClient);
-            orders.add(order);
-            System.out.println(order.getItems().get(0));
+            addOrder(code, orderMenuItems,aDate, "", aEmployee, aClient);
 
             Instant time = Instant.now();
             Date date = Date.from(time);
@@ -269,7 +262,6 @@ public class RestaurantManager implements Serializable{
                 }
             }
             if(!ret){
-                System.out.println("Funciona melitico X2");
                 ingredient.setCreator(activeUser);
                 ingredient.setModifier(activeUser);
                 ingredients.add(ingredient);
@@ -376,7 +368,8 @@ public class RestaurantManager implements Serializable{
         }
         if(ret){
             orders.add(order);
-            System.out.println("creadita papa");
+            clients.get(findClientByIdIndex(Integer.parseInt(client.getId()))).setReferences(clients.get(findClientByIdIndex(Integer.parseInt(client.getId()))).getReferences() + 1);
+            employees.get(findEmployeeIndex(deliverer.getFirstName() + " " + deliverer.getLastName())).setReferences(employees.get(findEmployeeIndex(deliverer.getFirstName() + " " + deliverer.getLastName())).getReferences() + 1);
         }
         return ret;
     }
@@ -440,6 +433,15 @@ public class RestaurantManager implements Serializable{
         return null;
     }
 
+    public int findIngredientIndexByName(String name){
+        for(int i = 0; i < ingredients.size(); i++){
+            if(ingredients.get(i).getName().equals(name)){
+                return i;
+            }
+        }
+        return -1;
+    }
+
     public Client findClient(String name){
         Client client = null;
         boolean found = false;
@@ -454,10 +456,9 @@ public class RestaurantManager implements Serializable{
         return client;
     }
 
-    public int findIndexType(String productName, String typeName){
+    public int findIndexType(String typeName){
         int index = 0;
         boolean found = false;
-        Product product = findProduct(productName);
         for(int i = 0; i<foodTypes.size() && !found; i++){
             if(foodTypes.get(i).getName().equals(typeName)){
                 index = i;
@@ -492,6 +493,10 @@ public class RestaurantManager implements Serializable{
         }
         if(ret){
             products.add(product);
+            for(int i = 0; i<ingredients.size(); i++){
+                findIngredientByName(ingredients.get(i).getName()).setReferences(findIngredientByName(ingredients.get(i).getName()).getReferences() + 1);
+            }
+            findTypeByName(foodType.getName()).setReferences(findTypeByName(foodType.getName()).getReferences() + 1);
         }
         return ret;
     }
@@ -610,9 +615,24 @@ public class RestaurantManager implements Serializable{
         }
         Product product = products.get(index);
         product.setName(productName);
-        product.setType(type);
-        product.setIngredients(new ArrayList<Ingredients>(ingredients));
+        if(!product.getType().getName().toString().equals(type.getName().toString())){
+            findTypeByName(product.getType().getName()).setReferences(findTypeByName(product.getType().getName()).getReferences() - 1);
+            product.setType(findTypeByName(product.getType().getName()));
+        }
+        for(int i = 0; i<product.getIngredients().size(); i++){
+            findIngredientByName(product.getIngredients().get(i).getName()).setReferences(findIngredientByName(product.getIngredients().get(i).getName()).getReferences() - 1);
+        }
+        product.setIngredients(new ArrayList<>(ingredients));
+        for(int i = 0; i<ingredients.size(); i++){
+            findIngredientByName(ingredients.get(i).getName()).setReferences(findIngredientByName(ingredients.get(i).getName()).getReferences() + 1);
+        }
+        for(int i = 0; i< product.getSizes().size(); i++){
+            findSize(findProduct(product.getName()),product.getSizes().get(i).getSize()).setReferences(findSize(findProduct(product.getName()),product.getSizes().get(i).getSize()).getReferences() - 1);
+        }
         product.setSizes(new ArrayList<Size>(sizes));
+        for(int i = 0; i<sizes.size(); i++){
+            findSize(findProduct(product.getName()), sizes.get(i).getSize()).setReferences(findSize(findProduct(product.getName()), sizes.get(i).getSize()).getReferences() + 1);
+        }
         products.set(index, product);
         System.out.println("si funciono menor");
     }
@@ -710,10 +730,6 @@ public class RestaurantManager implements Serializable{
                 }
             }
             clientsCopy.set(i, min);
-        }
-
-        for(int i = 0; i < clientsCopy.size(); i++){
-            System.out.println(clientsCopy.get(i).getId());
         }
 
         int id = clientId;

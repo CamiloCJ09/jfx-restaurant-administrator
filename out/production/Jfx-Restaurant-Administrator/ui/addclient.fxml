@@ -62,7 +62,7 @@
                         <Separator orientation="VERTICAL" prefHeight="86.0" prefWidth="18.0" visible="false" />
                         <Label text="Observaciones:" />
                         <Separator orientation="VERTICAL" prefHeight="86.0" prefWidth="59.0" visible="false" />
-                        <JFXTextArea fx:id="taObservationsAddClient" focusColor="#ffd800" prefHeight="107.0" prefWidth="253.0" />
+                        <JFXTextArea fx:id="taObservationsAddClient" focusColor="#ffd800" prefHeight="91.0" prefWidth="198.0" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -74,7 +74,7 @@
             </VBox>
          </center>
          <right>
-            <VBox alignment="CENTER" prefHeight="600.0" prefWidth="561.0" BorderPane.alignment="CENTER">
+            <VBox alignment="CENTER" prefHeight="600.0" prefWidth="645.0" BorderPane.alignment="CENTER">
                <children>
                   <HBox alignment="CENTER">
                      <children>
@@ -83,7 +83,7 @@
                         <JFXButton buttonType="RAISED" onAction="#actSearchClientByIDAddClient" style="-fx-background-color: #e4be00;" text="BUSCAR CLIENTE POR ID" />
                      </children>
                   </HBox>
-                  <TableView fx:id="tvClientsAddClient" onMouseClicked="#actEditAddClient" prefHeight="486.0" prefWidth="476.0">
+                  <TableView fx:id="tvClientsAddClient" onMouseClicked="#actEditAddClient" prefHeight="486.0" prefWidth="578.0">
                     <columns>
                       <TableColumn fx:id="tcFirstNameAddClient" prefWidth="107.0" text="Nombres" />
                       <TableColumn fx:id="tcLastNameAddClient" prefWidth="111.0" text="Apellidos" />
@@ -91,11 +91,19 @@
                         <TableColumn fx:id="tcAddressAddClient" minWidth="0.0" prefWidth="81.0" text="Direccion" />
                         <TableColumn fx:id="tcTelAddClient" prefWidth="72.0" text="Telefono" />
                         <TableColumn fx:id="tcObservationsAddClient" prefWidth="72.0" text="Observaciones" />
+                        <TableColumn fx:id="tcStatusAddClient" prefWidth="72.0" text="Estado" />
                     </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
+                  <HBox alignment="CENTER" prefHeight="46.0" prefWidth="561.0">
+                     <children>
+                        <JFXButton buttonType="RAISED" onAction="#actDeleteAddClient" text="Eliminar" />
+                        <Separator disable="true" orientation="VERTICAL" prefHeight="46.0" prefWidth="29.0" visible="false" />
+                        <JFXButton onAction="#actStatusAddClient" text="Habilitar/Deshabilitar" />
+                     </children>
+                  </HBox>
                </children>
             </VBox>
          </right>

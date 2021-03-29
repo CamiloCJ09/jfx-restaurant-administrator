@@ -385,6 +385,18 @@ public class RestaurantAdministratorGUI {
     @FXML
     private JFXButton btnAddOrderAddOrder;
 
+    @FXML
+    private TableColumn<Ingredients, String> tcStatusAddIngredient;
+
+    @FXML
+    private TableColumn<Client, String> tcStatusAddClient;
+
+    @FXML
+    private TableColumn<FoodType, String> tcStatusAddType;
+
+    @FXML
+    private TableColumn<Employee, String> tcStatusAddEmployee;
+
     private final static String LA_CASA_DORADA_PATH = "data/LaCasaDorada.cb";
 
     public RestaurantAdministratorGUI() throws IOException, ClassNotFoundException {
@@ -507,6 +519,7 @@ public class RestaurantAdministratorGUI {
         tcIDAddClient.setCellValueFactory(new PropertyValueFactory<>("id"));
         tcAddressAddClient.setCellValueFactory(new PropertyValueFactory<>("address"));
         tcTelAddClient.setCellValueFactory(new PropertyValueFactory<>("tel"));
+        tcStatusAddClient.setCellValueFactory(new PropertyValueFactory<>("status"));
         tvClientsAddClient.setItems(clients);
     }
 
@@ -799,6 +812,7 @@ public class RestaurantAdministratorGUI {
             manager.editProduct(manager.findProductIndex(tvProductsTProduct.getSelectionModel().getSelectedItem().getName()),
                     productName, foodType, ingredients, sizesList);
             btnAddProductAddProduct.setText("Agregar");
+            System.out.println(tvProductsTProduct.getSelectionModel().getSelectedItem().getIngredients().get(0).getReferences());
             setupTableProduct();
             saveAllData();
         }
@@ -879,6 +893,7 @@ public class RestaurantAdministratorGUI {
         tcFirstNameAddEmployee.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         tcLastNameAddEmployee.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         tcIdAddEmployee.setCellValueFactory(new PropertyValueFactory<>("id"));
+        tcStatusAddEmployee.setCellValueFactory(new PropertyValueFactory<>("status"));
         tvEmployeesAddEmployee.setItems(employees);
     }
 
@@ -891,6 +906,7 @@ public class RestaurantAdministratorGUI {
 
         ingredients = FXCollections.observableArrayList(manager.getIngredients());
         tcNameAddIngredient.setCellValueFactory(new PropertyValueFactory<>("name"));
+        tcStatusAddIngredient.setCellValueFactory(new PropertyValueFactory<>("status"));
         tvIngredientsAddIngredient.setItems(ingredients);
     }
 
@@ -903,6 +919,7 @@ public class RestaurantAdministratorGUI {
 
         types = FXCollections.observableArrayList(manager.getFoodTypes());
         tcNameAddType.setCellValueFactory(new PropertyValueFactory<>("name"));
+        tcStatusAddType.setCellValueFactory(new PropertyValueFactory<>("status"));
         tvTypesAddType.setItems(types);
     }
 
@@ -1087,7 +1104,7 @@ public class RestaurantAdministratorGUI {
                     manager.getOrders().get(i).getItems(),
                     manager.getOrders().get(i).getTime(),
                     manager.getOrders().get(i).getObservations(),
-                    manager.getOrders().get(i).getStatus(),
+                    manager.getOrders().get(i).getStatus1(),
                     manager.getOrders().get(i).getDeliverer(),
                     manager.getOrders().get(i).getClient(),
                     manager.getOrders().get(i).gettPrice()));
@@ -1256,8 +1273,7 @@ public class RestaurantAdministratorGUI {
         tempIngredients.addAll(FXCollections.observableList(manager.findProduct(tvProductsTProduct.getSelectionModel().getSelectedItem().getName()).getIngredients()));
         tempSizes.addAll(FXCollections.observableList(manager.findProduct(tvProductsTProduct.getSelectionModel().getSelectedItem().getName()).getSizes()));
         tfNameAddProduct.setText(manager.findProduct(tvProductsTProduct.getSelectionModel().getSelectedItem().getName()).getName());
-        cbTypeAddProduct.getSelectionModel().select(manager.findIndexType(manager.findProduct(tvProductsTProduct.getSelectionModel().getSelectedItem().getName()).getName(),
-                manager.findProduct(tvProductsTProduct.getSelectionModel().getSelectedItem().getName()).getType().getName()));
+        cbTypeAddProduct.getSelectionModel().select(manager.findIndexType(manager.findProduct(tvProductsTProduct.getSelectionModel().getSelectedItem().getName()).getType().getName()));
         tvIngredientsAddProduct.setItems(tempIngredients);
         tvSizeAddProduct.setItems(tempSizes);
         btnAddProductAddProduct.setText("Editar");
@@ -1341,5 +1357,95 @@ public class RestaurantAdministratorGUI {
         }
         saveAllData();
         setupTableOrder();
+    }
+
+    @FXML
+    void actDeleteIngredientAddIngredient(ActionEvent event) throws IOException {
+        if(tvIngredientsAddIngredient.getSelectionModel().getSelectedItem().getReferences() != 0){
+            System.out.println("Papi el objeto ya esta referenciado");
+        } else{
+            manager.getIngredients().remove(manager.findIngredientByName(tvIngredientsAddIngredient.getSelectionModel().getSelectedItem().getName()));
+            setupAddIngredientScreen();
+        }
+        saveAllData();
+    }
+
+    @FXML
+    void actStatusIngredientAddIngredient(ActionEvent event) throws IOException {
+        if(tvIngredientsAddIngredient.getSelectionModel().getSelectedItem().getReferences() != 0){
+            System.out.println("Papi el objeto ya esta referenciado");
+        } else{
+            manager.getIngredients().get(manager.findIngredientIndexByName(tvIngredientsAddIngredient.getSelectionModel().getSelectedItem().getName())).changeStatus();
+            setupAddIngredientScreen();
+        }
+        saveAllData();
+    }
+
+    @FXML
+    void actDeleteAddClient(ActionEvent event) throws IOException {
+        if(tvClientsAddClient.getSelectionModel().getSelectedItem().getReferences() != 0){
+            System.out.println("Papi el objeto ya esta referenciado");
+        }else{
+            manager.getClients().remove(manager.findClientById(Integer.parseInt(tvClientsAddClient.getSelectionModel().getSelectedItem().getId())));
+            setupClientsAddClientsScreen();
+        }
+        saveAllData();
+    }
+
+    @FXML
+    void actStatusAddClient(ActionEvent event) throws IOException {
+        if(tvClientsAddClient.getSelectionModel().getSelectedItem().getReferences() != 0){
+            System.out.println("Papi el objeto ya esta referenciado");
+        }else{
+            manager.getClients().get(manager.findClientByIdIndex(Integer.parseInt(tvClientsAddClient.getSelectionModel().getSelectedItem().getId()))).changeStatus();
+            setupClientsAddClientsScreen();
+        }
+        saveAllData();
+    }
+
+    @FXML
+    void actDeleteTypeAddType(ActionEvent event) throws IOException {
+        if(tvTypesAddType.getSelectionModel().getSelectedItem().getReferences() != 0){
+            System.out.println("Papi el objeto ya esta referenciado");
+        }else{
+            manager.getFoodTypes().remove(manager.findIndexType(tvTypesAddType.getSelectionModel().getSelectedItem().getName()));
+            setupAddTypeScreen();
+        }
+        saveAllData();
+    }
+
+    @FXML
+    void actStatusAddType(ActionEvent event) throws IOException {
+        if(tvTypesAddType.getSelectionModel().getSelectedItem().getReferences() != 0){
+            System.out.println("Papi el objeto ya esta referenciado");
+        }else{
+            manager.getFoodTypes().get(manager.findIndexType(tvTypesAddType.getSelectionModel().getSelectedItem().getName())).changeStatus();
+            setupAddTypeScreen();
+        }
+        saveAllData();
+    }
+
+    @FXML
+    void actDeleteAddEmployee(ActionEvent event) throws IOException {
+        if(tvEmployeesAddEmployee.getSelectionModel().getSelectedItem().getReferences() != 0){
+            System.out.println("Papi el objeto ya esta referenciado");
+        }else{
+            manager.getEmployees().remove(manager.findEmployeeIndex(tvEmployeesAddEmployee.getSelectionModel().getSelectedItem().getFirstName()
+                    + " " + tvEmployeesAddEmployee.getSelectionModel().getSelectedItem().getLastName()));
+            setupAddEmployeeScreen();
+        }
+        saveAllData();
+    }
+
+    @FXML
+    void actStatusAddEmployee(ActionEvent event) throws IOException {
+        if(tvEmployeesAddEmployee.getSelectionModel().getSelectedItem().getReferences() != 0){
+            System.out.println("Papi el objeto ya esta referenciado");
+        }else{
+            manager.getEmployees().get(manager.findEmployeeIndex(tvEmployeesAddEmployee.getSelectionModel().getSelectedItem().getFirstName()
+                    + " " + tvEmployeesAddEmployee.getSelectionModel().getSelectedItem().getLastName())).changeStatus();
+            setupAddEmployeeScreen();
+        }
+        saveAllData();
     }
 }

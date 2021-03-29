@@ -47,7 +47,7 @@
       </VBox>
    </center>
    <right>
-      <VBox alignment="CENTER" prefHeight="600.0" prefWidth="598.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefHeight="600.0" prefWidth="663.0" BorderPane.alignment="CENTER">
          <children>
             <JFXButton buttonType="RAISED" onAction="#actImportEmployeesAddEmployees" style="-fx-background-color: #e4be00;" text="IMPORT EMPLOYEES" />
             <TableView fx:id="tvEmployeesAddEmployee" onMouseClicked="#actEditEmployeeAddEmployee" prefHeight="421.0" prefWidth="598.0">
@@ -55,11 +55,19 @@
                 <TableColumn fx:id="tcFirstNameAddEmployee" prefWidth="75.0" text="Nombres" />
                 <TableColumn fx:id="tcLastNameAddEmployee" prefWidth="75.0" text="Apellidos" />
                   <TableColumn fx:id="tcIdAddEmployee" prefWidth="75.0" text="Identificación" />
+                  <TableColumn fx:id="tcStatusAddEmployee" prefWidth="75.0" text="Estado" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
+            <HBox alignment="CENTER" prefHeight="81.0" prefWidth="663.0">
+               <children>
+                  <JFXButton buttonType="RAISED" onAction="#actDeleteAddEmployee" text="Eliminar" />
+                  <Separator disable="true" orientation="VERTICAL" prefHeight="81.0" prefWidth="49.0" visible="false" />
+                  <JFXButton buttonType="RAISED" onAction="#actStatusAddEmployee" text="Habilitar/Deshabilitar" />
+               </children>
+            </HBox>
          </children>
       </VBox>
    </right>

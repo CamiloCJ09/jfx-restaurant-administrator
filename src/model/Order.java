@@ -11,7 +11,7 @@ public class Order extends RestaurantObject{
     private ArrayList<OrderMenuItem> items;
     private Date time;
     private String observations;
-    private Status status;
+    private Status status1;
     private Employee deliverer;
     private Client client;
     private String tPrice;
@@ -23,7 +23,7 @@ public class Order extends RestaurantObject{
         this.items = new ArrayList<>(items);
         this.time = time;
         this.observations = observations;
-        this.status = Status.SOLICITED;
+        this.status1 = Status.SOLICITED;
         this.deliverer = deliverer;
         this.client = client;
         Double price = 0.0;
@@ -57,12 +57,12 @@ public class Order extends RestaurantObject{
         this.observations = observations;
     }
 
-    public Status getStatus() {
-        return status;
+    public Status getStatus1() {
+        return status1;
     }
 
     public void setStatus(Status status) {
-        this.status = status;
+        this.status1 = status;
     }
 
     public Employee getDeliverer() {

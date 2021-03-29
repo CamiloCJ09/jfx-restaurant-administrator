@@ -36,11 +36,19 @@
             <TableView fx:id="tvTypesAddType" onMouseClicked="#actEditTypeAddType" prefHeight="462.0" prefWidth="519.0">
               <columns>
                 <TableColumn fx:id="tcNameAddType" prefWidth="75.0" text="Nombre" />
+                  <TableColumn fx:id="tcStatusAddType" prefWidth="75.0" text="Estado" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
+            <HBox alignment="CENTER" prefHeight="62.0" prefWidth="519.0">
+               <children>
+                  <JFXButton buttonType="RAISED" onAction="#actDeleteTypeAddType" text="Eliminar" />
+                  <Separator disable="true" orientation="VERTICAL" prefHeight="62.0" prefWidth="43.0" visible="false" />
+                  <JFXButton onAction="#actStatusAddType" text="Habilitar/Deshabilitar" />
+               </children>
+            </HBox>
          </children>
       </VBox>
    </right>
