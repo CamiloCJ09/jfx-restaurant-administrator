@@ -133,13 +133,13 @@ public class RestaurantManager implements Serializable{
             Date aDate = new Date(parts[0]);
             Status aStatus = Status.valueOf(parts[1]);
 
-            Employee aEmployee = new Employee(activeUser, activeUser, parts[2], parts[3], parts[4]);
             addEmployee(parts[2], parts[3], parts[4]);
+            Employee aEmployee = findEmployee(parts[2]+" "+parts[3]);
 
-            boolean clientCreated = addClient(parts[5], parts[6], parts[7], parts[8], parts[9],"");
+            addClient(parts[5], parts[6], parts[7], parts[8], parts[9],"");
             Client aClient = findClientById(Integer.parseInt(parts[7]));
 
-                    String productName = parts[10];
+            String productName = parts[10];
             String type = parts[11];
             boolean foodTypeAdded = addFoodType(type);
             FoodType fType = null;
