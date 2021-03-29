@@ -849,8 +849,6 @@ public class RestaurantAdministratorGUI {
         }
     }
 
-    //Todo: add import data method and connect it with restaurant manager
-    //Todo: add export data methods and connect them with restaurant manager
 
     @FXML
     public void actImportUsersData(ActionEvent event) throws IOException {
@@ -1308,5 +1306,23 @@ public class RestaurantAdministratorGUI {
         orderItems.setAll(FXCollections.observableList(manager.findOrder(tvOrdersTOrder.getSelectionModel().getSelectedItem().getCode()).getItems()));
         tvOrdersOrder.setItems(orderItems);
         btnAddOrderAddOrder.setText("Editar");
+    }
+
+    @FXML
+    void actImportProductsTableProduct(ActionEvent event) throws IOException {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Selecciona el archivo");
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Csv files", "*.csv"));
+        Stage primaryStage = (Stage)bpPaneMain.getScene().getWindow();
+        File fileToSave = fileChooser.showOpenDialog(primaryStage);
+        if(fileToSave != null){
+            String url = fileToSave.toPath().toString();
+            manager.importProductsData(url);
+            //manager.saveClientsData();
+        }else{
+            System.out.println("No funciona rey");
+        }
+        saveAllData();
+        setupTableProduct();
     }
 }

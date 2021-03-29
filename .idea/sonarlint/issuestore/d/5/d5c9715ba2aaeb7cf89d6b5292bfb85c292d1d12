@@ -1,4 +1,4 @@
 
-M
-java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8æ¨°…/
-]	java:S107"AConstructor has 8 parameters, which is greater than 7 authorized.(äá¡ı8æ¨°…/
+
+java:S1319X"pThe type of the "items" object should be an interface such as "List" rather than the implementation "ArrayList".(ÔÎâò8¾¶áİ‡/
+]	java:S107"AConstructor has 8 parameters, which is greater than 7 authorized.(äá¡ı8¾¶áİ‡/

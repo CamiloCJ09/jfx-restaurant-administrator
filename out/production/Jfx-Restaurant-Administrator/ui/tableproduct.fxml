@@ -32,7 +32,10 @@
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <HBox prefHeight="100.0" prefWidth="435.0" />
-            <HBox prefHeight="100.0" prefWidth="362.0" />
+            <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="362.0">
+               <children>
+                  <JFXButton onAction="#actImportProductsTableProduct" text="IMPORTAR PRODUCTOS" />
+               </children></HBox>
             <HBox alignment="BOTTOM_LEFT" layoutX="445.0" layoutY="10.0" prefHeight="100.0" prefWidth="386.0">
                <children>
                   <JFXButton buttonType="RAISED" onAction="#actSortByPriceTableProduct" text="ORDENAR POR PRECIO ASCENDENTE" />

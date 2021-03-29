@@ -1,30 +1,28 @@
 
-£
-java:S1186R"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(§üšÒüÿÿÿÿ8ÄÌŞ¼†/
-B
-java:S1948*"%Make "oss" transient or serializable.(ş¨ñ8¡ğÔ³‡/
-F
-java:S1481q")Remove this unused "name" local variable.(ûÔèÓ8ÄÌŞ¼†/
-B
-java:S1948."%Make "ois" transient or serializable.(à‚åÛ8¡ğÔ³‡/
 \
-java:S1117s"?Rename "ingredients" which hides the field declared at line 52.(äØ·8ÄÌŞ¼†/
-Y	java:S107Ô"<Method has 8 parameters, which is greater than 7 authorized.(ÀƒòÀ8ÄÌŞ¼†/
+java:S1117Q"?Rename "ingredients" which hides the field declared at line 18.(äØ·8ÄÌŞ¼†/
+F
+java:S1481O")Remove this unused "name" local variable.(ûÔèÓ8ÄÌŞ¼†/
+£
+java:S11863"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ã«ü²ıÿÿÿÿ8ÄÌŞ¼†/
 a
 java:S1128"?Remove this unused import 'javafx.collections.ObservableArray'.(Ä‹¸İüÿÿÿÿ8 ÍÒµ†/
 “
-java:S1319Ê"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(‹µ¬÷úÿÿÿÿ8¼Ö²²‡/
-F
-java:S1481r")Remove this unused "type" local variable.(µô¯è8ÄÌŞ¼†/
-
-java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(€úØƒ8æúª¯‡/
-M
-java:S1481s"0Remove this unused "ingredients" local variable.(äØ·8ÄÌŞ¼†/
-
-java:S4144Å"^Update this method so that its implementation is not identical to "deleteProduct" on line 570.(­æ‚ôÿÿÿÿÿ8æúª¯‡/
-“
-java:S1319–"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ûµ®àıÿÿÿÿ8æúª¯‡/
+java:S1319ğ"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(‹µ¬÷úÿÿÿÿ8‡ÍôÕ‡/
 
-java:S1186O"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ïç½ç8ÄÌŞ¼†/
+java:S1186-"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ïç½ç8ÄÌŞ¼†/
+F
+java:S1481P")Remove this unused "type" local variable.(µô¯è8ÄÌŞ¼†/
+Y	java:S107“"<Method has 8 parameters, which is greater than 7 authorized.(ÀƒòÀ8ÄÌŞ¼†/
+M
+java:S1481Q"0Remove this unused "ingredients" local variable.(äØ·8ÄÌŞ¼†/
 £
-java:S1186U"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ã«ü²ıÿÿÿÿ8ÄÌŞ¼†/
+java:S11860"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(§üšÒüÿÿÿÿ8ÄÌŞ¼†/
+“
+java:S1319ğ"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ûµ®àıÿÿÿÿ8û¸áİ‡/
+
+java:S1319ø"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(€úØƒ8û¸áİ‡/
+
+java:S4144Ÿ"^Update this method so that its implementation is not identical to "deleteProduct" on line 404.(­æ‚ôÿÿÿÿÿ8û¸áİ‡/
+J
+java:S1481É",Remove this unused "product" local variable.(¼‚8û¸áİ‡/

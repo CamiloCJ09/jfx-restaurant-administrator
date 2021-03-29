@@ -1,9 +1,12 @@
 package model;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 
 import java.io.*;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.*;
 
 /**
@@ -52,6 +55,8 @@ public class RestaurantManager implements Serializable{
 
     }
 
+
+
     public void importClientsData(String fileName) throws IOException{
         BufferedReader br = new BufferedReader(new FileReader(fileName));
         String line = br.readLine(); //Clean first line
@@ -73,16 +78,64 @@ public class RestaurantManager implements Serializable{
     public void importProductsData(String fileName) throws IOException{
         BufferedReader br = new BufferedReader(new FileReader(fileName));
         String line = br.readLine();
+        line = br.readLine();
         //Add cleaning line
         while(line != null){
+            line.replaceAll("\\s+", "");
             String[] parts = line.split(";");
             String name = parts[0];
+
             String type = parts[1];
-            String[] ingredients = parts[2].split("\\|");
-            //Todo: Complete
+            addFoodType(type);
+
+            String[] ingredients = parts[2].split(",");
+            ArrayList<Ingredients> productIngredients = new ArrayList<>();
+
+            for(int i = 0; i < ingredients.length; i++){
+                Ingredients ingredient = new Ingredients(activeUser, activeUser, ingredients[i].replace(" ",""));
+                addIngredient(ingredients[i].replace(" ", ""));
+                productIngredients.add(ingredient);
+            }
+
+            String[] sizes = parts[3].split(",");
+            String[] pricesForEachSize = parts[4].split(",");
+            ArrayList<Size> productSizes = new ArrayList<>();
+            for(int i = 0; i < pricesForEachSize.length; i++){
+                System.out.println(pricesForEachSize[i]);
+            }
+            for(int i = 0; i < sizes.length; i++){
+                Size size = new Size(activeUser, activeUser, sizes[i].replace(" ", ""), Double.parseDouble(pricesForEachSize[i].replace(" ","")));
+                productSizes.add(size);
+            }
+
+            addProduct(name, type, FXCollections.observableArrayList(productIngredients),FXCollections.observableArrayList(productSizes));
             line = br.readLine();
         }
 
+    }
+    public String productCode(){
+        Instant time = Instant.now();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd MM yyyy HH:mm:ss");
+        String timeWFormat = simpleDateFormat.format(Date.from(time));
+        String code = (String.valueOf(timeWFormat.charAt(8))).concat(String.valueOf(timeWFormat.charAt(9))).concat(String.valueOf(timeWFormat.charAt(3))).
+                concat(String.valueOf(timeWFormat.charAt(4))).concat(String.valueOf(timeWFormat.charAt(0))).concat(String.valueOf(timeWFormat.charAt(1))).
+                concat(String.valueOf(orders.size()));
+        return code;
+    }
+
+
+    public void importOrdersData(String fileName) throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader(fileName));
+        String line = br.readLine();
+        line = br.readLine();
+        while(line != null){
+            line.split("CHANGE THIS!!!");
+            String code = productCode();
+
+
+            Instant time = Instant.now();
+            Date date = Date.from(time);
+        }
     }
 
 
