@@ -1325,4 +1325,21 @@ public class RestaurantAdministratorGUI {
         saveAllData();
         setupTableProduct();
     }
+    @FXML
+    void actImportOrdersTableOrder(ActionEvent event) throws IOException {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Selecciona el archivo");
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Csv files", "*.csv"));
+        Stage primaryStage = (Stage)bpPaneMain.getScene().getWindow();
+        File fileToSave = fileChooser.showOpenDialog(primaryStage);
+        if(fileToSave != null){
+            String url = fileToSave.toPath().toString();
+            manager.importOrdersData(url);
+            //manager.saveClientsData();
+        }else{
+            System.out.println("No funciona rey");
+        }
+        saveAllData();
+        setupTableOrder();
+    }
 }

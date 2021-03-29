@@ -126,16 +126,77 @@ public class RestaurantManager implements Serializable{
 
     public void importOrdersData(String fileName) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(fileName));
+        //ArrayList<Order> orders2 = new ArrayList<>();
         String line = br.readLine();
         line = br.readLine();
         while(line != null){
-            line.split("CHANGE THIS!!!");
+            System.out.println(line);
+            String[] parts = line.split(",");
+
+            Date aDate = new Date(parts[0]);
+            Status aStatus = Status.valueOf(parts[1]);
+
+            Employee aEmployee = new Employee(activeUser, activeUser, parts[2], parts[3], parts[4]);
+            addEmployee(parts[2], parts[3], parts[4]);
+
+
+            Client aClient = new Client(activeUser, activeUser, parts[5], parts[6], parts[7], parts[8], parts[9],"");
+            boolean clientCreated = addClient(parts[5], parts[6], parts[7], parts[8], parts[9],"");
+
+            String productName = parts[10];
+            String type = parts[11];
+            boolean foodTypeAdded = addFoodType(type);
+            FoodType fType = null;
+            if(foodTypeAdded){
+                 fType = findTypeByName(type);
+            }
+
+
+
+            String[] ingredients = parts[15].split("\\|");
+            ArrayList<Ingredients> productIngredients = new ArrayList<>();
+            for(int i = 0; i < ingredients.length; i++){
+                Ingredients aIngredient = new Ingredients(activeUser, activeUser, ingredients[i]);
+                boolean ingredientCreated = addIngredient(ingredients[i]);
+                if(ingredientCreated){
+                    productIngredients.add(aIngredient);
+                }else{
+                    aIngredient = findIngredientByName(ingredients[i]);
+                    productIngredients.add(aIngredient);
+                }
+            }
+
+            String[] sizes = parts[16].split("\\|");
+            String[] prices = parts[17].split("\\|");
+            ArrayList<Size> productSizes = new ArrayList<>();
+            for(int i = 0; i < sizes.length; i++){
+                Size aSize = new Size(activeUser, activeUser, sizes[i], Double.parseDouble(prices[i]));
+                productSizes.add(aSize);
+            }
+
             String code = productCode();
 
+            Product aProduct = new Product(activeUser, activeUser,productName,fType,
+                    FXCollections.observableArrayList(productIngredients), FXCollections.observableArrayList(productSizes));
+            addProduct(productName,type,
+                    FXCollections.observableArrayList(productIngredients), FXCollections.observableArrayList(productSizes));
+            System.out.println("PRODUCTOOOO + "+aProduct.getIngredients().get(0));
+            ArrayList<OrderMenuItem> orderMenuItems = new ArrayList<>();
+            for(int i = 0; i < productSizes.size(); i++){
+                OrderMenuItem orderMenuItem = new OrderMenuItem(activeUser, activeUser, aProduct, productSizes.get(i), Double.parseDouble(parts[18]));
+                orderMenuItems.add(orderMenuItem);
+            }
+
+            Order order = new Order(activeUser, activeUser, code, orderMenuItems,aDate, "", aEmployee, aClient);
+            orders.add(order);
+            System.out.println(order.getItems().get(0));
 
             Instant time = Instant.now();
             Date date = Date.from(time);
+            line = br.readLine();
+
         }
+        br.close();
     }
 
 
@@ -334,6 +395,15 @@ public class RestaurantManager implements Serializable{
         return product.findSize(size);
     }
 
+    public FoodType findTypeByName(String name){
+        for(int i = 0; i < foodTypes.size(); i++){
+            if(foodTypes.get(i).getName().equals(name)){
+                return foodTypes.get(i);
+            }
+        }
+        return null;
+    }
+
     public Employee findEmployee(String name){
         Employee employee = null;
         boolean found = false;
@@ -360,6 +430,14 @@ public class RestaurantManager implements Serializable{
             }
         }
         return index;
+    }
+    public Ingredients findIngredientByName(String name){
+        for(int i = 0; i < ingredients.size(); i++){
+            if(ingredients.get(i).getName().equals(name)){
+                return ingredients.get(i);
+            }
+        }
+        return null;
     }
 
     public Client findClient(String name){

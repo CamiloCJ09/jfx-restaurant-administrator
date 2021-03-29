@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -30,7 +31,16 @@
       </TableView>
    </center>
    <top>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0" />
+            <HBox prefHeight="100.0" prefWidth="471.0" />
+            <HBox alignment="BOTTOM_RIGHT" layoutX="210.0" layoutY="10.0" prefHeight="100.0" prefWidth="327.0">
+               <children>
+                  <JFXButton onAction="#actImportOrdersTableOrder" text="IMPORT ORDERS" />
+               </children>
+            </HBox>
+         </children></HBox>
    </top>
    <bottom>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
