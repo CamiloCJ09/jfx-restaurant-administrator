@@ -9,6 +9,7 @@ public class ProductItem extends RestaurantObject{
     private List<Ingredients> ingredients;
     private String size;
     private String price;
+    private String statusP;
 
     public ProductItem(User creator, User modifier, Product product, int index){
         super(creator, modifier);
@@ -17,6 +18,7 @@ public class ProductItem extends RestaurantObject{
         this.ingredients = product.getIngredients();
         this.size = product.getSizes().get(index).getSize();
         this.price = String.valueOf(product.getSizes().get(index).getPrice());
+        this.statusP = product.getStatus();
     }
 
     public String getName() {
@@ -57,5 +59,13 @@ public class ProductItem extends RestaurantObject{
 
     public void setIngredients(List<Ingredients> ingredients) {
         this.ingredients = ingredients;
+    }
+
+    public String getStatusP() {
+        return statusP;
+    }
+
+    public void setStatusP(String statusP) {
+        this.statusP = statusP;
     }
 }

@@ -133,8 +133,8 @@ public class RestaurantManager implements Serializable{
             Date aDate = new Date(parts[0]);
             Status aStatus = Status.valueOf(parts[1]);
 
-            Employee aEmployee = new Employee(activeUser, activeUser, parts[2], parts[3], parts[4]);
             addEmployee(parts[2], parts[3], parts[4]);
+            Employee aEmployee = new Employee(activeUser, activeUser, parts[2], parts[3], parts[4]);
 
             boolean clientCreated = addClient(parts[5], parts[6], parts[7], parts[8], parts[9],"");
             Client aClient = findClientById(Integer.parseInt(parts[7]));
@@ -370,6 +370,9 @@ public class RestaurantManager implements Serializable{
             orders.add(order);
             clients.get(findClientByIdIndex(Integer.parseInt(client.getId()))).setReferences(clients.get(findClientByIdIndex(Integer.parseInt(client.getId()))).getReferences() + 1);
             employees.get(findEmployeeIndex(deliverer.getFirstName() + " " + deliverer.getLastName())).setReferences(employees.get(findEmployeeIndex(deliverer.getFirstName() + " " + deliverer.getLastName())).getReferences() + 1);
+            for(int i = 0; i<items.size(); i++){
+                products.get(findProductIndex(items.get(i).getProductName())).setReferences(products.get(findProductIndex(items.get(i).getProductName())).getReferences() + 1);
+            }
         }
         return ret;
     }

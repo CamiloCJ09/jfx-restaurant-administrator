@@ -22,6 +22,7 @@
             <TableColumn fx:id="tcIngredientsTProduct" prefWidth="75.0" text="Ingredientes" />
             <TableColumn fx:id="tcSizeTProduct" prefWidth="75.0" text="Tamaño" />
             <TableColumn fx:id="tcPriceTProduct" prefWidth="75.0" text="Precio" />
+            <TableColumn fx:id="tcStatusTProduct" prefWidth="75.0" text="Estado" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -29,18 +30,12 @@
       </TableView>
    </center>
    <top>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox prefHeight="100.0" prefWidth="435.0" />
-            <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="362.0">
-               <children>
-                  <JFXButton onAction="#actImportProductsTableProduct" text="IMPORTAR PRODUCTOS" />
-               </children></HBox>
-            <HBox alignment="BOTTOM_LEFT" layoutX="445.0" layoutY="10.0" prefHeight="100.0" prefWidth="386.0">
-               <children>
-                  <JFXButton buttonType="RAISED" onAction="#actSortByPriceTableProduct" text="ORDENAR POR PRECIO ASCENDENTE" />
-               </children>
-            </HBox>
+            <JFXButton onAction="#actImportProductsTableProduct" text="IMPORTAR PRODUCTOS" />
+            <JFXButton buttonType="RAISED" onAction="#actSortByPriceTableProduct" text="ORDENAR POR PRECIO ASCENDENTE" />
+            <JFXButton buttonType="RAISED" onAction="#actDeleteProductTProducts" text="Eliminar" />
+            <JFXButton buttonType="RAISED" onAction="#actStatusTProducts" text="Habilitar/Deshabilitar" />
          </children></HBox>
    </top>
    <bottom>

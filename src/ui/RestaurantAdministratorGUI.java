@@ -397,6 +397,12 @@ public class RestaurantAdministratorGUI {
     @FXML
     private TableColumn<Employee, String> tcStatusAddEmployee;
 
+    @FXML
+    private TableColumn<ProductItem, String> tcStatusTProduct;
+
+    @FXML
+    private TableColumn<ObservableOrder, String> tcStatusTOrder;
+
     private final static String LA_CASA_DORADA_PATH = "data/LaCasaDorada.cb";
 
     public RestaurantAdministratorGUI() throws IOException, ClassNotFoundException {
@@ -1006,6 +1012,7 @@ public class RestaurantAdministratorGUI {
         tcTypeTProduct.setCellValueFactory(new PropertyValueFactory<>("foodType"));
         tcSizeTProduct.setCellValueFactory(new PropertyValueFactory<>("size"));
         tcPriceTProduct.setCellValueFactory(new PropertyValueFactory<>("price"));
+        tcStatusTProduct.setCellValueFactory(new PropertyValueFactory<>("statusP"));
         setupButtonToTableProduct();
     }
 
@@ -1115,6 +1122,7 @@ public class RestaurantAdministratorGUI {
         tcEmployeeTOrder.setCellValueFactory(new PropertyValueFactory<>("employee"));
         tcClientTOrder.setCellValueFactory(new PropertyValueFactory<>("client"));
         tcTPriceTOrder.setCellValueFactory(new PropertyValueFactory<>("priceT"));
+        tcStatusTOrder.setCellValueFactory(new PropertyValueFactory<>("status"));
         setupButtonProductsTableOrders();
         setupButtonObservationsTableOrders();
     }
@@ -1447,5 +1455,41 @@ public class RestaurantAdministratorGUI {
             setupAddEmployeeScreen();
         }
         saveAllData();
+    }
+
+    @FXML
+    void actDeleteProductTProducts(ActionEvent event) throws IOException {
+        if(manager.findProduct(tvProductsTProduct.getSelectionModel().getSelectedItem().getName()).getReferences() != 0){
+            System.out.println("Papi el objeto ya esta referenciado");
+        }else{
+            manager.getProducts().remove(manager.findProductIndex(tvProductsTProduct.getSelectionModel().getSelectedItem().getName()));
+            setupTableProduct();
+        }
+        saveAllData();
+    }
+
+    @FXML
+    void actStatusTProducts(ActionEvent event) throws IOException {
+        if(manager.findProduct(tvProductsTProduct.getSelectionModel().getSelectedItem().getName()).getReferences() != 0){
+            System.out.println("Papi el objeto ya esta referenciado");
+        }else{
+            manager.getProducts().get(manager.findProductIndex(tvProductsTProduct.getSelectionModel().getSelectedItem().getName())).changeStatus();
+            setupTableProduct();
+        }
+        saveAllData();
+    }
+
+    @FXML
+    void actUpgradeStatusTOrders(ActionEvent event) {
+        manager.findOrder(tvOrdersTOrder.getSelectionModel().getSelectedItem().getCode()).upgradeStatus();
+        setupTableOrder();
+        System.out.println(manager.getOrders().get(0).getStatus1().toString());
+    }
+
+    @FXML
+    void actDowngradeStatusTOrders(ActionEvent event) {
+        manager.findOrder(tvOrdersTOrder.getSelectionModel().getSelectedItem().getCode()).downgradeStatus();
+        setupTableOrder();
+        System.out.println(manager.getOrders().get(0).getStatus1().toString());
     }
 }

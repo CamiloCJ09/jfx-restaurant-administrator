@@ -24,6 +24,7 @@
             <TableColumn fx:id="tcTPriceTOrder" prefWidth="75.0" text="Precio total" />
             <TableColumn fx:id="tcObservationsTOrder" prefWidth="75.0" text="Observaciones" />
             <TableColumn fx:id="tcProductsTOrder" prefWidth="75.0" text="Productos" />
+            <TableColumn fx:id="tcStatusTOrder" prefWidth="75.0" text="Estado" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -31,15 +32,11 @@
       </TableView>
    </center>
    <top>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox prefHeight="100.0" prefWidth="200.0" />
-            <HBox prefHeight="100.0" prefWidth="471.0" />
-            <HBox alignment="BOTTOM_RIGHT" layoutX="210.0" layoutY="10.0" prefHeight="100.0" prefWidth="327.0">
-               <children>
-                  <JFXButton onAction="#actImportOrdersTableOrder" text="IMPORT ORDERS" />
-               </children>
-            </HBox>
+            <JFXButton onAction="#actImportOrdersTableOrder" text="IMPORT ORDERS" />
+            <JFXButton buttonType="RAISED" onAction="#actUpgradeStatusTOrders" text="Avanzar estado" />
+            <JFXButton buttonType="RAISED" onAction="#actDowngradeStatusTOrders" text="Disminuir estado" />
          </children></HBox>
    </top>
    <bottom>

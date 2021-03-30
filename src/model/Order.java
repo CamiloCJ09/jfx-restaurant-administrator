@@ -96,4 +96,35 @@ public class Order extends RestaurantObject{
     public void settPrice(String tPrice) {
         this.tPrice = tPrice;
     }
+
+    public void upgradeStatus(){
+        switch(status1){
+            case SOLICITED:
+                status1 = Status.INPROCESS;
+                break;
+            case INPROCESS:
+                status1 = Status.SENDED;
+                break;
+            case SENDED:
+                status1 = Status.DELIVERED;
+                break;
+        }
+    }
+
+    public void downgradeStatus(){
+        switch(status1){
+            case SOLICITED:
+                status1 = Status.SOLICITED;
+                break;
+            case INPROCESS:
+                status1 = Status.SOLICITED;
+                break;
+            case SENDED:
+                status1 = Status.INPROCESS;
+                break;
+            case DELIVERED:
+                status1 = Status.SENDED;
+                break;
+        }
+    }
 }
