@@ -41,6 +41,8 @@
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <JFXButton fx:id="btnAddEmployeeAddEmployee" onAction="#actAddEmployeeAddEmployee" text="Agregar" />
+                  <JFXButton onAction="#actExportEmployeesReportAddEmployee" text="Exportar" />
+                  <JFXTextField fx:id="tfSeparatorAddEmployee" prefHeight="25.0" prefWidth="64.0" promptText="Separador" />
                </children>
             </HBox>
          </children>

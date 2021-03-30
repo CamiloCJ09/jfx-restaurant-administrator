@@ -403,6 +403,9 @@ public class RestaurantAdministratorGUI {
     @FXML
     private TableColumn<ObservableOrder, String> tcStatusTOrder;
 
+    @FXML
+    private JFXTextField tfSeparatorAddEmployee;
+
     private final static String LA_CASA_DORADA_PATH = "data/LaCasaDorada.cb";
 
     public RestaurantAdministratorGUI() throws IOException, ClassNotFoundException {
@@ -1486,5 +1489,26 @@ public class RestaurantAdministratorGUI {
         System.out.println(manager.getOrders().get(0).getStatus1().toString());
     }
 
+    @FXML
+    void miExportEmployeesData(ActionEvent event) {
+
+    }
+
+    @FXML
+    void actExportEmployeesReportAddEmployee(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Generar productos");
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text Files", "*.csv"));
+        File f = fileChooser.showSaveDialog(bpPaneMain.getScene().getWindow());
+        if (f != null) {
+            try {
+                manager.exportEmployeesData(f.getAbsolutePath(), tfSeparatorAddEmployee.getText());
+                System.out.println("Se volvio a coronar");
+            } catch (FileNotFoundException e) {
+                System.out.println("Me comi el pastel");
+            }
+
+        }
+    }
 
 }

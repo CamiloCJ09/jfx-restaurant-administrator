@@ -23,6 +23,11 @@
               <MenuItem mnemonicParsing="false" onAction="#miEditItemsMain" text="Editar items" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="Exportar">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#miExportEmployeesData" text="Exportar reporte de empleados" />
+               </items>
+            </Menu>
           <Menu mnemonicParsing="false" text="Ayuda">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#miAboutMain" text="Acerca" />
