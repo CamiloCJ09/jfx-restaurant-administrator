@@ -1480,16 +1480,11 @@ public class RestaurantAdministratorGUI {
     }
 
     @FXML
-    void actUpgradeStatusTOrders(ActionEvent event) {
+    void actUpgradeStatusTOrders(ActionEvent event) throws IOException {
         manager.findOrder(tvOrdersTOrder.getSelectionModel().getSelectedItem().getCode()).upgradeStatus();
-        setupTableOrder();
+        miOrderTableMain(event);
         System.out.println(manager.getOrders().get(0).getStatus1().toString());
     }
 
-    @FXML
-    void actDowngradeStatusTOrders(ActionEvent event) {
-        manager.findOrder(tvOrdersTOrder.getSelectionModel().getSelectedItem().getCode()).downgradeStatus();
-        setupTableOrder();
-        System.out.println(manager.getOrders().get(0).getStatus1().toString());
-    }
+
 }

@@ -184,6 +184,7 @@ public class RestaurantManager implements Serializable{
             }
 
             addOrder(code, orderMenuItems,aDate, "", aEmployee, aClient);
+            orders.get(orders.size()-1).setStatus(aStatus);
 
             Instant time = Instant.now();
             Date date = Date.from(time);

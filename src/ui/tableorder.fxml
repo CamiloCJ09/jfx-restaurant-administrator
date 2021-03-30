@@ -36,7 +36,6 @@
          <children>
             <JFXButton onAction="#actImportOrdersTableOrder" text="IMPORT ORDERS" />
             <JFXButton buttonType="RAISED" onAction="#actUpgradeStatusTOrders" text="Avanzar estado" />
-            <JFXButton buttonType="RAISED" onAction="#actDowngradeStatusTOrders" text="Disminuir estado" />
          </children></HBox>
    </top>
    <bottom>
