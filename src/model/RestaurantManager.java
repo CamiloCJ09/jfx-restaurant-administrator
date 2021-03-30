@@ -136,10 +136,11 @@ public class RestaurantManager implements Serializable{
             addEmployee(parts[2], parts[3], parts[4]);
             Employee aEmployee = new Employee(activeUser, activeUser, parts[2], parts[3], parts[4]);
 
-            boolean clientCreated = addClient(parts[5], parts[6], parts[7], parts[8], parts[9],"");
+
+            addClient(parts[5], parts[6], parts[7], parts[8], parts[9],"");
             Client aClient = findClientById(Integer.parseInt(parts[7]));
 
-                    String productName = parts[10];
+            String productName = parts[10];
             String type = parts[11];
             boolean foodTypeAdded = addFoodType(type);
             FoodType fType = null;
