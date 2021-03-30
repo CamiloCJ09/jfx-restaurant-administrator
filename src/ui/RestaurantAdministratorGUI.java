@@ -1546,10 +1546,16 @@ public class RestaurantAdministratorGUI {
                     if(auxiliarMethod(array1,orders.get(i).getItems().get(j).getProductName())){
                         if(auxiliarMethod(array2, orders.get(i).getItems().get(j).getSize())){
                             int var = findPossition(array1, array2, orders.get(i).getItems().get(j).getProductName(), orders.get(i).getItems().get(j).getSize());
-                            array3.set(var,array3.get(var)+Integer.parseInt(orders.get(i).getItems().get(j).getAmount()))
+                            array3.set(var,array3.get(var)+Integer.parseInt(orders.get(i).getItems().get(j).getAmount()));
                         }else{
-
+                            array1.add(orders.get(i).getItems().get(j).getProductName());
+                            array2.add(orders.get(i).getItems().get(j).getSize());
+                            array3.add(Integer.parseInt(orders.get(i).getItems().get(j).getAmount()));
                         }
+                    } else{
+                        array1.add(orders.get(i).getItems().get(j).getProductName());
+                        array2.add(orders.get(i).getItems().get(j).getSize());
+                        array3.add(Integer.parseInt(orders.get(i).getItems().get(j).getAmount()));
                     }
                 }
             }
