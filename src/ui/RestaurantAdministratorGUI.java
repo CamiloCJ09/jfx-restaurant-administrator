@@ -1531,16 +1531,18 @@ public class RestaurantAdministratorGUI {
         return 0;
     }
 
-    public void exportProductsData(){
+    public ArrayList<ArrayList> exportProductsData(){
         ArrayList<String> array1 = new ArrayList<String>();
         ArrayList<String> array2 = new ArrayList<String>();
         ArrayList<Integer> array3 = new ArrayList<Integer>();
+        ArrayList<Double> array4 = new ArrayList<>();
         for(int i = 0; i < orders.size(); i++){
             for(int j = 0; j < orders.get(i).getItems().size(); j++){
                 if(orders.get(i).getItems().isEmpty()){
                     array1.add(orders.get(i).getItems().get(j).getProductName());
                     array2.add(orders.get(i).getItems().get(j).getSize());
                     array3.add(Integer.parseInt(orders.get(i).getItems().get(j).getAmount()));
+                    array4.add(Double.parseDouble(orders.get(i).getItems().get(j).getPriceU()));
 
                 }else{
                     if(auxiliarMethod(array1,orders.get(i).getItems().get(j).getProductName())){
@@ -1551,15 +1553,23 @@ public class RestaurantAdministratorGUI {
                             array1.add(orders.get(i).getItems().get(j).getProductName());
                             array2.add(orders.get(i).getItems().get(j).getSize());
                             array3.add(Integer.parseInt(orders.get(i).getItems().get(j).getAmount()));
+                            array4.add(Double.parseDouble(orders.get(i).getItems().get(j).getPriceU()));
                         }
                     } else{
                         array1.add(orders.get(i).getItems().get(j).getProductName());
                         array2.add(orders.get(i).getItems().get(j).getSize());
                         array3.add(Integer.parseInt(orders.get(i).getItems().get(j).getAmount()));
+                        array4.add(Double.parseDouble(orders.get(i).getItems().get(j).getPriceU()));
                     }
                 }
             }
         }
+        ArrayList<ArrayList> marray = new ArrayList<>();
+        marray.add(array1);
+        marray.add(array2);
+        marray.add(array3);
+        marray.add(array4);
+        return marray;
     }
 
 }
