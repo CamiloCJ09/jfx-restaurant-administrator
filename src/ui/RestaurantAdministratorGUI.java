@@ -406,6 +406,10 @@ public class RestaurantAdministratorGUI {
     @FXML
     private JFXTextField tfSeparatorAddEmployee;
 
+    @FXML
+    private JFXTextField tfSeparatorTableProduct;
+
+
     private final static String LA_CASA_DORADA_PATH = "data/LaCasaDorada.cb";
 
     public RestaurantAdministratorGUI() throws IOException, ClassNotFoundException {
@@ -1534,32 +1538,33 @@ public class RestaurantAdministratorGUI {
     public ArrayList<ArrayList> exportProductsData(){
         ArrayList<String> array1 = new ArrayList<String>();
         ArrayList<String> array2 = new ArrayList<String>();
-        ArrayList<Integer> array3 = new ArrayList<Integer>();
+        ArrayList<Double> array3 = new ArrayList<Double>();
         ArrayList<Double> array4 = new ArrayList<>();
-        for(int i = 0; i < orders.size(); i++){
-            for(int j = 0; j < orders.get(i).getItems().size(); j++){
-                if(orders.get(i).getItems().isEmpty()){
-                    array1.add(orders.get(i).getItems().get(j).getProductName());
-                    array2.add(orders.get(i).getItems().get(j).getSize());
-                    array3.add(Integer.parseInt(orders.get(i).getItems().get(j).getAmount()));
-                    array4.add(Double.parseDouble(orders.get(i).getItems().get(j).getPriceU()));
+        for(int i = 0; i < manager.getOrders().size(); i++){
+            for(int j = 0; j < manager.getOrders().get(i).getItems().size(); j++){
+                if(manager.getOrders().get(i).getItems().isEmpty()){
+                    array1.add(manager.getOrders().get(i).getItems().get(j).getProductName());
+                    array2.add(manager.getOrders().get(i).getItems().get(j).getSize());
+                    array3.add(Double.parseDouble(manager.getOrders().get(i).getItems().get(j).getAmount()));
+                    array4.add(Double.parseDouble(manager.getOrders().get(i).getItems().get(j).getPriceU()));
 
                 }else{
-                    if(auxiliarMethod(array1,orders.get(i).getItems().get(j).getProductName())){
-                        if(auxiliarMethod(array2, orders.get(i).getItems().get(j).getSize())){
-                            int var = findPossition(array1, array2, orders.get(i).getItems().get(j).getProductName(), orders.get(i).getItems().get(j).getSize());
-                            array3.set(var,array3.get(var)+Integer.parseInt(orders.get(i).getItems().get(j).getAmount()));
+                    if(auxiliarMethod(array1,manager.getOrders().get(i).getItems().get(j).getProductName())){
+                        if(auxiliarMethod(array2, manager.getOrders().get(i).getItems().get(j).getSize())){
+
+                            int var = findPossition(array1, array2, manager.getOrders().get(i).getItems().get(j).getProductName(), manager.getOrders().get(i).getItems().get(j).getSize());
+                            array3.set(var,array3.get(var)+Double.parseDouble(manager.getOrders().get(i).getItems().get(j).getAmount()));
                         }else{
-                            array1.add(orders.get(i).getItems().get(j).getProductName());
-                            array2.add(orders.get(i).getItems().get(j).getSize());
-                            array3.add(Integer.parseInt(orders.get(i).getItems().get(j).getAmount()));
-                            array4.add(Double.parseDouble(orders.get(i).getItems().get(j).getPriceU()));
+                            array1.add(manager.getOrders().get(i).getItems().get(j).getProductName());
+                            array2.add(manager.getOrders().get(i).getItems().get(j).getSize());
+                            array3.add(Double.parseDouble(manager.getOrders().get(i).getItems().get(j).getAmount()));
+                            array4.add(Double.parseDouble(manager.getOrders().get(i).getItems().get(j).getPriceU()));
                         }
                     } else{
-                        array1.add(orders.get(i).getItems().get(j).getProductName());
-                        array2.add(orders.get(i).getItems().get(j).getSize());
-                        array3.add(Integer.parseInt(orders.get(i).getItems().get(j).getAmount()));
-                        array4.add(Double.parseDouble(orders.get(i).getItems().get(j).getPriceU()));
+                        array1.add(manager.getOrders().get(i).getItems().get(j).getProductName());
+                        array2.add(manager.getOrders().get(i).getItems().get(j).getSize());
+                        array3.add(Double.parseDouble(manager.getOrders().get(i).getItems().get(j).getAmount()));
+                        array4.add(Double.parseDouble(manager.getOrders().get(i).getItems().get(j).getPriceU()));
                     }
                 }
             }
@@ -1570,6 +1575,23 @@ public class RestaurantAdministratorGUI {
         marray.add(array3);
         marray.add(array4);
         return marray;
+    }
+
+    @FXML
+    void actExportProductsReportTableProduct(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Generar productos");
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text Files", "*.csv"));
+        File f = fileChooser.showSaveDialog(bpPaneMain.getScene().getWindow());
+        if (f != null) {
+            try {
+                manager.exportProductsData(f.getAbsolutePath(),tfSeparatorTableProduct.getText(),exportProductsData());
+                System.out.println("Se volvio a coronar");
+            } catch (FileNotFoundException e) {
+                System.out.println("Me comi el pastel");
+            }
+
+        }
     }
 
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -36,6 +37,8 @@
             <JFXButton buttonType="RAISED" onAction="#actSortByPriceTableProduct" text="ORDENAR POR PRECIO ASCENDENTE" />
             <JFXButton buttonType="RAISED" onAction="#actDeleteProductTProducts" text="Eliminar" />
             <JFXButton buttonType="RAISED" onAction="#actStatusTProducts" text="Habilitar/Deshabilitar" />
+            <JFXButton onAction="#actExportProductsReportTableProduct" text="Exportar reporte de productos" />
+            <JFXTextField fx:id="tfSeparatorTableProduct" prefHeight="25.0" prefWidth="64.0" promptText="Separador" />
          </children></HBox>
    </top>
    <bottom>
