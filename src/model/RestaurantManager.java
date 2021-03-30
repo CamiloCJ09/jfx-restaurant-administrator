@@ -62,7 +62,22 @@ public class RestaurantManager implements Serializable{
         pw.close();
     }
     public void exportProductsData(String fileName, String delimeterChar) throws FileNotFoundException {
+        PrintWriter pw = new PrintWriter(fileName);
 
+        for(int i = 0; i < orders.size(); i++){
+
+        }
+
+        for(int i = 0; i < products.size(); i++){
+            Product product = products.get(i);
+            for(int j = 0; i < product.getSizes().size(); j++){
+                pw.println(product.getName()+delimeterChar+product.getReferences()+delimeterChar+
+                        (product.));
+            }
+
+        }
+
+        pw.close();
     }
     public void exportOrderData(String fileName, String delimeterChar) throws FileNotFoundException {
 

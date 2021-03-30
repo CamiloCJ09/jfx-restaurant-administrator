@@ -1510,5 +1510,50 @@ public class RestaurantAdministratorGUI {
 
         }
     }
+    public boolean auxiliarMethod(ArrayList<String> array, String string){
+        boolean isIn = false;
+        for(int i = 0; i < array.size(); i++){
+            if(array.get(i).equals(string)){
+                isIn = true;
+            }
+        }
+        return isIn;
+    }
+
+    public int findPossition(ArrayList<String> array1, ArrayList<String> array2, String name, String size){
+        for(int i = 0; i < array1.size(); i++){
+            for(int j = 0; j < array2.size(); j++){
+                if(array1.get(i).equals(name) && array2.get(j).equals(size)){
+                    return j;
+                }
+            }
+        }
+        return 0;
+    }
+
+    public void exportProductsData(){
+        ArrayList<String> array1 = new ArrayList<String>();
+        ArrayList<String> array2 = new ArrayList<String>();
+        ArrayList<Integer> array3 = new ArrayList<Integer>();
+        for(int i = 0; i < orders.size(); i++){
+            for(int j = 0; j < orders.get(i).getItems().size(); j++){
+                if(orders.get(i).getItems().isEmpty()){
+                    array1.add(orders.get(i).getItems().get(j).getProductName());
+                    array2.add(orders.get(i).getItems().get(j).getSize());
+                    array3.add(Integer.parseInt(orders.get(i).getItems().get(j).getAmount()));
+
+                }else{
+                    if(auxiliarMethod(array1,orders.get(i).getItems().get(j).getProductName())){
+                        if(auxiliarMethod(array2, orders.get(i).getItems().get(j).getSize())){
+                            int var = findPossition(array1, array2, orders.get(i).getItems().get(j).getProductName(), orders.get(i).getItems().get(j).getSize());
+                            array3.set(var,array3.get(var)+Integer.parseInt(orders.get(i).getItems().get(j).getAmount()))
+                        }else{
+
+                        }
+                    }
+                }
+            }
+        }
+    }
 
 }
