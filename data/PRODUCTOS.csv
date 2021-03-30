@@ -1,0 +1,101 @@
+Name;FoodType;Ingredients;sizes;prices
+Slovakia;Pugwash;salads, pies, desserts;Citroën, Chrysler, Seat;2, 6, 10
+Gabon;Jaboatão dos Guararapes;salads, stews, pies;Dacia, Volvo, Dodge;36, 6, 12
+Holy See (Vatican City State);Malvern;salads, desserts, noodles;General Motors, Acura, Mazda;22, 46, 30
+Bermuda;Ponoka;pies, sandwiches, seafood;Hyundai Motors, Cadillac, Dacia;14, 2, 50
+Latvia;Oranienburg;sandwiches, desserts, soups;Kenworth, Dongfeng Motor, Skoda;20, 42, 38
+Armenia;Mansfield-et-Pontefract;stews, seafood, cereals;Maruti Suzuki, Honda, BMW;12, 48, 22
+Uganda;Plauen;salads, pasta, desserts;Mazda, Infiniti, Peugeot;48, 46, 2
+Marshall Islands;Bloxham;sandwiches, pies, soups;Hyundai Motors, Jeep, Volkswagen;44, 30, 8
+Pitcairn Islands;San Juan del Cesar;sandwiches, pasta, stews;Lexus, Dacia, Kia Motors;24, 32, 46
+Puerto Rico;Mirpur;desserts, pasta, soups;Skoda, RAM Trucks, Maruti Suzuki;50, 6, 44
+British Indian Ocean Territory;Brandon;pasta, cereals, salads;Jeep, Subaru, Renault;44, 38, 28
+Malawi;Cartagena;pies, cereals, soups;Mitsubishi Motors, Suzuki, Acura;40, 38, 44
+Cambodia;Hermosillo;soups, pasta, stews;Seat, Cadillac, Daimler;46, 18, 8
+Guatemala;San Pedro;pasta, desserts, salads;Jeep, Volvo, Acura;40, 34, 38
+Mozambique;Motala;salads, stews, noodles;Maruti Suzuki, Renault, Lincoln;50, 48, 44
+Martinique;Novo Hamburgo;cereals, pasta, desserts;Kia Motors, Buick, Nissan;46, 24, 22
+Thailand;Rovereto;salads, stews, seafood;Kenworth, Dacia, Porsche;24, 44, 16
+Cook Islands;Castello Tesino;sandwiches, stews, pasta;Chrysler, Kia Motors, Toyota;48, 34, 4
+China;Uberlândia;pies, desserts, seafood;Mazda, Vauxhall, Subaru;16, 10, 32
+Bhutan;Bossuit;soups, desserts, pasta;Cadillac, Daihatsu, Mitsubishi Motors;4, 28, 18
+Barbados;Selva di Cadore;sandwiches, stews, desserts;JLR, FAW, Mitsubishi Motors;34, 6, 22
+Guyana;Edmundston;cereals, desserts, soups;Nissan, BMW, JLR;18, 28, 46
+Austria;Waasmunster;noodles, stews, pies;Honda, Hyundai Motors, Lexus;44, 48, 2
+Jersey;Roksem;pies, seafood, pasta;Dacia, Kenworth, Mazda;44, 32, 12
+Dominican Republic;Saint-Sébastien-sur-Loire;soups, pasta, desserts;Mahindra and Mahindra, Citroën, Mazda;30, 44, 18
+Liechtenstein;Haßloch;seafood, soups, cereals;Isuzu, Suzuki, Daihatsu;14, 8, 36
+Kuwait;Chiclayo;desserts, cereals, seafood;FAW, Chevrolet, Skoda;46, 40, 2
+Azerbaijan;Monteu Roero;sandwiches, cereals, pies;Vauxhall, Toyota, Audi;4, 20, 12
+Congo (Brazzaville);Seosan;pies, stews, salads;Ford, Nissan, Maruti Suzuki;26, 28, 4
+Bolivia;Tambov;seafood, noodles, stews;RAM Trucks, Infiniti, Audi;2, 16, 26
+Belgium;Stilo;sandwiches, salads, pies;Peugeot, Infiniti, Fiat;20, 28, 30
+Christmas Island;Prato Carnico;pies, seafood, noodles;Cadillac, Ford, Vauxhall;16, 30, 50
+Taiwan;Pelluhue;salads, soups, pasta;Vauxhall, Porsche, Ford;12, 48, 24
+Saudi Arabia;Millet;desserts, salads, stews;Vauxhall, General Motors, Smart;24, 34, 50
+Bermuda;Inuvik;cereals, pies, noodles;Mercedes-Benz, Infiniti, RAM Trucks;46, 6, 40
+Libya;Jhansi;noodles, soups, sandwiches;Acura, Kenworth, Lexus;24, 30, 18
+Qatar;St. Johann in Tirol;pasta, soups, desserts;Mahindra and Mahindra, Ford, Renault;12, 36, 6
+Yemen;Castel Baronia;noodles, sandwiches, salads;Infiniti, Dacia, Dodge;20, 38, 42
+Norway;Wood Buffalo;cereals, seafood, pasta;Peugeot, Chevrolet, Renault;50, 48, 40
+Chad;Ramenskoye;stews, soups, desserts;RAM Trucks, Toyota, Peugeot;36, 44, 28
+Tunisia;Makurdi;noodles, cereals, seafood;Lincoln, Chevrolet, Tata Motors;34, 20, 4
+Laos;Cerrillos;pasta, pies, salads;General Motors, Peugeot, Audi;44, 40, 12
+Virgin Islands, British;Rodgau;seafood, salads, cereals;Vauxhall, RAM Trucks, Buick;24, 12, 48
+Korea, North;Mottola;sandwiches, cereals, pies;Volkswagen, Honda, Fiat;48, 8, 16
+Czech Republic;Heilbronn;seafood, pies, noodles;Audi, Fiat, Isuzu;26, 46, 50
+Benin;Santa Cruz;seafood, desserts, pies;BMW, Daimler, Mazda;38, 32, 24
+Mayotte;Cuxhaven;soups, pasta, cereals;Volvo, Mazda, Skoda;10, 40, 20
+Hungary;La Roche-sur-Yon;pasta, sandwiches, pies;Mercedes-Benz, Daimler, Honda;10, 28, 42
+Sri Lanka;Lexington;desserts, pies, stews;Maruti Suzuki, Mercedes-Benz, Skoda;28, 48, 32
+Cocos (Keeling) Islands;Penticton;pasta, salads, stews;General Motors, Mitsubishi Motors, Suzuki;42, 12, 16
+Kazakhstan;Palmilla;pasta, noodles, salads;Kia Motors, JLR, Porsche;10, 2, 20
+Netherlands;Notre-Dame-du-Nord;sandwiches, cereals, pies;Ford, Dongfeng Motor, Tata Motors;14, 24, 2
+American Samoa;Schwäbisch Gmünd;sandwiches, salads, cereals;Mercedes-Benz, General Motors, Skoda;22, 48, 38
+Andorra;Dortmund;desserts, sandwiches, seafood;Dacia, Hyundai Motors, Citroën;8, 30, 24
+Niger;Mianwali;cereals, seafood, desserts;Isuzu, Mahindra and Mahindra, Mazda;38, 46, 36
+Luxembourg;Flint;pies, desserts, seafood;Smart, General Motors, Subaru;12, 20, 46
+Tunisia;Erie;soups, pies, salads;Renault, Porsche, Suzuki;38, 42, 10
+Chile;Alnwick;cereals, seafood, soups;Ferrari, Porsche, Acura;42, 12, 16
+Belgium;Warburg;seafood, stews, pasta;Nissan, Mahindra and Mahindra, Vauxhall;2, 48, 8
+Serbia;Nyazepetrovsk;sandwiches, cereals, salads;Dodge, Isuzu, Fiat;6, 28, 34
+Tanzania;Tielrode;soups, desserts, stews;Renault, Acura, Skoda;2, 4, 30
+Korea, North;Boston;pies, stews, salads;Dongfeng Motor, BMW, Kenworth;46, 6, 16
+Austria;Bathurst;soups, desserts, noodles;Jeep, Volvo, Dongfeng Motor;36, 18, 16
+Central African Republic;Mosquera;seafood, sandwiches, noodles;Audi, Chevrolet, MINI;12, 32, 50
+Benin;New Haven;soups, sandwiches, stews;Ferrari, FAW, Seat;12, 8, 34
+Saint Barthélemy;General Lagos;soups, stews, pies;FAW, Audi, Mazda;12, 28, 2
+Czech Republic;Meerle;salads, soups, seafood;BMW, Kia Motors, Buick;4, 42, 10
+Jersey;San Antonio;pasta, noodles, salads;Seat, Porsche, Lexus;22, 10, 50
+Costa Rica;Palakkad;cereals, seafood, pies;Ford, Renault, Tata Motors;38, 22, 26
+Western Sahara;Pushkino;soups, stews, noodles;Mahindra and Mahindra, Seat, General Motors;48, 22, 8
+Cape Verde;Chiniot;soups, seafood, pasta;Volkswagen, Acura, Maruti Suzuki;30, 10, 44
+Turkey;Kursk;soups, seafood, salads;Audi, Mazda, Nissan;12, 18, 20
+Tokelau;Montalto Uffugo;noodles, pasta, pies;Daihatsu, MINI, Fiat;42, 24, 40
+Dominican Republic;Darmstadt;cereals, soups, noodles;Ford, Chrysler, Smart;16, 12, 28
+Albania;Fiuminata;desserts, soups, pies;BMW, JLR, Smart;32, 2, 26
+Cambodia;Armadale;noodles, sandwiches, cereals;Fiat, Ford, Daihatsu;34, 44, 2
+Reunion;Ostellato;seafood, stews, cereals;Honda, Skoda, Acura;38, 34, 24
+Estonia;Tynda;soups, noodles, pasta;Toyota, Maruti Suzuki, Tata Motors;42, 36, 40
+Portugal;Heerhugowaard;stews, salads, sandwiches;Seat, Daimler, General Motors;42, 22, 6
+San Marino;Sooke;stews, soups, sandwiches;GMC, Toyota, Cadillac;16, 48, 30
+Yemen;Savona;stews, desserts, seafood;Kenworth, Dongfeng Motor, Smart;46, 20, 12
+Albania;Gliwice;pasta, pies, noodles;Isuzu, General Motors, Seat;32, 36, 14
+Djibouti;Oberwart;soups, stews, desserts;Jeep, FAW, MINI;28, 40, 24
+Guam;Sant'Angelo a Cupolo;salads, soups, sandwiches;Mercedes-Benz, Buick, BMW;42, 16, 32
+Antigua and Barbuda;Lochristi;cereals, salads, stews;Volvo, Subaru, Toyota;48, 50, 44
+Senegal;Bouwel;pies, desserts, pasta;Kia Motors, Maruti Suzuki, General Motors;8, 18, 36
+Iraq;Kasur;soups, pies, desserts;Peugeot, Mitsubishi Motors, Suzuki;18, 20, 2
+Qatar;Regina;stews, pies, desserts;Subaru, Skoda, Buick;18, 34, 24
+Australia;Hull;soups, cereals, sandwiches;Fiat, Porsche, Dacia;2, 26, 24
+Kenya;Siheung;pasta, pies, seafood;Isuzu, JLR, Volvo;30, 42, 28
+Trinidad and Tobago;Mansfield-et-Pontefract;sandwiches, salads, seafood;General Motors, Renault, Dongfeng Motor;2, 48, 46
+San Marino;Semarang;desserts, soups, pasta;Kia Motors, Fiat, Isuzu;12, 42, 48
+Costa Rica;Heerenveen;sandwiches, pies, cereals;Nissan, Kia Motors, Kenworth;8, 28, 20
+Nepal;Champdani;cereals, salads, pasta;Mitsubishi Motors, Daihatsu, Kia Motors;26, 4, 28
+South Africa;Podolsk;seafood, salads, desserts;Tata Motors, Vauxhall, Mercedes-Benz;36, 38, 20
+Holy See (Vatican City State);Manokwari;pies, pasta, salads;Dodge, Toyota, General Motors;44, 32, 26
+Mali;Colonnella;pasta, soups, pies;Renault, Kenworth, Toyota;10, 50, 28
+Russian Federation;Caramanico Terme;pies, soups, stews;Nissan, RAM Trucks, Peugeot;48, 30, 50
+Malawi;Jakarta;soups, pies, noodles;Buick, Chevrolet, Porsche;18, 36, 20
+Mali;Ottawa;pasta, noodles, stews;Mitsubishi Motors, RAM Trucks, Suzuki;44, 22, 48

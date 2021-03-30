@@ -1,28 +1,36 @@
 
-\
-java:S1117Q"?Rename "ingredients" which hides the field declared at line 18.(äØ·8ÄÌŞ¼†/
-F
-java:S1481O")Remove this unused "name" local variable.(ûÔèÓ8ÄÌŞ¼†/
-£
-java:S11863"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ã«ü²ıÿÿÿÿ8ÄÌŞ¼†/
-a
-java:S1128"?Remove this unused import 'javafx.collections.ObservableArray'.(Ä‹¸İüÿÿÿÿ8 ÍÒµ†/
+i
+java:S2259‘"FA "NullPointerException" could be thrown; "foodType" is nullable here.(•ì˜şşÿÿÿÿ8”ŸŠˆ/
+d
+java:S1858ˆ"A"getName" returns a string, there's no need to call "toString()".(–üÊşÿÿÿÿ8”ŸŠˆ/
+I
+java:S1874",Remove this use of "Date"; it is deprecated.(š‡µT8”ŸŠˆ/
+V
+java:S1117Ö"8Rename "time" which hides the field declared at line 31.(¤‹æˆ8”ŸŠˆ/
+–
+java:S1319@"tThe type of the "arraylist" object should be an interface such as "List" rather than the implementation "ArrayList".(§±Şúÿÿÿÿ8 ¯Šˆ/
 “
-java:S1319ğ"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(‹µ¬÷úÿÿÿÿ8‡ÍôÕ‡/
-
-java:S1186-"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ïç½ç8ÄÌŞ¼†/
-F
-java:S1481P")Remove this unused "type" local variable.(µô¯è8ÄÌŞ¼†/
-Y	java:S107“"<Method has 8 parameters, which is greater than 7 authorized.(ÀƒòÀ8ÄÌŞ¼†/
-M
-java:S1481Q"0Remove this unused "ingredients" local variable.(äØ·8ÄÌŞ¼†/
-£
-java:S11860"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(§üšÒüÿÿÿÿ8ÄÌŞ¼†/
-“
-java:S1319ğ"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ûµ®àıÿÿÿÿ8û¸áİ‡/
+java:S1319–"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ûµ®àıÿÿÿÿ8”ŸŠˆ/
 
-java:S1319ø"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(€úØƒ8û¸áİ‡/
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(€úØƒ8”ŸŠˆ/
 
-java:S4144Ÿ"^Update this method so that its implementation is not identical to "deleteProduct" on line 404.(­æ‚ôÿÿÿÿÿ8û¸áİ‡/
-J
-java:S1481É",Remove this unused "product" local variable.(¼‚8û¸áİ‡/
+java:S4144Å"^Update this method so that its implementation is not identical to "deleteProduct" on line 570.(­æ‚ôÿÿÿÿÿ8”ŸŠˆ/
+P
+java:S2201m".The return value of "replaceAll" must be used.(ŞÕÊĞøÿÿÿÿ8”ŸŠˆ/
+V
+java:S1117Œ"8Rename "time" which hides the field declared at line 31.(¤‹æˆ8”ŸŠˆ/
+G
+java:S1481×")Remove this unused "date" local variable.(öŸÏê8”ŸŠˆ/
+d
+java:S1858ˆ"A"getName" returns a string, there's no need to call "toString()".(–üÊşÿÿÿÿ8”ŸŠˆ/
+a
+java:S1128"?Remove this unused import 'javafx.collections.ObservableArray'.(Ä‹¸İüÿÿÿÿ8 ÍÒµ†/
+b
+java:S1117²"?Rename "ingredients" which hides the field declared at line 21.(šÈæÓúÿÿÿÿ8”ŸŠˆ/
+£
+java:S1186O"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ã«ü²ıÿÿÿÿ8”ŸŠˆ/
+Y	java:S107œ"<Method has 8 parameters, which is greater than 7 authorized.(ÀƒòÀ8”ŸŠˆ/
+“
+java:S1319¡"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(‹µ¬÷úÿÿÿÿ8”ŸŠˆ/
+Q
+java:S3740@"/Provide the parametrized type for this generic.(§±Şúÿÿÿÿ8 ¯Šˆ/

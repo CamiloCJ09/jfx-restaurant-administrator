@@ -1,77 +1,106 @@
 
-F
-java:S1604è"(Make this anonymous inner class a lambda(çé©8ü¸áİ‡/
-]
-java:S1117‹"?Rename "ingredients" which hides the field declared at line 76.(Ú©¤8ü¸áİ‡/
-w
-java:S1192¨"TUse already-defined constant 'ORDERMENU_FXML' instead of duplicating its value here.(©•³úÿÿÿÿÿ8ü¸áİ‡/
-Ÿ
-java:S1186›"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¼•¹œ8ü¸áİ‡/
 |
-java:S1171ï"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8ü¸áİ‡/
-g
-java:S1858æ"I"getSelectedItem" returns a string, there's no need to call "toString()".(Íö°É8ü¸áİ‡/
-w
-java:S1450T"URemove the "orders" field and declare it as a local variable in the relevant methods.(ùÍ³úşÿÿÿÿ8ü¸áİ‡/
-u
-java:S1450J"XRemove the "employees" field and declare it as a local variable in the relevant methods.(ÒòÓ8ü¸áİ‡/
-R
-java:S1128"0Remove this unused import 'java.time.LocalDate'.(›‘¬èıÿÿÿÿ8ÛÍŞ¼†/
+java:S1171"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8…´„ˆ/
+?	java:S131–""Add a default case to this switch.(ûè¬8…´„ˆ/
 |
-java:S1171ƒ	"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8ü¸áİ‡/
-^	java:S110ë"<This class has 9 parents which is greater than 5 authorized.(¡òäŞşÿÿÿÿ8ü¸áİ‡/
-e
-java:S1192—"GDefine a constant instead of duplicating this literal "Editar" 6 times.(‹´åÒ8ü¸áİ‡/
-q
-java:S1450N"TRemove the "types" field and declare it as a local variable in the relevant methods.(Ÿ­ô©8ü¸áİ‡/
-l
-java:S1858ç"I"getSelectedItem" returns a string, there's no need to call "toString()".(òú¦Âùÿÿÿÿ8ü¸áİ‡/
-d
-java:S1192³"FDefine a constant instead of duplicating this literal "Error" 3 times.(µûø–8ü¸áİ‡/
-e
-java:S1128"HRemove this unused import 'javafx.scene.control.cell.ComboBoxTableCell'.(¥øÖÊ8ÛÍŞ¼†/
-g
-java:S1858ü"I"getSelectedItem" returns a string, there's no need to call "toString()".(ûè¬8ü¸áİ‡/
-Ÿ
-java:S1186®"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(÷ğè½8ü¸áİ‡/
-F
-java:S1604Ù"(Make this anonymous inner class a lambda(íßÎÁ8ü¸áİ‡/
-œ
-java:S1130Î"yRemove the declaration of thrown exception 'java.lang.ClassNotFoundException', as it cannot be thrown from method's body.(£Ÿ•ıÿÿÿÿ8ü¸áİ‡/
-R
-java:S1481–"/Remove this unused "timeFields" local variable.(Ã‹¸ßúÿÿÿÿ8ü¸áİ‡/
-l
-java:S1858ç"I"getSelectedItem" returns a string, there's no need to call "toString()".(òú¦Âùÿÿÿÿ8ü¸áİ‡/
-x
-java:S1450H"VRemove the "clients" field and declare it as a local variable in the relevant methods.(‚å¹˜üÿÿÿÿ8ü¸áİ‡/
-¤
-java:S1186õ"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ü—ìŠûÿÿÿÿ8ü¸áİ‡/
+java:S1171£	"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8…´„ˆ/
 K
 java:S1068%")Remove this unused "clock" private field.(Êë®“ûÿÿÿÿ8ÛÍŞ¼†/
+u
+java:S1450J"XRemove the "employees" field and declare it as a local variable in the relevant methods.(ÒòÓ8ü¸áİ‡/
+j
+java:S1192ª"GDefine a constant instead of duplicating this literal "priceT" 3 times.(à™¥Äıÿÿÿÿ8…´„ˆ/
+]
+java:S1117¥"?Rename "ingredients" which hides the field declared at line 76.(Ú©¤8…´„ˆ/
+“
+java:S1319í"pThe type of the "array" object should be an interface such as "List" rather than the implementation "ArrayList".(¢‹©öşÿÿÿÿ8ñ¹Ÿˆˆ/
 †
 java:S1450R"dRemove the "windowTempIngredients" field and declare it as a local variable in the relevant methods.(÷©—èÿÿÿÿÿ8ü¸áİ‡/
-|
-java:S1171à"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8ü¸áİ‡/
-j
-java:S1192"GDefine a constant instead of duplicating this literal "priceT" 3 times.(à™¥Äıÿÿÿÿ8ü¸áİ‡/
-–
-java:S1130‘"xRemove the declaration of thrown exception 'java.io.FileNotFoundException' which is a subclass of 'java.io.IOException'.(Û²·Â8ü¸áİ‡/
+g
+java:S1192·"IDefine a constant instead of duplicating this literal "Agregar" 10 times.(Š¾€º8…´„ˆ/
+¤
+java:S1186º"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(âçÕÏşÿÿÿÿ8…´„ˆ/
+Y	java:S110ü"<This class has 9 parents which is greater than 5 authorized.(š­…ç8…´„ˆ/
+Y	java:S110Ÿ	"<This class has 9 parents which is greater than 5 authorized.(š­…ç8…´„ˆ/
+e
+java:S1192—"GDefine a constant instead of duplicating this literal "status" 5 times.(•÷£¸8…´„ˆ/
+q
+java:S1450N"TRemove the "types" field and declare it as a local variable in the relevant methods.(Ÿ­ô©8ü¸áİ‡/
+u
+java:S3776‚"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(ÅÍ¸½üÿÿÿÿ8‡£„Šˆ/
+R
+java:S1481°"/Remove this unused "timeFields" local variable.(Ã‹¸ßúÿÿÿÿ8…´„ˆ/
 w
 java:S1450L"ZRemove the "ingredients" field and declare it as a local variable in the relevant methods.(„ßüü8ü¸áİ‡/
-F
-java:S1604ü"(Make this anonymous inner class a lambda(íßÎÁ8ü¸áİ‡/
-¤
-java:S1186œ"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(âçÕÏşÿÿÿÿ8ü¸áİ‡/
-Y	java:S110ÿ"<This class has 9 parents which is greater than 5 authorized.(š­…ç8ü¸áİ‡/
-Š
-java:S1130ç"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(¹Ñƒ¯8ü¸áİ‡/
+Ÿ
+java:S1186´"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¼•¹œ8…´„ˆ/
+M
+java:S3740¤"/Provide the parametrized type for this generic.(Øÿ ˆ8‡£„Šˆ/
+^	java:S110Š"<This class has 9 parents which is greater than 5 authorized.(¡òäŞşÿÿÿÿ8…´„ˆ/
+w
+java:S1450T"URemove the "orders" field and declare it as a local variable in the relevant methods.(ùÍ³úşÿÿÿÿ8ó‚ëŠˆ/
 l
-java:S1858"I"getSelectedItem" returns a string, there's no need to call "toString()".(ïğ¿¤şÿÿÿÿ8ü¸áİ‡/
-Y	java:S110Ü"<This class has 9 parents which is greater than 5 authorized.(š­…ç8ü¸áİ‡/
-?	java:S131ü""Add a default case to this switch.(ûè¬8ü¸áİ‡/
+java:S1858›"I"getSelectedItem" returns a string, there's no need to call "toString()".(ïğ¿¤şÿÿÿÿ8…´„ˆ/
+g
+java:S1858–"I"getSelectedItem" returns a string, there's no need to call "toString()".(ûè¬8…´„ˆ/
+R
+java:S3740‚"/Provide the parametrized type for this generic.(ÅÍ¸½üÿÿÿÿ8‡£„Šˆ/
+Ÿ
+java:S1186È"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(÷ğè½8…´„ˆ/
+l
+java:S1858"I"getSelectedItem" returns a string, there's no need to call "toString()".(òú¦Âùÿÿÿÿ8…´„ˆ/
+R
+java:S1128"0Remove this unused import 'java.time.LocalDate'.(›‘¬èıÿÿÿÿ8ÛÍŞ¼†/
+
+java:S1186Ù"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Óïx8ÈÿŞ…ˆ/
+F
+java:S1604‡"(Make this anonymous inner class a lambda(çé©8…´„ˆ/
+–
+java:S1130ª"xRemove the declaration of thrown exception 'java.io.FileNotFoundException' which is a subclass of 'java.io.IOException'.(Û²·Â8…´„ˆ/
+Š
+java:S1130†"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(¹Ñƒ¯8…´„ˆ/
+|
+java:S1171€	"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8…´„ˆ/
+F
+java:S1604ù"(Make this anonymous inner class a lambda(íßÎÁ8…´„ˆ/
+n
+java:S1192ü"PDefine a constant instead of duplicating this literal "No funciona rey" 3 times.(¶İØë8…´„ˆ/
+d
+java:S1192Ì"FDefine a constant instead of duplicating this literal "Error" 3 times.(µûø–8…´„ˆ/
+l
+java:S1858"I"getSelectedItem" returns a string, there's no need to call "toString()".(òú¦Âùÿÿÿÿ8…´„ˆ/
+F
+java:S1604œ	"(Make this anonymous inner class a lambda(íßÎÁ8…´„ˆ/
+
+java:S1319÷"qThe type of the "array2" object should be an interface such as "List" rather than the implementation "ArrayList".(‘êÍ±8ŒÈ´ˆˆ/
+w
+java:S1192Á"TUse already-defined constant 'ORDERMENU_FXML' instead of duplicating its value here.(©•³úÿÿÿÿÿ8…´„ˆ/
+m
+java:S1192ô"JDefine a constant instead of duplicating this literal "Csv files" 3 times.(úñ£ùÿÿÿÿ8…´„ˆ/
+
+java:S1319÷"qThe type of the "array1" object should be an interface such as "List" rather than the implementation "ArrayList".(‘êÍ±8ŒÈ´ˆˆ/
+y
+java:S1192ó"VDefine a constant instead of duplicating this literal "Selecciona el archivo" 3 times.(ÀœØÍúÿÿÿÿ8…´„ˆ/
+x
+java:S1450H"VRemove the "clients" field and declare it as a local variable in the relevant methods.(‚å¹˜üÿÿÿÿ8ü¸áİ‡/
+ˆ
+java:S1192ä
+"eDefine a constant instead of duplicating this literal "Papi el objeto ya esta referenciado" 10 times.(»å˜£ûÿÿÿÿ8…´„ˆ/
 h
 java:S1128"FRemove this unused import 'javax.imageio.stream.FileImageInputStream'.(½ƒÊ³şÿÿÿÿ8ÏØ¡µ‡/
-g
-java:S1192"IDefine a constant instead of duplicating this literal "Agregar" 10 times.(Š¾€º8ü¸áİ‡/
 M
-java:S1066ß"/Merge this if statement with the enclosing one.(©’ŒÉ8ü¸áİ‡/
+java:S1066ù"/Merge this if statement with the enclosing one.(©’ŒÉ8…´„ˆ/
+“
+java:S1319‚"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÅÍ¸½üÿÿÿÿ8‡£„Šˆ/
+¤
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ü—ìŠûÿÿÿÿ8…´„ˆ/
+e
+java:S1192µ"GDefine a constant instead of duplicating this literal "Editar" 6 times.(‹´åÒ8…´„ˆ/
+e
+java:S1128"HRemove this unused import 'javafx.scene.control.cell.ComboBoxTableCell'.(¥øÖÊ8ÛÍŞ¼†/
+i
+java:S1192ô"FDefine a constant instead of duplicating this literal "*.csv" 5 times.(úñ£ùÿÿÿÿ8…´„ˆ/
+œ
+java:S1130ç"yRemove the declaration of thrown exception 'java.lang.ClassNotFoundException', as it cannot be thrown from method's body.(£Ÿ•ıÿÿÿÿ8…´„ˆ/
+g
+java:S1858€"I"getSelectedItem" returns a string, there's no need to call "toString()".(Íö°É8…´„ˆ/

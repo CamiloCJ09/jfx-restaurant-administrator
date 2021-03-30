@@ -1,4 +1,5 @@
 
+]	java:S107"AConstructor has 8 parameters, which is greater than 7 authorized.(äá¡ı8Í÷üş‡/
 
 java:S1319X"pThe type of the "items" object should be an interface such as "List" rather than the implementation "ArrayList".(ÔÎâò8¾¶áİ‡/
-]	java:S107"AConstructor has 8 parameters, which is greater than 7 authorized.(äá¡ı8¾¶áİ‡/
+u	java:S131e"YComplete cases by adding the missing enum constants or add a default case to this switch.( íˆë8„´„ˆ/
