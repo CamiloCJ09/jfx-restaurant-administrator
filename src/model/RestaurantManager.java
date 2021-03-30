@@ -71,8 +71,8 @@ public class RestaurantManager implements Serializable{
         for(int i = 0; i < products.size(); i++){
             Product product = products.get(i);
             for(int j = 0; i < product.getSizes().size(); j++){
-                pw.println(product.getName()+delimeterChar+product.getReferences()+delimeterChar+
-                        (product.));
+//                pw.println(product.getName()+delimeterChar+product.getReferences()+delimeterChar+
+//                        (product.));
             }
 
         }
